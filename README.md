@@ -2,7 +2,7 @@
 
 卒業研究Preport!用のGithubです。
 
-新しくGithubに作成しました。こちらのプロジェクトを本番として運用していきます。 主に変更を行うときは,[main_dev]のbranchをコピーして新しくbranch作成して、変更したものをアップロードしてください。 ※できるだけ[main]のbranchは変更しないようにお願いします。
+新しくGithubに作成しました。こちらのプロジェクトを本番として運用していきます。 主に変更を行うときは,[master_dev]のbranchをコピーして新しくbranch作成して、変更したものをアップロードしてください。 ※できるだけ[master]のbranchは変更しないようにお願いします。
 
 
 # Getting Started with Create React App
