@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新規登録画面</title>
+  <link rel="stylesheet"  type="text/css" href='../src/top.css'/>
+</head>
+<body>
+<h1>新規登録</h1>
+
+
+<div class="pre" >
+  <form method="post" action="{% url'Login'%}">
+
+    <input type="text" name="mail" class="form" placeholder="メールアドレス"><br>
+    <input type="text" name="user" class="form"  placeholder="登録するユーザ名"><br>
+    <input type="text" name="pass" class="form"  placeholder="パスワード"><br>
+    <input type="text" name="pass2" class="form"  placeholder="再度パスワードを入力"><br>
+
+    <p>年齢<input type="number" name="age" class="k" min="0" max="100" ></p>
+    <p>性別</p>　<input type="radio" name="gender" class="form"  value="男">男
+    <input type="radio" name="gender" class="form"  value="女">女<br><br>
+
+</div>
+<div class="a">
+  <input type="submit"  class="reg" value="登録">
+</div>
+</form>
+
+</body>
+</html>
