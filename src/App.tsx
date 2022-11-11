@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import './App.css';
 
@@ -28,15 +29,10 @@ function App() {
   );
 }
 
-const Test = () => {
-  return <p>Test_React!</p>;
-}
 
-const Test2 = () => {
-  return <p>Do You Want?</p>
-}
 
-  ReactDOM.render(<Test/>, document.getElementById("test"))
-
+//const container = document.getElementById('root');
+//const root = createRoot(container!);
+//root.render(<App />);
 
 export default App;
