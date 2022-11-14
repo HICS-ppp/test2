@@ -1,8 +1,11 @@
 import React from 'react';
-import './top.css';
-
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import Toppage from "./Toppage";
+import './top.css';
+import Mainpage from "./mainpage/mainpage";
+import Register from "./signup/signup";
+import Login from "./login/login";
+import Toppage from "./toppage/toppage";
+
 
 function App() {
   return (
@@ -10,7 +13,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path={'/'} element={<Toppage />} />
-
+            <Route path={'/login'} element={<Mainpage />} />
+            <Route path={`/signup/`} element={<Login />} />
+            <Route path={`/login/`} element={<Register />} />
           </Routes>
         </BrowserRouter>
     </div>
