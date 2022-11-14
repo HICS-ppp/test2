@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import ReactDOM from "react-dom";
-
+import {render} from "react-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import NameElement from './Name'
 import './App.css';
+import { RouterConfig } from './Route'
+import { loadSavedCredentialsIfExist, saveCredentials,
+  authorize, listFiles } from './googledriveapi/GoogleDriveAPI';
+
+
 
 function App() {
   return (
@@ -13,8 +19,15 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
 
-        <p id="test">
-        </p>
+        <NameElement />
+        <div>
+          <RouterConfig />
+        </div>
+        <div>
+          <button onClick={loadSavedCredentialsIfExist}>テスト</button>
+        </div>
+
+
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -28,15 +41,25 @@ function App() {
   );
 }
 
-const Test = () => {
-  return <p>Test_React!</p>;
-}
+/*
+const container = document.getElementById('aaa');
+const aaa = createRoot(container!);
+aaa.render(<NameElement />)
+*/
+
+
+// const aaa = ReactDOM.createRoot(document.getElementById("aaa") as HTMLElement);
+//aaa.render(
+//
+//    <React.StrictMode>
+//      <NameElement />
+//    </React.StrictMode>
+// )
+
 
 const Test2 = () => {
   return <p>Do You Want?</p>
 }
-
-  ReactDOM.render(<Test/>, document.getElementById("test"))
 
 
 export default App;

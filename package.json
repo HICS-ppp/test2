@@ -4,6 +4,8 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "@googleapis/drive": "^4.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -11,9 +13,15 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "fs": "^0.0.1-security",
+    "googleapis": "^105.0.0",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.4.3",
+    "react-script": "^2.0.5",
+    "react-scripts": "^5.0.1",
+    "stream": "^0.0.2",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
@@ -40,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^4.46.0"
   }
 }
