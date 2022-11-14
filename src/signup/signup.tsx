@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.js";
 import {Navigate,Link} from "react-router-dom";
+import "./signup.css"
 
 const Register = () => {
     /*state変数を定義*/
@@ -36,10 +37,13 @@ const Register = () => {
                 <>
 
             <h1>ユーザ登録</h1>
+
+             <div className="userall">
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>メールアドレス</label>
-                    <input name="email"
+                    <label className="mail">メールアドレス</label>
+                    <input  className="mailbox"
+                        name="email"
                            type="email"
                            placeholder="email"
                         /* ↓「value」と「onChange」を追加 */
@@ -47,16 +51,20 @@ const Register = () => {
                            onChange={(e) => setRegisterEmail(e.target.value)}
                     />
                 </div>
+
                 <div>
-                    <label>ユーザ名</label>
-                    <input name="username"
+                    <label className="user">ユーザ名</label>
+                    <input className="userbox"
+                        name="username"
                            type="text"
                            placeholder="username"
                     />
                 </div>
+
                 <div>
-                    <label>パスワード</label>
-                    <input name="pass"
+                    <label className="pass1">パスワード</label>
+                    <input className="passbox1"
+                        name="pass"
                            type="password"
                            placeholder="pass"
                         /* ↓「value」と「onChange」を追加 */
@@ -64,31 +72,37 @@ const Register = () => {
                            onChange={(e) => setRegisterPassword(e.target.value)}
                     />
                 </div>
+
                 <div>
-                    <label>再パスワード</label>
-                    <input name="pass2"
+                    <label className="password">再パスワード</label>
+                    <input className="passwordbox"
+                        name="pass2"
                            type="password"
                            placeholder="pass2" />
                 </div>
+
                 <div>
-                    <label>年齢</label>
-                    <input name="age"
+                    <label className="age">年齢</label>
+                    <input className="agebox"
+                        name="age"
                            type="number"
                            min="0" max="100"/>
                 </div>
+
                 <div>
-                    <label>性別</label>
-                    <input name="gender" type="radio" value="男" />
-                    <input name="gender" type="radio" value="女"/>
+                    <label className="gender">性別</label>
+                    <input className="gen" name="gender" type="radio" value="男" />男
+                    <input className="gen" name="gender" type="radio" value="女"/>女
                 </div>
-                    <button>登録</button>
+
+                    <button className="register">登録</button>
                 {/* ↓リンクを追加 */}
                 <p>ログインは<Link to={`./login/`}>こちら</Link></p>
             </form>
+             </div>
     </>
     )}
             </>
     );
 };
-
 export default Register;

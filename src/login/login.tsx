@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword,onAuthStateChanged} from "firebase/auth";
 import { auth } from "../firebase";
 import {Navigate,Link} from "react-router-dom";
+import "./login.css"
 
 const Login = () => {
 
@@ -39,27 +40,35 @@ const Login = () => {
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
                 <h1>ログインページ</h1>
-                    <div>
-                        <label>メールアドレス</label>
-                        <input name="email"
+                    <div className="mdiv">
+                        <label className="mail">メールアドレス</label>
+                        <input className="mailbox"
+                            name="email"
                                type="email"
                                placeholder="email"
                                value={loginEmail}
                                onChange={(e) => setLoginEmail(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label>パスワード</label>
-                        <input name="pass"
+
+                        <div className="pdiv">
+                        <label className="pass">パスワード</label>
+                        <input className="passbox"
+                            name="pass"
                                type="password"
                                placeholder="pass"
                                value={loginPassword}
                                onChange={(e) => setLoginPassword(e.target.value)}
                         />
                     </div>
-                        <button>ログイン</button>
+
+                        <div className="div">
+                            <button className="log">ログイン</button>
+                        </div>
+
+
                         {/* ↓リンクを追加 */}
-                        <p>新規登録は<Link to={`/signup/`}>こちら</Link></p>
+                       <div className="div"><p>新規登録は<Link to={`/signup/`}>こちら</Link></p></div>
                 </form>
                     </>
         )}
