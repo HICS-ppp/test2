@@ -83,7 +83,7 @@ const Register = () => {
                 </div>
                     <button>登録</button>
                 {/* ↓リンクを追加 */}
-                <p>ログインは<Link to={`/login/`}>こちら</Link></p>
+                <p>ログインは<Link to={`./login/`}>こちら</Link></p>
             </form>
     </>
     )}
