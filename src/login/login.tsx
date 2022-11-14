@@ -33,9 +33,10 @@ const Login = () => {
         <>
             {/* ↓ログインしている場合、マイページにリダイレクトする設定 */}
             {user ? (
-                <Navigate to={`/mainpage/`} />
+                <Navigate to={`/`} />
             ) : (
                 <>
+                    <h1>ログインページ</h1>
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
                 <h1>ログインページ</h1>
@@ -59,7 +60,7 @@ const Login = () => {
                     </div>
                         <button>ログイン</button>
                         {/* ↓リンクを追加 */}
-                        <p>新規登録は<Link to={`/signup/`}>こちら</Link></p>
+                        <p>新規登録は<Link to={`/register/`}>こちら</Link></p>
                 </form>
                     </>
         )}
