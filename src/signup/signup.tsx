@@ -37,7 +37,6 @@ const Register = () => {
             ) : (
                 <>
 
-
 <header className="header1">
 
     <label className="logo">Preport!</label>

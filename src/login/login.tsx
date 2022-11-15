@@ -78,7 +78,7 @@ const Login = () => {
 
                         {/* ↓リンクを追加 */}
                        <div className="div"><p>新規登録は<Link to={`/signup/`}>こちら</Link></p></div>
-                        <div className="div"><p>ゲスト登録は<Link to={`/signup/`}>こちら</Link></p></div>
+                        <div className="div"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>
                         <div className="div"><p>パスワードを忘れた場合は<Link to={`/signup/`}>こちら</Link></p></div>
                 </form>
                     </>
