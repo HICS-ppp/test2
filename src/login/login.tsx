@@ -39,10 +39,18 @@ const Login = () => {
                 <>
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
-                <h1>ログインページ</h1>
-                    <div className="mdiv">
-                        <label className="mail">メールアドレス</label>
-                        <input className="mailbox"
+
+                        <header className="header1">
+                            <label className="logo">Preport!</label>
+                        </header>
+
+                        <h1 className="loginpage1">ログインページ</h1>
+
+
+                    <div className="mdiv1">
+                        {/*label→pタグに変更*/}
+                        <p className="mail1">メールアドレス</p>
+                        <input className="mailbox1"
                             name="email"
                                type="email"
                                placeholder="email"
@@ -51,19 +59,20 @@ const Login = () => {
                         />
                     </div>
 
-                        <div className="pdiv">
-                        <label className="pass">パスワード</label>
-                        <input className="passbox"
+                        <div className="pdiv1">
+                            {/*label→pタグに変更*/}
+                        <p className="pass1">パスワード</p>
+                        <input className="passbox1"
                             name="pass"
                                type="password"
-                               placeholder="pass"
+                               placeholder="pass1"
                                value={loginPassword}
                                onChange={(e) => setLoginPassword(e.target.value)}
                         />
                     </div>
 
                         <div className="div">
-                            <button className="log">ログイン</button>
+                            <button className="log1">ログイン</button>
                         </div>
 
 

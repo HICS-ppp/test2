@@ -36,13 +36,23 @@ const Register = () => {
             ) : (
                 <>
 
+
+<header className="header1">
+
+    <label className="logo">Preport!</label>
+</header>
+
+                    <div className="center">
+
+
             <h1>ユーザ登録</h1>
 
-             <div className="userall">
+
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label className="mail">メールアドレス</label>
-                    <input  className="mailbox"
+                    <label className="userinput">メールアドレス</label>
+
+                    <input  className="mailbox2"
                         name="email"
                            type="email"
                            placeholder="email"
@@ -50,11 +60,12 @@ const Register = () => {
                            value={registerEmail}
                            onChange={(e) => setRegisterEmail(e.target.value)}
                     />
+
                 </div>
 
                 <div>
-                    <label className="user">ユーザ名</label>
-                    <input className="userbox"
+                    <label className="userinput">ユーザ名</label>
+                    <input className="userbox1"
                         name="username"
                            type="text"
                            placeholder="username"
@@ -62,8 +73,8 @@ const Register = () => {
                 </div>
 
                 <div>
-                    <label className="pass1">パスワード</label>
-                    <input className="passbox1"
+                    <label className="userinput">パスワード</label>
+                    <input className="passbox2"
                         name="pass"
                            type="password"
                            placeholder="pass"
@@ -74,33 +85,35 @@ const Register = () => {
                 </div>
 
                 <div>
-                    <label className="password">再パスワード</label>
-                    <input className="passwordbox"
+                    <label className="userinput">再パスワード</label>
+                    <input className="passwordbox1"
                         name="pass2"
                            type="password"
                            placeholder="pass2" />
                 </div>
 
                 <div>
-                    <label className="age">年齢</label>
-                    <input className="agebox"
+                    <label className="input">年齢</label>
+                    <input className="agebox1"
                         name="age"
                            type="number"
                            min="0" max="100"/>
                 </div>
 
                 <div>
-                    <label className="gender">性別</label>
-                    <input className="gen" name="gender" type="radio" value="男" />男
-                    <input className="gen" name="gender" type="radio" value="女"/>女
+                    <label className="input">性別</label>
+                    <input className="gen1" name="gender" type="radio" value="男" />男
+                    <input className="gen1" name="gender" type="radio" value="女"/>女
                 </div>
 
                     <button className="register">登録</button>
                 {/* ↓リンクを追加 */}
                 <p>ログインは<Link to={`./login/`}>こちら</Link></p>
             </form>
-             </div>
+                    </div>
     </>
+
+
     )}
             </>
     );
