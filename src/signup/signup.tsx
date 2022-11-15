@@ -4,6 +4,7 @@ import { auth } from "../firebase.js";
 import {Navigate,Link} from "react-router-dom";
 import "./signup.css"
 
+
 const Register = () => {
     /*state変数を定義*/
     const [registerEmail, setRegisterEmail] = useState("");

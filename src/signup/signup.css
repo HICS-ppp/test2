@@ -1,47 +1,19 @@
 
-/*
-.rayout{
-    width: 80%;
-    height: 70%;
-    border: 1px solid;
-}
-*/
-
-/*.mail2{
-    font-size: 20px;
-}*/
 .mailbox2{
     font-size: 20px;
 }
 
-
-
-/*.user1{
-    font-size: 20px;
-}*/
 .userbox1{
     font-size: 20px;
 }
-/*.pass2{
-    font-size: 20px;
-}*/
+
 .passbox2{
     font-size: 20px;
 }
 
-/*
-.password1{
-    font-size: 20px;
-}
-*/
-
 .passwordbox1{
     font-size: 20px;
 }
-
-/*.age1{
-    font-size: 20px;
-}*/
 
 .agebox1{
     margin-left: 10px;
@@ -50,14 +22,11 @@
     border-radius: 10px;
     margin-top: 10px;
 }
-/*
-.gender1{
-    font-size: 20px;
-}*/
 
 .gen1{
     margin-top: 40px;
 }
+
 
 .register{
     width: 90px;
@@ -69,7 +38,7 @@
     border: none;
     margin-top: 60px;
 }
-
+/*入力項目の文字右寄せ*/
 .userinput{
     display: inline-block;
     text-align: right;
@@ -80,3 +49,39 @@
 .input{
     margin-top: 50px;
 }
+
+
+/*
+.rayout{
+    width: 80%;
+    height: 70%;
+    border: 1px solid;
+}
+*/
+
+/*.mail2{
+    font-size: 20px;
+}*/
+
+/*.user1{
+    font-size: 20px;
+}*/
+
+/*.pass2{
+    font-size: 20px;
+}*/
+
+/*
+.password1{
+    font-size: 20px;
+}
+*/
+
+/*.age1{
+    font-size: 20px;
+}*/
+
+/*
+.gender1{
+    font-size: 20px;
+}*/
