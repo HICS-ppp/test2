@@ -26,21 +26,13 @@ const Groupmenu = () => {
     /* ↓関数「logout」を定義 */
     const logout = async () => {
         await signOut(auth);
-        navigate("../login/login");
+        navigate("../login");
     }
 
     return (
         <>
                 <>
                     <h1>グループメニュー</h1>
-
-
-
-
-
-
-
-
 
                 </>
 

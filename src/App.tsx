@@ -5,6 +5,8 @@ import Register from "./signup/signup";
 import Login from "./login/login";
 import Toppage from "./toppage/toppage";
 import Groupmenu from "./groupmenu/groupmenu";
+import Roompass from "./watch/room";
+import Watch from "./watch/watch";
 
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
             <Route path={'/mainpage/'} element={<Mainpage />} />
             <Route path={`/login/`} element={<Login />} />
             <Route path={`/signup/`} element={<Register />} />
-            <Route path={'/Groupmenu/'} element={<Groupmenu/>}/>
+            <Route path={'/groupmenu/'} element={<Groupmenu/>}/>
+            <Route path={'/room/'} element={<Roompass/>}/>
+            <Route path={'/watch/'} element={<Watch/>}/>
           </Routes>
         </BrowserRouter>
     </div>

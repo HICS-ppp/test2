@@ -34,6 +34,9 @@ const Login = () => {
     return (
         <>
             {/* ↓ログインしている場合、マイページにリダイレクトする設定 */}
+
+
+
             {user ? (
                 <Navigate to={`/mainpage/`} />
             ) : (
