@@ -7,8 +7,12 @@ import "./signup.css"
 
 const Register = () => {
     /*state変数を定義*/
+
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+
+
+
     /* ↓関数「handleSubmit」を定義 */
     const handleSubmit = async (e:any) => {
         e.preventDefault();
@@ -20,11 +24,15 @@ const Register = () => {
             alert("正しく入力してください");
         }
     };
+
+
+
     const [user, setUser] = useState();
 
     /* ↓ログインしているかどうかを判定する */
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
+            // @ts-ignore
             setUser(currentUser);
         });
     }, []);
@@ -33,7 +41,7 @@ const Register = () => {
         <>
             {/* ↓ログインしていればマイページを表示 */}
             {user ? (
-                <Navigate to={`/`} />
+                <Navigate to={`/mainpage`} />
             ) : (
                 <>
 

@@ -13,6 +13,7 @@ const Mainpage = () => {
     /* ↓ログインしているかどうかを判定する */
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
+            // @ts-ignore
             setUser(currentUser);
         });
     }, []);

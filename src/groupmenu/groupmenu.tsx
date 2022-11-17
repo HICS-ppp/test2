@@ -16,6 +16,7 @@ const Groupmenu = () => {
     /* ↓ログインしているかどうかを判定する */
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
+            // @ts-ignore
             setUser(currentUser);
         });
     }, []);
@@ -30,15 +31,11 @@ const Groupmenu = () => {
 
     return (
         <>
-            {/* ↓ログインしていない場合はログインページにリダイレクトする設定 */}
-            {!user ? (
-                <Navigate to={`/login/`} />
-            ) : (
                 <>
                     <h1>グループメニュー</h1>
 
                 </>
-            )}
+
         </>
     );
 };
