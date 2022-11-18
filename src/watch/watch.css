@@ -1,0 +1,97 @@
+.watchall{
+    display: flex;
+    height: 700px;
+    padding: 5px 5px 5px 5px;
+}
+
+.watchbox1{
+    border: 1px solid;
+    width: 60%;
+    height: auto;
+}
+
+.watch{
+    height: 85%;
+    width: 90%;
+    border: solid 1px;
+    margin: 5% 5% 0 5%;
+}
+
+.download{
+    font-size: 20px;
+    color         : #ffffff;
+    background    :   #4da6ff;
+    border: none;
+    border-radius: 10px;
+}
+.leavdiv{
+    margin: 5% 5% 0 0 ;
+    text-align: right;
+}
+
+
+.leav{
+    font-size: 40px;
+    color         : #ffffff;
+    background    : red;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+.watchbox2{
+    width: 35%;
+    height: auto;
+    border: solid 1px;
+    margin-left: auto;
+
+}
+
+.leav{
+
+}
+
+.watchtext{
+    width: 70%;
+    height: 450px;
+    margin-left: 10%;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 5%;
+}
+.move{
+    width: 50px;
+    height: 30px;
+    color         : #ffffff;
+    background    :   #4da6ff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.stop{
+    color         : #ffffff;
+    background    :   red;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+
+}
+
+.check{
+    text-align: center;
+}
+
+.chbutton{
+    color         : #ffffff;
+    background    :   #4da6ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.ch{
+    margin-top: 5%;
+    text-align: center;
+}

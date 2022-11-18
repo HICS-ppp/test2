@@ -1,0 +1,82 @@
+.userinfo{
+    margin-left: 15%;
+    font-size: 40px;
+}
+
+.mailbox3{
+    text-align: center;
+}
+
+
+.passchangediv{
+    text-align: center;
+}
+
+.mailadtext{
+    font-size: 30px;
+    width: 40%;
+    text-align: center;
+}
+.mailad{
+    font-size: 20px;
+}
+.mailaddiv{
+    margin-left: 20%;
+}
+
+
+.mailchange{
+    font-size: 20px;
+    background-color: #4da6ff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    width: 25%;
+    height: 50px;
+}
+
+.mailchangediv{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.passchange{
+    font-size: 20px;
+    background-color: #4da6ff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    height: 50px;
+}
+
+.passdiv{
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+.pass3{
+    font-size: 20px;
+}
+
+
+.passbox3{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.group{
+    font-size: 20px;
+}
+.groupdiv{
+    margin-left: 20%;
+
+}
+.table{
+    text-align: center;
+}
+
+.tablediv{
+    text-align: center;
+}
+
