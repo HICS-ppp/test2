@@ -7,7 +7,8 @@ import Toppage from "./toppage/toppage";
 import Groupmenu from "./groupmenu/groupmenu";
 import Roompass from "./watch/room";
 import Watch from "./watch/watch";
-
+import Usermenu from"./usermenu/usermenu";
+import Usermana from "./usermenu/usermanagement";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Route path={'/groupmenu/'} element={<Groupmenu/>}/>
             <Route path={'/room/'} element={<Roompass/>}/>
             <Route path={'/watch/'} element={<Watch/>}/>
+            <Route path={'/usermenu/'} element={<Usermenu/>}/>
+            <Route path={'/usermana/'} element={<Usermana/>}/>
           </Routes>
         </BrowserRouter>
     </div>
