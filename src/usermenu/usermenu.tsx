@@ -53,7 +53,7 @@ const Usermenu = () => {
 
 
                 <div className="tablediv">
-                <table className="table">
+                <table className="table"border="1">
                     <tr>
                         <th>グループID</th>
                         <th>グループ名</th>
@@ -79,6 +79,61 @@ const Usermenu = () => {
 
                 </table>
                 </div>
+
+                <div className="notificationdiv">
+                    <label className="notification">通知</label>
+                </div>
+
+                <div className="tablediv">
+                    <table className="table" border="1">
+                        <tr>
+                            <th>グループID</th>
+                            <th>グループ名</th>
+                            <th>通知</th>
+                            <th>通知日時</th>
+                        </tr>
+                        {/*データベースからデータ取得*/}
+                        <tr>
+                            <td>i1000</td>
+                            <td>サンプル</td>
+                            <td>質問が来ています</td>
+                            <td>2019/9/12</td>
+                        </tr>
+                        <tr>
+                            <td>l3002</td>
+                            <td>サンプル</td>
+                            <td>コメントがついています</td>
+                            <td>2020/10/23</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div className="ankeanswerdiv">
+                    <label className="ankeanswer">アンケート回答履歴</label>
+                </div>
+
+                <div className="tablediv">
+                <table className="table"border="1">
+                    <tr>
+                        <th>アンケート名</th>
+                        <th>回答日</th>
+
+                    </tr>
+                    {/*データベースからデータ取得*/}
+                    <tr>
+                        <td>サンプル</td>
+                        <td>2021/2/14</td>
+
+                    </tr>
+                    <tr>
+                        <td>サンプル</td>
+                        <td>2021/6/4</td>
+
+                    </tr>
+
+                </table>
+            </div>
 
 
             </>

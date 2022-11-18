@@ -73,10 +73,26 @@
 
 }
 .table{
-    text-align: center;
+
 }
 
 .tablediv{
-    text-align: center;
+margin-left: 30%;
 }
 
+.notificationdiv{
+    margin-left: 20%;
+}
+
+.notification{
+    font-size: 20px;
+}
+
+.ankeanswerdiv{
+    margin-left: 20%;
+
+}
+ankeanswer{
+    font-size: 20px;
+
+}

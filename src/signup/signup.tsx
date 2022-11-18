@@ -77,6 +77,9 @@ const Register = () => {
                         name="username"
                            type="text"
                            placeholder="username"
+                           minLength="3"
+                           maxLength="7"
+
                     />
                 </div>
 
