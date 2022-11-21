@@ -6,7 +6,6 @@ import { database } from "../firebase"
 import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 
-
 const Register = () => {
 
 

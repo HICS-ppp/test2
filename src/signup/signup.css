@@ -1,0 +1,51 @@
+
+.mailbox2{
+    font-size: 20px;
+}
+
+.userbox1{
+    font-size: 20px;
+}
+
+.passbox2{
+    font-size: 20px;
+}
+
+.passwordbox1{
+    font-size: 20px;
+}
+
+.agebox1{
+    margin-left: 10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.gen1{
+    margin-top: 40px;
+}
+
+
+.register{
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #4da6ff;
+    border-radius: 10px;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 60px;
+}
+/*入力項目の文字右寄せ*/
+.userinput{
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+    margin-top: 20px;
+}
+
+.input{
+    margin-top: 50px;
+}
