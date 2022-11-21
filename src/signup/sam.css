@@ -1,0 +1,6 @@
+.userID::-webkit-inner-spin-button,
+.userID::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}

@@ -25,16 +25,13 @@ const Login = () => {
     const [user, setUser] = useState();
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
+            // @ts-ignore
             setUser(currentUser);
         });
     });
 
     return (
         <>
-            {/* ↓ログインしている場合、マイページにリダイレクトする設定 */}
-            {user ? (
-                <Navigate to={`/mainpage/`} />
-            ) : (
                 <>
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
@@ -59,10 +56,9 @@ const Login = () => {
                     </div>
                         <button>ログイン</button>
                         {/* ↓リンクを追加 */}
-                        <p>新規登録は<Link to={`/signup/`}>こちら</Link></p>
+                        <p>新規登録は<Link to={`/signup`}>こちら</Link></p>
                 </form>
                     </>
-        )}
                     </>
     );
 };
