@@ -11,8 +11,6 @@ const Register = () => {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
 
-
-
     /* ↓関数「handleSubmit」を定義 */
     const handleSubmit = async (e:any) => {
         e.preventDefault();
@@ -36,6 +34,7 @@ const Register = () => {
             setUser(currentUser);
         });
     }, []);
+
 
     return (
         <>
@@ -79,7 +78,6 @@ const Register = () => {
                            placeholder="username"
                            minLength="3"
                            maxLength="7"
-
                     />
                 </div>
 
