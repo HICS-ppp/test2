@@ -9,6 +9,8 @@ import Roompass from "./watch/room";
 import Watch from "./watch/watch";
 import Usermenu from"./usermenu/usermenu";
 import Usermana from "./usermenu/usermanagement";
+import Sam from "./sam/sam";
+import Passinquiry from "./passinquiriy/passinquiry";
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
             <Route path={'/watch/'} element={<Watch/>}/>
             <Route path={'/usermenu/'} element={<Usermenu/>}/>
             <Route path={'/usermana/'} element={<Usermana/>}/>
+            <Route path={'/sam/'} element={<Sam/>}/>
+            <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
+
           </Routes>
         </BrowserRouter>
     </div>

@@ -43,6 +43,22 @@ const Passinquiry = () => {
                     <div className="center">
                         <h1>パスワードを忘れた場合</h1>
 
+                        <div className="passmaildiv">
+                        <input type="email"
+                               placeholder="メールアドレスを入力"
+                        className="passmail"/>
+                        </div>
+                        <div className="mail4div">
+                            <label className="mail4">入力したメールアドレスに送信します</label>
+                        </div>
+
+                        <div className="mailbuttondiv">
+
+                            <button className="mailbutton">送信</button>
+
+                        </div>
+
+
                         <form onSubmit={handleSubmit}>
 
                         </form>
@@ -50,7 +66,5 @@ const Passinquiry = () => {
                 </>
         </>
     );
-
 };
-
 export default Passinquiry;
