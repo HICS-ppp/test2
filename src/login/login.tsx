@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword,onAuthStateChanged} from "firebase/auth";
 import { auth } from "../firebase";
 import {Navigate,Link} from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
 
@@ -33,30 +34,45 @@ const Login = () => {
     return (
         <>
                 <>
+                    <header className="header1"><label className="logo">Preport</label></header>
+
+
+
+
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
-                <h1>ログインページ</h1>
-                    <div>
-                        <label>メールアドレス</label>
-                        <input name="email"
+                <h1 className="loginpage1">ログインページ</h1>
+                    <div className="mdiv1">
+
+                        <label className="mail1">メールアドレス</label>
+                        <input className="mailbox1"
+                               name="email"
                                type="email"
                                placeholder="email"
                                value={loginEmail}
                                onChange={(e) => setLoginEmail(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label>パスワード</label>
-                        <input name="pass"
+                    <div className="pdiv1">
+                        <label className="pass1">パスワード</label>
+                        <input className="passbox1"
+                               name="pass"
                                type="password"
                                placeholder="pass"
                                value={loginPassword}
                                onChange={(e) => setLoginPassword(e.target.value)}
                         />
                     </div>
-                        <button>ログイン</button>
+                        <div className="logdiv">
+
+                            <button className="log1">ログイン</button>
+
+                        </div>
                         {/* ↓リンクを追加 */}
                         <p>新規登録は<Link to={`/signup`}>こちら</Link></p>
+
+
+
                 </form>
                     </>
                     </>

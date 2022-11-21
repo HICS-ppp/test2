@@ -1,11 +1,18 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import "./toppage.css";
+
+
 const Toppage = () => {
     return (
         <>
-        <h1>Preport</h1>
+            <div className="topall">
 
-            <Link to={`/login/`}><button>ログイン</button></Link>
+
+        <h1 className="pre1">Preport</h1>
+
+            <Link to={`/login/`}><button className="log1">ログイン</button></Link>
+            </div>
         </>
     );
 };
