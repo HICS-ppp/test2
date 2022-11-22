@@ -7,6 +7,8 @@ import Login from "./login/login";
 import Toppage from "./toppage/toppage";
 import SendMail from "./signup/signup_mail_send";
 import Comp from "./signup/signup_comp";
+import Passinquiry from "./passinquiriy/passinquiry";
+import Gest from "./gest/gest";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path={'/signup'} element={<Register />} />
             <Route path={'/signup_mail_send'} element={<SendMail />}　/>
             <Route path={'/signup_comp'} element={<Comp />} />
+            <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
+            <Route path={'/gest/'} element={<Gest/>}/>
 
 
 
