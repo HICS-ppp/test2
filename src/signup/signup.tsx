@@ -104,7 +104,7 @@ const Register = () => {
 
 
                                 {/* ↓リンクを追加 */}
-                <p>ログインは<Link to={`./login/`}>こちら</Link></p>
+                <p>ログインは<Link to={`/login/`}>こちら</Link></p>
                 </div>
             </form>
     </>

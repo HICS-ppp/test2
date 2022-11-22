@@ -7,7 +7,7 @@ import Login from "./login/login";
 import Toppage from "./toppage/toppage";
 import SendMail from "./signup/signup_mail_send";
 import Comp from "./signup/signup_comp";
-import Passinquiry from "./passinquiriy/passinquiry";
+import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 
 function App() {
@@ -23,8 +23,6 @@ function App() {
             <Route path={'/signup_comp'} element={<Comp />} />
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
             <Route path={'/gest/'} element={<Gest/>}/>
-
-
 
 
           </Routes>
