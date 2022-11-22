@@ -32,10 +32,36 @@ const Mainpage = () => {
                     <Navigate to={`/login/`} />
                 ) : (
                     <>
-            <h1>Preport!</h1>
-            <button onClick={logout}>ログアウト</button>
-        </>
-                        )}
+
+                        <header className="header2">
+                            <label className="logo2">Preport!</label>
+                        </header>
+                        <h1 className="mainfont1">グループ</h1>
+
+
+
+                        <h2 className="mainfont2">グループ作成</h2>
+                        <div className="maintext">
+                            <input type="text" name="groupname" className="form" placeholder="グループ名を入力"/>
+                            <button className="mainbutton">作成</button>
+                        </div>
+
+
+                        <h2 className="mainfont2">グループ入室</h2>
+                        <div className="maintext">
+                            <input type="text" name="groupid" className="form" placeholder="グループIDを入力"/>
+                            <button className="mainbutton">参加</button>
+
+                        </div>
+                        <h1 className="mainfont1">視聴</h1>
+                        <div className="maintext">
+                            <input type="text" name="roomid" className="form" placeholder="ルームIDを入力"/>
+                            <button className="mainbutton">参加</button>
+                        </div>
+                        <button onClick={logout}>ログアウト</button>
+                    </>
+                )}
+
                     </>
     );
 };
