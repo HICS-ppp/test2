@@ -44,20 +44,13 @@ const Passinquiry = () => {
                         className="passmail"/>
                         </div>
 
-
                         <div className="mail4div">
                             <label className="mail4">入力したメールアドレスに送信します</label>
                         </div>
 
-
-
                         <div className="mailbuttondiv">
                             <button className="mailbutton">送信</button>
                         </div>
-
-
-
-
 
                         <form onSubmit={handleSubmit}>
                         </form>
