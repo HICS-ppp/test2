@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.js";
 import {Navigate,Link} from "react-router-dom";
-import "./signup.css"
+import "./gest.css"
 
 
 const Gest = () => {
