@@ -1,5 +1,6 @@
 .regbox1{
     font-size: 30px;
+    margin-left: 20px;
 }
 
 .agebox1{
@@ -13,7 +14,6 @@
 .gen1{
     margin-top: 40px;
 }
-
 
 .register{
     width: 90px;
@@ -35,4 +35,11 @@
 
 .input{
     margin-top: 50px;
+}
+
+.sum{
+    text-align: center;
+}
+.sum1{
+    margin-left: 500px;
 }

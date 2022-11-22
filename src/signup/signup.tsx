@@ -10,8 +10,6 @@ import "./signup.css";
 
 const Register = () => {
 
-
-
     /*state変数を定義*/
     /*Realtime Databaseに登録するデータの変数を定義*/
     const [userName, setUserName] = useState("");
@@ -43,16 +41,16 @@ const Register = () => {
         <><>
             <h1>ユーザ登録</h1>
             <form onSubmit = {handleSubmit}>
-                <div>
-                    <label>ユーザID</label>
+                <div className="sum">
+                    <label　className="userinput">ユーザID</label>
                     <input
                         onChange={(e:any) => setuserID(e.target.value)}
                         className="regbox1"
                         type="text"
                         placeholder="userID" />
                 </div>
-                <div>
-                    <label>メールアドレス</label>
+                <div className="sum">
+                    <label className="userinput">メールアドレス</label>
                     <input
                            className="regbox1"
                            onChange={(e:any) => setEmail(e.target.value)}
@@ -60,16 +58,16 @@ const Register = () => {
                                 type="email"
                                 placeholder="email" />
                 </div>
-                <div>
-                    <label>ユーザ名</label>
+                <div className="sum">
+                    <label className="userinput">ユーザ名</label>
                     <input onChange={(e:any) => setUserName(e.target.value)}
                            className="regbox1"
                                 name="username"
                                 type="text"
                                 placeholder="username" />
                 </div>
-                <div>
-                    <label>パスワード</label>
+                <div className="sum">
+                    <label className="userinput">パスワード</label>
                     <input
                             onChange={(e:any) => setPass(e.target.value)}
                             className="regbox1"
@@ -77,37 +75,41 @@ const Register = () => {
                                 type="password"
                                 placeholder="pass" />
                 </div>
-                <div>
-                    <label>再パスワード</label>
+                <div className="sum">
+                    <label className="userinput">再パスワード</label>
                     <input onChange={(e:any) => setPass2(e.target.value)}
                            className="regbox1"
                                 name="pass2"
                                 type="password"
                                 placeholder="pass2" />
                 </div>
-                <div>
-                    <label>年齢</label>
+                <div className="sum">
+                    <label className="userinput">年齢</label>
                     <input onChange={(e:any) => setAge(e.target.value)}
                            className="agebox1"
                                 name="age"
                                 type="number"
                                 min="0" max="100"/>
                 </div>
-                <div>
-                    <label>性別</label>
+                <div className="sum">
+                    <label className="userinput">性別</label>
                     <input onChange={(e:any) => setGender(e.target.value)}
                                 name="gender" type="radio" value="男" />男
                     <input onChange={(e:any) => setGender(e.target.value)}
                                 name="gender" type="radio" value="女"/>女
                 </div>
-                <button className="register">登録</button>
+                <div className="sum">
+
+                    <button className="register">登録</button>
+
+
                                 {/* ↓リンクを追加 */}
                 <p>ログインは<Link to={`./login/`}>こちら</Link></p>
+                </div>
             </form>
     </>
     </>
     );
 };
-
 
 export default Register;
