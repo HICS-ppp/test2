@@ -19,6 +19,10 @@ function App() {
             <Route path={'/signup'} element={<Register />} />
             <Route path={'/signup_mail_send'} element={<SendMail />}　/>
             <Route path={'/signup_comp'} element={<Comp />} />
+
+
+
+
           </Routes>
         </BrowserRouter>
     </div>

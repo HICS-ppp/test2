@@ -70,6 +70,8 @@ const Login = () => {
                         </div>
                         {/* ↓リンクを追加 */}
                         <p>新規登録は<Link to={`/signup`}>こちら</Link></p>
+                        <div className="div"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>
+                        <div className="div"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
 
 
 
