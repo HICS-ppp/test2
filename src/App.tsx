@@ -11,6 +11,7 @@ import Usermenu from"./usermenu/usermenu";
 import Usermana from "./usermenu/usermanagement";
 import Sam from "./sam/sam";
 import Passinquiry from "./passinquiriy/passinquiry";
+import Gest from "./gest/gest";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path={'/usermana/'} element={<Usermana/>}/>
             <Route path={'/sam/'} element={<Sam/>}/>
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
+            <Route path={'/gest/'} element={<Gest/>}/>
 
           </Routes>
         </BrowserRouter>

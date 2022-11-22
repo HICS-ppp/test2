@@ -8,12 +8,9 @@ import "./passinquiry.css"
 const Passinquiry = () => {
 
 
-
     /*state変数を定義*/
     const [RegisterEmail, setRegisterEmail] = useState("");
-
     const [RegisterPassword, setRegisterPassword] = useState("");
-
 
     /* ↓関数「handleSubmit」を定義 */
     const handleSubmit = async (e:any) => {
@@ -28,12 +25,10 @@ const Passinquiry = () => {
     };
 
 
-
     const [user, setUser] = useState();
 
     return (
         <>
-
                 <>
                     <header className="header1">
 
@@ -48,19 +43,23 @@ const Passinquiry = () => {
                                placeholder="メールアドレスを入力"
                         className="passmail"/>
                         </div>
+
+
                         <div className="mail4div">
                             <label className="mail4">入力したメールアドレスに送信します</label>
                         </div>
 
+
+
                         <div className="mailbuttondiv">
-
                             <button className="mailbutton">送信</button>
-
                         </div>
 
 
-                        <form onSubmit={handleSubmit}>
 
+
+
+                        <form onSubmit={handleSubmit}>
                         </form>
                     </div>
                 </>
