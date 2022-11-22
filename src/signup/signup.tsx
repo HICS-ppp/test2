@@ -54,28 +54,6 @@ const Register = () => {
             }
         }
 
-/*            try {
-                //　ローカルストレージに一度保存する
-                localStorage.setItem('N',userName);localStorage.setItem('M',Email)
-                localStorage.setItem('P',Pass);localStorage.setItem('P2',Pass2);
-                localStorage.setItem('A',Age);localStorage.setItem('G',Gender);
-                localStorage.setItem('I',userID);localStorage.setItem('I2',userID);
-                // 画面遷移処理
-                //window.location.href = "/signup_mail_send"
-                if(Pass !== Pass2){
-                    alert("pass正しく入力してください");
-                    return
-                }else {
-                    window.location.href = "/signup_mail_send"
-                }
-
-            } catch (error) {
-                alert("正しく入力してください");
-            } /!*catch (){
-                alert("正しく入力してください");
-            }*!/
-        };*/
-
     return (
 
         <><>
@@ -153,7 +131,7 @@ const Register = () => {
                     <button className="register">登録</button>
 
                     {/* ↓リンクを追加 */}
-                <p>ログインは<Link to={`/login/`}>こちら</Link></p>
+                <p>ログインページは<Link to={`/login/`}>こちら</Link></p>
                 </div>
             </form>
     </>

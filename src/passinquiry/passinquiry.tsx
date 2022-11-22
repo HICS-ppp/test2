@@ -53,6 +53,7 @@ const Passinquiry = () => {
                     </div>
 
                     <form onSubmit={handleSubmit}>
+                        <p>ログインページは<Link to={`/login/`}>こちら</Link></p>
                     </form>
                 </div>
             </>
