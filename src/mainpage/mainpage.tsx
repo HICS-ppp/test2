@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate,Navigate } from "react-router-dom";
+import "./mainpage.css";
 
 const Mainpage = () => {
     /* ↓state変数「user」を定義 */
@@ -27,10 +28,7 @@ const Mainpage = () => {
 
     return (
             <>
-                {/* ↓ログインしていない場合はログインページにリダイレクトする設定 */}
-                {!user ? (
-                    <Navigate to={`/login/`} />
-                ) : (
+
                     <>
 
                         <header className="header2">
@@ -60,9 +58,7 @@ const Mainpage = () => {
                         </div>
                         <button onClick={logout}>ログアウト</button>
                     </>
-                )}
-
-                    </>
+            </>
     );
 };
 

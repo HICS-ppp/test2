@@ -11,8 +11,9 @@ const Toppage = () => {
 
         <h1 className="pre1">Preport</h1>
 
-            <Link to={`/passinquirycom/`}><button className="log1">ログイン</button></Link>
+            <Link to={`/signup/`}><button className="log1">ログイン</button></Link>
             </div>
+
         </>
     );
 };

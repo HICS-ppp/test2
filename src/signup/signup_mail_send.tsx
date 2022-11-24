@@ -23,8 +23,6 @@ const SendMail = () => {
     const Age = localStorage.getItem('A');
     const Gender = localStorage.getItem('G');
 
-
-
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
@@ -39,7 +37,6 @@ const SendMail = () => {
             // @ts-ignore
             window.localStorage.setItem('emailForSignIn', Email);
         })
-
 
     if (isSignInWithEmailLink(auth, window.location.href)) {
         push(ref( database,"Users/"),{
@@ -66,13 +63,6 @@ const SendMail = () => {
                 window.location.href = "/signup_comp"
                 window.localStorage.removeItem('emailForSignIn');
     })}
-
-
-    /* ↓戻るボタン押下後、ローカルストレージをクリアしサインアップ画面に遷移
-    const ClickRemove = () => {
-        localStorage.clear()
-        window.location.href = "/login"
-    }*/
 
     return(
         <form>

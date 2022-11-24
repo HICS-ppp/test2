@@ -3,12 +3,20 @@ import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/aut
 import { auth } from "../firebase.js";
 import {Navigate,Link} from "react-router-dom";
 import "./passinquiry.css"
+import {set} from "react-hook-form";
 
 
 const Passinquiry = () => {
 
     const [passEmail, setPassEmail] = useState("");
 
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+            //　ローカルストレージに一度保存する
+            localStorage.setItem('E', passEmail);
+            window.location.href = "/passinquiry_mail_send.tsx"
+    }
 
 
 
@@ -19,7 +27,7 @@ const Passinquiry = () => {
 
                     <label className="logo">Preport!</label>
                 </header>
-
+                <form onSubmit = {handleSubmit}>
 
                 <div className="center">
                     <h1>パスワードを忘れた場合</h1>
@@ -33,16 +41,12 @@ const Passinquiry = () => {
                                name="email"
                                type="email"
                                placeholder="email"
-                               value={passEmail}
 /*
                                onChange={(e) => setLoginEmail(e.target.value)}
 */
                         />
 
-
-
                     </div>
-
                     <div className="mail4div">
                         <label className="mail4">入力したメールアドレスに送信します</label>
                     </div>
@@ -53,6 +57,7 @@ const Passinquiry = () => {
 
 
                 </div>
+                </form>
             </>
         </>
     );

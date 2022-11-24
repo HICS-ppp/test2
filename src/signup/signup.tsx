@@ -54,32 +54,12 @@ const Register = () => {
             }
         }
 
-/*            try {
-                //　ローカルストレージに一度保存する
-                localStorage.setItem('N',userName);localStorage.setItem('M',Email)
-                localStorage.setItem('P',Pass);localStorage.setItem('P2',Pass2);
-                localStorage.setItem('A',Age);localStorage.setItem('G',Gender);
-                localStorage.setItem('I',userID);localStorage.setItem('I2',userID);
-                // 画面遷移処理
-                //window.location.href = "/signup_mail_send"
-                if(Pass !== Pass2){
-                    alert("pass正しく入力してください");
-                    return
-                }else {
-                    window.location.href = "/signup_mail_send"
-                }
-
-            } catch (error) {
-                alert("正しく入力してください");
-            } /!*catch (){
-                alert("正しく入力してください");
-            }*!/
-        };*/
-
     return (
 
         <><>
             <h1>ユーザ登録</h1>
+
+
             <form onSubmit = {handleSubmit}>
                 <div className="sum">
                     <label　className="userinput">ユーザID</label>

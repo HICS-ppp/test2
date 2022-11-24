@@ -27,8 +27,6 @@ function App() {
             <Route path={'/passinquirycom/'} element={<Passinquirycom/>}/>
 
 
-
-
           </Routes>
         </BrowserRouter>
     </div>
