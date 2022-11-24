@@ -7,10 +7,8 @@ import "./passinquiry.css"
 
 const Passinquiry = () => {
 
-const mailSubmit = () => {
+    const [passEmail, setPassEmail] = useState("");
 
-
-}
 
 
 
@@ -27,9 +25,22 @@ const mailSubmit = () => {
                     <h1>パスワードを忘れた場合</h1>
 
                     <div className="passmaildiv">
-                        <input type="email"
+                  {/*      <input type="email"
                                placeholder="メールアドレスを入力"
-                               className="passmail"/>
+                               className="passmail"/>*/}
+
+                        <input className="passmail"
+                               name="email"
+                               type="email"
+                               placeholder="email"
+                               value={passEmail}
+/*
+                               onChange={(e) => setLoginEmail(e.target.value)}
+*/
+                        />
+
+
+
                     </div>
 
                     <div className="mail4div">
