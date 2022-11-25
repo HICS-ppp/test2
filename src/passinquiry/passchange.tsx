@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.js";
@@ -14,18 +13,23 @@ const Passchange = () => {
 const changePass1 = (e:any) => {
     setPass(e.target.value);
 }
-    const changePass2 = (e:any) => {
+    const changePass2 = (e:any) =>{
         setPass2(e.target.value);
+
     }
 
-const passhi = () => {
-        if(pass!==pass2){
+
+
+const passhi = (e:any) => {
+
+    e.preventDefault();
+        if(pass!==pass2) {
             alert("パスワードが一致しません")
         }else{
-            window.location.href = "/passchangecom"
+        window.location.href="/passchangecom"
+}
 
-        }
-    }
+}
 
     return (
         <>
@@ -47,7 +51,7 @@ const passhi = () => {
                     type="text"
                        className="newpass"
                        placeholder="新しいパスワードを入力してください"
-                       onChange={changePass1}
+                        onChange={(e:any) => setPass(e.target.value)}
                 />
 </div>
                 <div className="passdiv1">
@@ -55,9 +59,8 @@ const passhi = () => {
                     type="text"
                        className="newpass2"
                        placeholder="再度パスワードを入力してください"
-                       onChange={changePass2}/>
+                        onChange={(e:any) => setPass2(e.target.value)}/>
                 </div>
-
 
                 <div className="passdiv2">
                     <button className="change">変更</button>
