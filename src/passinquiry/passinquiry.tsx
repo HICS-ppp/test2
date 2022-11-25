@@ -15,7 +15,7 @@ const Passinquiry = () => {
         e.preventDefault();
             //　ローカルストレージに一度保存する
             localStorage.setItem('E', passEmail);
-            window.location.href = "/passinquiry_mail_send.tsx"
+            window.location.href = "/passinquiry_mail_send"
     }
 
 
@@ -33,17 +33,12 @@ const Passinquiry = () => {
                     <h1>パスワードを忘れた場合</h1>
 
                     <div className="passmaildiv">
-                  {/*      <input type="email"
-                               placeholder="メールアドレスを入力"
-                               className="passmail"/>*/}
-
                         <input className="passmail"
                                name="email"
                                type="email"
                                placeholder="email"
-/*
-                               onChange={(e) => setLoginEmail(e.target.value)}
-*/
+                               onChange={(e) => setPassEmail(e.target.value)}
+
                         />
 
                     </div>

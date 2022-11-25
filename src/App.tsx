@@ -10,6 +10,8 @@ import Comp from "./signup/signup_comp";
 import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 import Passinquirycom from "./passinquiry/passinquirycom";
+import Passinquiry_mail_send from "./passinquiry/passinquiry_mail_send";
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
             <Route path={'/gest/'} element={<Gest/>}/>
             <Route path={'/passinquirycom/'} element={<Passinquirycom/>}/>
+            <Route path={'/passinquiry_mail_send/'} element={<Passinquiry_mail_send/>}/>
 
 
           </Routes>

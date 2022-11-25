@@ -3,7 +3,6 @@ import {database} from "../firebase";
 import { ref, push } from "firebase/database";
 import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
 import {Link} from "react-router-dom";
-import signup from "./signup";
 
 const SendMail = () => {
 
@@ -23,6 +22,9 @@ const SendMail = () => {
     const Age = localStorage.getItem('A');
     const Gender = localStorage.getItem('G');
 
+
+
+
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
@@ -31,6 +33,7 @@ const SendMail = () => {
     }
 
     const auth = getAuth();
+
         // @ts-ignore
     sendSignInLinkToEmail(auth, Email, actionCodeSettings)
         .then(() => {
@@ -40,6 +43,7 @@ const SendMail = () => {
 
     if (isSignInWithEmailLink(auth, window.location.href)) {
         push(ref( database,"Users/"),{
+
             userID:UserID,
             username: userName,
             mailaddress:Email,
@@ -47,6 +51,7 @@ const SendMail = () => {
             pass2:Pass2,
             age:Age,
             gender:Gender});
+
         // ローカルストレージのクリア
         window.localStorage.removeItem('I');
         window.localStorage.removeItem('N');

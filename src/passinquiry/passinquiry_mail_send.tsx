@@ -5,13 +5,14 @@ import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLi
 import {Link} from "react-router-dom";
 
 
-const Passinquieymail = () => {
+const Passinquirymail = () => {
+
 
     // ローカルストレージ内データのget
     localStorage.getItem('E');
     const Maile = localStorage.getItem('E');
 
-
+/*
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
@@ -27,7 +28,6 @@ const Passinquieymail = () => {
             window.localStorage.setItem('emailForSignIn', Email);
         })
 
-
         // ローカルストレージのクリア
         window.localStorage.removeItem('E');
 
@@ -37,15 +37,17 @@ const Passinquieymail = () => {
             .then((result) => {
                 window.location.href = "/signup_comp"
                 window.localStorage.removeItem('emailForSignIn');
-            })
+            })*/
 
 
     return(
+
         <form>
             <h1>{Maile}にメールを送信しました</h1>
             <button><Link to={`/`}>トップへ</Link></button>
         </form>
+
     )
 };
 
-export default Passinquieymail;
+export default Passinquirymail;
