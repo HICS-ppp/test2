@@ -11,6 +11,9 @@ import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 import Passinquirycom from "./passinquiry/passinquirycom";
 import Passinquiry_mail_send from "./passinquiry/passinquiry_mail_send";
+import Passchange from "./passinquiry/passchange";
+import Passchangecom from "./passinquiry/passchangecom";
+
 
 
 function App() {
@@ -28,6 +31,8 @@ function App() {
             <Route path={'/gest/'} element={<Gest/>}/>
             <Route path={'/passinquirycom/'} element={<Passinquirycom/>}/>
             <Route path={'/passinquiry_mail_send/'} element={<Passinquiry_mail_send/>}/>
+            <Route path={'/passchange/'} element={<Passchange/>}/>
+            <Route path={'/passchangecom/'} element={<Passchangecom/>}/>
 
 
           </Routes>

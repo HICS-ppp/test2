@@ -61,6 +61,7 @@ const Register = () => {
 
 
             <form onSubmit = {handleSubmit}>
+
                 <div className="sum">
                     <label　className="userinput">ユーザID</label>
                     <input
