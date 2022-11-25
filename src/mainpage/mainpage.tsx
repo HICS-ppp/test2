@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 /* 「onAuthStateChanged」と「auth」をimport↓ */
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate,Navigate } from "react-router-dom";
+import {useNavigate, Navigate, Link} from "react-router-dom";
+import  "./mainpage.css";
 
 const Mainpage = () => {
     /* ↓state変数「user」を定義 */
@@ -27,10 +28,6 @@ const Mainpage = () => {
 
     return (
             <>
-                {/* ↓ログインしていない場合はログインページにリダイレクトする設定 */}
-                {!user ? (
-                    <Navigate to={`/login/`} />
-                ) : (
                     <>
 
                         <header className="header2">
@@ -43,14 +40,14 @@ const Mainpage = () => {
                         <h2 className="mainfont2">グループ作成</h2>
                         <div className="maintext">
                             <input type="text" name="groupname" className="form" placeholder="グループ名を入力"/>
-                            <button className="mainbutton">作成</button>
+                            <Link to={`/groupmenu/`}><button className="mainbutton">作成</button></Link>
                         </div>
 
 
                         <h2 className="mainfont2">グループ入室</h2>
                         <div className="maintext">
                             <input type="text" name="groupid" className="form" placeholder="グループIDを入力"/>
-                            <button className="mainbutton">参加</button>
+                            <Link to={`/groupmenu/`}><button className="mainbutton">参加</button></Link>
 
                         </div>
                         <h1 className="mainfont1">視聴</h1>
@@ -60,7 +57,6 @@ const Mainpage = () => {
                         </div>
                         <button onClick={logout}>ログアウト</button>
                     </>
-                )}
 
                     </>
     );

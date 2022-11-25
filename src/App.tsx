@@ -9,6 +9,7 @@ import SendMail from "./signup/signup_mail_send";
 import Comp from "./signup/signup_comp";
 import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
+import Groupmenu from "./mainpage/groupmenu";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path={'/signup_comp'} element={<Comp />} />
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
             <Route path={'/gest/'} element={<Gest/>}/>
+            <Route path={'groupmenu'}element={< Groupmenu/>}/>
 
 
           </Routes>
