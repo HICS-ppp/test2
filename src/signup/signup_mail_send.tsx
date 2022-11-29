@@ -47,7 +47,6 @@ const SendMail = () => {
             username: userName,
             mailaddress:Email,
             pass:Pass,
-            pass2:Pass2,
             age:Age,
             gender:Gender});
         // ローカルストレージのクリア
@@ -60,6 +59,7 @@ const SendMail = () => {
         window.localStorage.removeItem('M');
 
         let email = window.localStorage.getItem('emailForSignIn');
+
         // @ts-ignore
         signInWithEmailLink(auth, email, window.location.href)
             .then((result) => {
