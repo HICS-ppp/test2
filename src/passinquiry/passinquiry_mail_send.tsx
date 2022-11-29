@@ -26,7 +26,7 @@ const Passinquirymail = () => {
     const auth = getAuth();
 
     // @ts-ignore
-    sendSignInLinkToEmail(auth, Maile, actionCodeSettings)
+   sendSignInLinkToEmail(auth, Maile, actionCodeSettings)
         .then(() => {
             // @ts-ignore
             window.localStorage.setItem('maile', maile);
