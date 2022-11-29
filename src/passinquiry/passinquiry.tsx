@@ -7,25 +7,12 @@ import "./passinquiry.css"
 
 const Passinquiry = () => {
 
-
-    /*state変数を定義*/
-    const [RegisterEmail, setRegisterEmail] = useState("");
-    const [RegisterPassword, setRegisterPassword] = useState("");
-
-    /* ↓関数「handleSubmit」を定義 */
-    const handleSubmit = async (e:any) => {
-        e.preventDefault();
-        try {
-            await createUserWithEmailAndPassword(
-                auth, RegisterEmail, RegisterPassword
-            );
-        } catch(error) {
-            alert("正しく入力してください");
-        }
-    };
+const mailSubmit = () => {
 
 
-    const [user, setUser] = useState();
+}
+
+
 
     return (
         <>
@@ -34,6 +21,7 @@ const Passinquiry = () => {
 
                     <label className="logo">Preport!</label>
                 </header>
+
 
                 <div className="center">
                     <h1>パスワードを忘れた場合</h1>
@@ -52,8 +40,7 @@ const Passinquiry = () => {
                         <button className="mailbutton">送信</button>
                     </div>
 
-                    <form onSubmit={handleSubmit}>
-                    </form>
+
                 </div>
             </>
         </>
