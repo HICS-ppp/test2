@@ -30,22 +30,14 @@ const Passchange = () => {
     if (pass !== pass2) {
         alert("パスワードが一致しません")
     } else {
-        /* window.location.href="/passchangecom"*/
+        update(ref( database,"Users/"+{maile}),{
+            pass:pass,
+        });
+         window.location.href="/passchangecom"
     }
 }
 
-    // @ts-ignore
-    // @ts-ignore
-/*    get(ref( database,"Users/"),{
 
-        const [f,a] ="UserID",
-    });*/
-
-
-/*       update(ref( database,"Users/-NHhGCMXyQkU7JXWXP1d"),{
-           pass:pass,
-           pass2:pass2,
-       });*/
 
 
     // @ts-ignore
@@ -83,10 +75,6 @@ const Passchange = () => {
                     <p>{maile}</p>
 
                 </form>
-
-
-
-      {/*          <p>commentsRef</p>*/}
 
             </>
             </>
