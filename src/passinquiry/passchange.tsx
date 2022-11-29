@@ -25,7 +25,6 @@ const Passchange = () => {
     
    const passhi = (e:any) => {
 
-
     e.preventDefault();
     if (pass !== pass2) {
         alert("パスワードが一致しません")
@@ -36,9 +35,6 @@ const Passchange = () => {
          window.location.href="/passchangecom"
     }
 }
-
-
-
 
     // @ts-ignore
     return (
