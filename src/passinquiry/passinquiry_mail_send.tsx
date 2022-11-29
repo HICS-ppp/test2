@@ -9,36 +9,29 @@ const Passinquirymail = () => {
 
 
     // ローカルストレージ内データのget
-    localStorage.getItem('E');
+
     const Maile = localStorage.getItem('E');
 
-/*
+
+
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
-        url: 'http://localhost:3000/signup_mail_send',
+        url: 'http://localhost:3000/passchange',
         handleCodeInApp: true,
     }
 
+
+
     const auth = getAuth();
+
     // @ts-ignore
-    sendSignInLinkToEmail(auth, Email, actionCodeSettings)
+    sendSignInLinkToEmail(auth, Maile, actionCodeSettings)
         .then(() => {
             // @ts-ignore
-            window.localStorage.setItem('emailForSignIn', Email);
+            window.localStorage.setItem('maile', maile);
+
         })
-
-        // ローカルストレージのクリア
-        window.localStorage.removeItem('E');
-
-        let email = window.localStorage.getItem('emailForSignIn');
-        // @ts-ignore
-        signInWithEmailLink(auth, email, window.location.href)
-            .then((result) => {
-                window.location.href = "/signup_comp"
-                window.localStorage.removeItem('emailForSignIn');
-            })*/
-
 
     return(
 

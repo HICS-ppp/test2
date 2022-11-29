@@ -1,51 +1,65 @@
 import React, {useState, useEffect} from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase.js";
+import {
+    createUserWithEmailAndPassword,
+    isSignInWithEmailLink,
+    onAuthStateChanged,
+    signInWithEmailLink
+} from "firebase/auth";
+import {auth, database} from "../firebase.js";
 import {Navigate,Link} from "react-router-dom";
 import "./passchange.css";
+import {update, get, ref, push} from "firebase/database";
+import firebase from "firebase/compat";
 
 
 const Passchange = () => {
 
+
+    const maile = window.localStorage.getItem("maile");
+
     const [pass,setPass] = useState("");
     const [pass2,setPass2] = useState("");
 
-const changePass1 = (e:any) => {
-    setPass(e.target.value);
-}
-    const changePass2 = (e:any) =>{
-        setPass2(e.target.value);
-
-    }
 
 
+    
+   const passhi = (e:any) => {
 
-const passhi = (e:any) => {
 
     e.preventDefault();
-        if(pass!==pass2) {
-            alert("パスワードが一致しません")
-        }else{
-        window.location.href="/passchangecom"
+    if (pass !== pass2) {
+        alert("パスワードが一致しません")
+    } else {
+        /* window.location.href="/passchangecom"*/
+    }
 }
 
-}
+    // @ts-ignore
+    // @ts-ignore
+/*    get(ref( database,"Users/"),{
 
+        const [f,a] ="UserID",
+    });*/
+
+
+/*       update(ref( database,"Users/-NHhGCMXyQkU7JXWXP1d"),{
+           pass:pass,
+           pass2:pass2,
+       });*/
+
+
+    // @ts-ignore
     return (
         <>
-            {/* ↓ログインしていればマイページを表示 */}
-
             <>
                 <header className="header1">
-
                     <label className="logo">Preport!</label>
                 </header>
 
-
                 <form onSubmit = {passhi}>
 
-                <div className="passdiv1">
 
+                <div className="passdiv1">
 
                 <input  required
                     type="text"
@@ -53,7 +67,7 @@ const passhi = (e:any) => {
                        placeholder="新しいパスワードを入力してください"
                         onChange={(e:any) => setPass(e.target.value)}
                 />
-</div>
+　　　　　　　　　　</div>
                 <div className="passdiv1">
                 <input  required
                     type="text"
@@ -66,7 +80,13 @@ const passhi = (e:any) => {
                     <button className="change">変更</button>
                 </div>
 
+                    <p>{maile}</p>
+
                 </form>
+
+
+
+      {/*          <p>commentsRef</p>*/}
 
             </>
             </>
