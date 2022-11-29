@@ -1,6 +1,6 @@
 import React from "react";
 import {database} from "../firebase";
-import { ref, push } from "firebase/database";
+import { ref, set} from "firebase/database";
 import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
 import {Link} from "react-router-dom";
 import signup from "./signup";
@@ -42,7 +42,7 @@ const SendMail = () => {
 
 
     if (isSignInWithEmailLink(auth, window.location.href)) {
-        push(ref( database,"Users/"),{
+        set(ref(database,"Users/"+UserID+"/"),{
             userID:UserID,
             username: userName,
             mailaddress:Email,
@@ -66,13 +66,6 @@ const SendMail = () => {
                 window.location.href = "/signup_comp"
                 window.localStorage.removeItem('emailForSignIn');
     })}
-
-
-    /* ↓戻るボタン押下後、ローカルストレージをクリアしサインアップ画面に遷移
-    const ClickRemove = () => {
-        localStorage.clear()
-        window.location.href = "/login"
-    }*/
 
     return(
         <form>

@@ -1,15 +1,9 @@
 import React from "react";
 
 const Comp = () => {
+
     localStorage.getItem('I2');
     const userID = localStorage.getItem('I2');
-
-
- //   const RegComp = () => {
- //       localStorage.clear()
- //       window.location.href = '/login';
- //   }
-
     return(
         <form>
             <h1>登録完了</h1>
@@ -19,7 +13,7 @@ const Comp = () => {
         </form>
 
     );
-    window.localStorage.removeItem('I2')
+
 }
 
 export default Comp;

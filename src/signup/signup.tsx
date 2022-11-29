@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { Link, Navigate } from "react-router-dom";
-import { ref, push } from "firebase/database";
-import { database } from "../firebase"
-import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
-import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import { Link, } from "react-router-dom";
 import "./signup.css";
 
 

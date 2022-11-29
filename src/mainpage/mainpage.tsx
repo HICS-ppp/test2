@@ -27,11 +27,7 @@ const Mainpage = () => {
 
     return (
             <>
-                {/* ↓ログインしていない場合はログインページにリダイレクトする設定 */}
-                {!user ? (
-                    <Navigate to={`/login/`} />
-                ) : (
-                    <>
+
 
                         <header className="header2">
                             <label className="logo2">Preport!</label>
@@ -59,9 +55,6 @@ const Mainpage = () => {
                             <button className="mainbutton">参加</button>
                         </div>
                         <button onClick={logout}>ログアウト</button>
-                    </>
-                )}
-
                     </>
     );
 };
