@@ -1,6 +1,6 @@
 import React from "react";
 import {database} from "../firebase";
-import { ref, push } from "firebase/database";
+import {ref, push, getDatabase} from "firebase/database";
 import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
 import {Link} from "react-router-dom";
 
@@ -10,8 +10,12 @@ const Passinquirymail = () => {
 
     // ローカルストレージ内データのget
 
-    const Maile = localStorage.getItem('userid');
+    const userid = localStorage.getItem('userid');
 
+
+    const db = getDatabase()
+
+/*   const mail = (ref(db, "Users/" + {userid} + '/mailaddress'))*/
 
 
 
@@ -34,7 +38,7 @@ const Passinquirymail = () => {
     return(
 
         <form>
-            <h1>{Maile}にメールを送信しました</h1>
+            <h1>{mail}にメールを送信しました</h1>
             <button><Link to={`/`}>トップへ</Link></button>
         </form>
 
