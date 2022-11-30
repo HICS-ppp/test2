@@ -33,12 +33,12 @@ const Login = () => {
 
     return (
         <>
-                <>
-                    <header className="header1"><label className="logo">Preport</label></header>
+            <>
+                <header className="header1"><label className="logo">Preport</label></header>
 
-                    {/* onSubmitを追加↓ */}
-                    < form onSubmit={handleSubmit}>
-                <h1 className="loginpage1">ログインページ</h1>
+                {/* onSubmitを追加↓ */}
+                < form onSubmit={handleSubmit}>
+                    <h1 className="loginpage1">ログインページ</h1>
                     <div className="mdiv1">
 
                         <label className="mail1">メールアドレス</label>
@@ -60,20 +60,20 @@ const Login = () => {
                                onChange={(e) => setLoginPassword(e.target.value)}
                         />
                     </div>
-                        <div className="logdiv">
+                    <div className="logdiv">
 
-                            <button className="log1">ログイン</button>
+                        <button className="log1">ログイン</button>
 
-                        </div>
-                        {/* ↓リンクを追加 */}
+                    </div>
+                    {/* ↓リンクを追加 */}
 
-                        <div className="linkdiv">  <p>新規登録は<Link to={`/signup`}>こちら</Link></p></div>
-                        {/*<div className="linkdiv"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>*/}
-                        <div className="linkdiv"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
+                    <div className="linkdiv">  <p>新規登録は<Link to={`/signup`}>こちら</Link></p></div>
+                    {/*<div className="linkdiv"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>*/}
+                    <div className="linkdiv"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
 
                 </form>
-                    </>
-                    </>
+            </>
+        </>
     );
 };
 

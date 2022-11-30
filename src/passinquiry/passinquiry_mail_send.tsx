@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {database} from "../firebase";
 import {ref, push, getDatabase} from "firebase/database";
 import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
@@ -11,12 +11,17 @@ const Passinquirymail = () => {
     // ローカルストレージ内データのget
 
     const userid = localStorage.getItem('userid');
+    //ueda
 
+
+/*
+    const [maile,setmaile] = useState<any>("");
 
     const db = getDatabase()
+   setmaile(ref(db, "Users/" +userid+ '/mailaddress'))
+*/
 
-/*   const mail = (ref(db, "Users/" + {userid} + '/mailaddress'))*/
-
+/*
 
 
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
@@ -32,13 +37,15 @@ const Passinquirymail = () => {
         .then(() => {
             // @ts-ignore
             window.localStorage.setItem('maile', maile);
-
         })
+*/
 
+
+    // @ts-ignore
     return(
 
         <form>
-            <h1>{mail}にメールを送信しました</h1>
+            <h1>{userid}にメールを送信しました</h1>
             <button><Link to={`/`}>トップへ</Link></button>
         </form>
 
