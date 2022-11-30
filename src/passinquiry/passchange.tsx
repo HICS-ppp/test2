@@ -32,7 +32,6 @@ const Passchange = () => {
          window.location.href="/passchangecom"
     }
 }
-
     // @ts-ignore
     return (
         <>
@@ -58,9 +57,6 @@ const Passchange = () => {
                        placeholder="再度パスワードを入力してください"
                         onChange={(e:any) => setPass2(e.target.value)}/>
                 </div>
-
-
-
 
                 <div className="passdiv2">
                     <button className="change">変更</button>
