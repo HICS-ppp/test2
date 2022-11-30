@@ -12,17 +12,12 @@ const Passinquirymail = () => {
 
     const Maile = localStorage.getItem('E');
 
-
-
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
         url: 'http://localhost:3000/passchange',
         handleCodeInApp: true,
     }
-
-
-
     const auth = getAuth();
 
     // @ts-ignore
@@ -42,5 +37,4 @@ const Passinquirymail = () => {
 
     )
 };
-
 export default Passinquirymail;

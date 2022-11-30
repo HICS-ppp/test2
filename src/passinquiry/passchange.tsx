@@ -19,9 +19,6 @@ const Passchange = () => {
 
     const [pass,setPass] = useState("");
     const [pass2,setPass2] = useState("");
-
-
-
     
    const passhi = (e:any) => {
 
@@ -46,16 +43,14 @@ const Passchange = () => {
 
                 <form onSubmit = {passhi}>
 
+                    <div className="passdiv1">
+                        <input  required
+                                type="text"
+                                className="newpass"
+                                placeholder="新しいパスワードを入力してください"
+                                onChange={(e:any) => setPass(e.target.value)}/>
+                    </div>
 
-                <div className="passdiv1">
-
-                <input  required
-                    type="text"
-                       className="newpass"
-                       placeholder="新しいパスワードを入力してください"
-                        onChange={(e:any) => setPass(e.target.value)}
-                />
-　　　　　　　　　　</div>
                 <div className="passdiv1">
                 <input  required
                     type="text"
@@ -64,11 +59,14 @@ const Passchange = () => {
                         onChange={(e:any) => setPass2(e.target.value)}/>
                 </div>
 
+
+
+
                 <div className="passdiv2">
                     <button className="change">変更</button>
                 </div>
 
-                    <p>{maile}</p>
+          {/*          <p>{maile}</p>*/}
 
                 </form>
 

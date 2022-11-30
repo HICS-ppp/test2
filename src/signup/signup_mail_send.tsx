@@ -35,7 +35,6 @@ const SendMail = () => {
         // @ts-ignore
     sendSignInLinkToEmail(auth, Email, actionCodeSettings)
         .then(() => {
-
             // @ts-ignore
             window.localStorage.setItem('emailForSignIn', Email);
         })
