@@ -10,7 +10,10 @@ const Passinquirymail = () => {
 
     // ローカルストレージ内データのget
 
-    const Maile = localStorage.getItem('E');
+    const Maile = localStorage.getItem('userid');
+
+
+
 
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理

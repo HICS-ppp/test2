@@ -8,13 +8,13 @@ import {set} from "react-hook-form";
 
 const Passinquiry = () => {
 
-    const [passEmail, setPassEmail] = useState("");
+    const [passUserid, setUserid] = useState("");
 
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
             //　ローカルストレージに一度保存する
-            localStorage.setItem('E', passEmail);
+            localStorage.setItem('userid', passUserid);
             window.location.href = "/passinquiry_mail_send"
     }
 
@@ -34,16 +34,15 @@ const Passinquiry = () => {
 
                     <div className="passmaildiv">
                         <input className="passmail"
-                               name="email"
-                               type="email"
-                               placeholder="email"
-                               onChange={(e) => setPassEmail(e.target.value)}
-
+                               name="userid"
+                               type="userid"
+                               placeholder="userid"
+                               onChange={(e) => setUserid(e.target.value)}
                         />
 
                     </div>
                     <div className="mail4div">
-                        <label className="mail4">入力したメールアドレスに送信します</label>
+                        <label className="mail4">Useridに登録したメールアドレスに送信します</label>
                     </div>
 
                     <div className="mailbuttondiv">
