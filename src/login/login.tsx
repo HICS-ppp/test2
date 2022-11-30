@@ -21,25 +21,27 @@ const Login = () => {
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
                 <h1 className="loginpage1">ログインページ</h1>
-                    <div className="mdiv1">
+                    <div className="udiv1">
 
-                        <label className="Userid">ユーザID</label>
-                        <input className="Userid"
+                        <label className="userid1">ユーザID</label>
+                        <input className="useridbox1"
                                name="Userid"
                                type="text"
                                placeholder="Userid"
                                onChange={(e) => localStorage.setItem('loginID',e.target.value)}
                         />
+
+                        <div className="pdiv1">
+                            <label className="pass1">パスワード</label>
+                            <input className="passbox1"
+                                   name="pass"
+                                   type="password"
+                                   placeholder="pass"
+                                   onChange={(e) => localStorage.setItem('loginPass',e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div className="pdiv1">
-                        <label className="pass1">パスワード</label>
-                        <input className="passbox1"
-                               name="pass"
-                               type="password"
-                               placeholder="pass"
-                               onChange={(e) => localStorage.setItem('loginPass',e.target.value)}
-                        />
-                    </div>
+
                         <div className="logdiv">
 
                             <button className="log1" >ログイン</button>
