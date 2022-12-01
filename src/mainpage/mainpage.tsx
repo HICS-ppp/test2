@@ -22,7 +22,7 @@ const Mainpage = () => {
     /* ↓関数「logout」を定義 */
     const logout = async () => {
         sessionStorage.removeItem('UserID')
-        navigate("../login/login");
+        navigate("/login");
     }
 
     return (
