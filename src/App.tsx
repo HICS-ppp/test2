@@ -10,6 +10,10 @@ import Comp from "./signup/signup_comp";
 import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 import Loginloading from "./login/login_loading";
+import Passchangecom from "./passinquiry/passchangecom";
+import Passchange from "./passinquiry/passchange";
+
+
 
 function App() {
   return (
@@ -25,6 +29,9 @@ function App() {
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
             <Route path={'/gest/'} element={<Gest/>}/>
             <Route path={'/login_loading'} element={<Loginloading/>}/>
+            <Route path={'/passchangecom'} element={<Passchangecom/>}/>
+            <Route path={'/passchange'} element={<Passchange/>}/>
+
 
           </Routes>
         </BrowserRouter>
