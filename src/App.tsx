@@ -10,6 +10,7 @@ import Comp from "./signup/signup_comp";
 import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 import Loginloading from "./login/login_loading";
+import GroupMenu from "./group/groupmenu";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
             <Route path={'/gest/'} element={<Gest/>}/>
             <Route path={'/login_loading'} element={<Loginloading/>}/>
-
+            <Route path={'/groupmenu'} element={<GroupMenu/>}/>
           </Routes>
         </BrowserRouter>
     </div>
