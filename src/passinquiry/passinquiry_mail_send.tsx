@@ -5,9 +5,42 @@ import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLi
 import {Link} from "react-router-dom";
 
 
+
+
+
+
+
+
 const Passinquirymail = () => {
 
+   const dbid = localStorage.getItem("Userid");
+   const dbi = "u"
 
+   if(dbid==dbi){
+       alert("取得")
+
+   }else{
+       alert("取得できてない")
+   }
+
+
+
+
+    return(
+
+        <form>
+            <h1>{dbid}にメールを送信しました</h1>
+            <button><Link to={`/`}>トップへ</Link></button>
+        </form>
+
+    )
+};
+export default Passinquirymail;
+
+
+
+
+/*
     const userid = localStorage.getItem('userid');
     const [mail, setmail] = useState<any>('');
 
@@ -18,14 +51,4 @@ const Passinquirymail = () => {
         localStorage.setItem('UserID', aaa)
     })
     const dbID = localStorage.getItem('UserID')
-
-    return(
-
-        <form>
-            <h1>{dbID}にメールを送信しました</h1>
-            <button><Link to={`/`}>トップへ</Link></button>
-        </form>
-
-    )
-};
-export default Passinquirymail;
+*/

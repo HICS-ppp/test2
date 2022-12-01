@@ -5,30 +5,35 @@ import {Navigate,Link} from "react-router-dom";
 import "./passinquiry.css"
 import {getDatabase, onValue, ref} from "firebase/database";
 
-
 const Passinquiry = () => {
 
-    const db = getDatabase()
 /*    setmail(ref(db, "Users/" + userid + "/pass"))*/
 
 
+    const dbi = "u"
+    const db = getDatabase()
+    const dbID = (ref(db,"Users/ueda/pass"))
 
     const useri = (e:any) => {
 
-        e.preventDefault();
+/*        e.preventDefault();*/
+    /*    localStorage.removeItem("Userid")*/
 
-      const dbID = (ref(db,"Users/ueda/mailaddress"))
       onValue(dbID, (snapshot) => {
           let aaa = snapshot.val()
           localStorage.setItem('Userid',aaa)
       })
-        window.location.href ="/passchange"
+      /*  window.location.href ="/passinquiry_mail_send"*/
 
+        const dbid = localStorage.getItem('Userid')
 
+        if(dbid==dbi){
+            alert("取得成功")
+
+        }else{
+            alert("取得できてない")
+        }
     }
-
-
-
 
     return (
         <>
@@ -62,7 +67,6 @@ const Passinquiry = () => {
                     </div>
 
               {/*      <p>{value}</p>*/}
-
 
                 </div>
                 </form>

@@ -12,6 +12,7 @@ import Gest from "./gest/gest";
 import Loginloading from "./login/login_loading";
 import Passchangecom from "./passinquiry/passchangecom";
 import Passchange from "./passinquiry/passchange";
+import Passinquiry_mail_send from "./passinquiry/passinquiry_mail_send";
 
 
 
@@ -31,6 +32,7 @@ function App() {
             <Route path={'/login_loading'} element={<Loginloading/>}/>
             <Route path={'/passchangecom'} element={<Passchangecom/>}/>
             <Route path={'/passchange'} element={<Passchange/>}/>
+            <Route path={'/passinquiry_mail_send'} element={<Passinquiry_mail_send/>}/>
 
 
           </Routes>
