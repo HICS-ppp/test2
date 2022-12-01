@@ -28,7 +28,7 @@ const SendMail = () => {
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
-        url: 'http://localhost:3000/signup_mail_send',
+        url: 'https://react-preport.web.app/signup_mail_send',
         handleCodeInApp: true,
     }
 
