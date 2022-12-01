@@ -1,13 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import {render} from "react-dom";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import NameElement from './Name'
 import './App.css';
 import { RouterConfig } from './Route'
-import { loadSavedCredentialsIfExist, saveCredentials,
-  authorize, listFiles } from './googledriveapi/GoogleDriveAPI';
-
 
 
 function App() {
@@ -23,11 +20,7 @@ function App() {
         <div>
           <RouterConfig />
         </div>
-        <div>
-          <button onClick={loadSavedCredentialsIfExist}>テスト</button>
-        </div>
-
-
+        <div className="GoogleAuth"></div>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -38,8 +31,12 @@ function App() {
         </a>
       </header>
     </div>
-  );
-}
+  )}
+  /*<script async defer src="https://apis.google.com/js/api.js"
+          onLoad="this.onload=function(){};handleClientLoad()"
+          onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>*/
+
 
 /*
 const container = document.getElementById('aaa');
