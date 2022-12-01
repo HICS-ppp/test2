@@ -9,33 +9,45 @@ const Passinquiry = () => {
 
 /*    setmail(ref(db, "Users/" + userid + "/pass"))*/
 
-
-    const dbi = "u"
-    const [value, setValue] = useState('');
-
     const db = getDatabase()
-    const dbID = (ref(db,"Users/"+value+"/pass"))
 
-    const useri = (e:any) => {
+    const useri = async (e:any) => {
 
-/*        e.preventDefault();*/
-    /*    localStorage.removeItem("Userid")*/
+      /*  e.preventDefault();*/
+        localStorage.removeItem("Userid")
+        a()
+         await b(e)
 
-      onValue(dbID, (snapshot) => {
-          let aaa = snapshot.val()
-          localStorage.setItem('Userid',aaa)
-      })
-      /*  window.location.href ="/passinquiry_mail_send"*/
 
-        const dbid = localStorage.getItem('Userid')
-
-        if(dbid==dbi){
-            alert("取得成功")
-
+/*       const aa = localStorage.getItem('Userid')
+        const n = "n"
+        if(aa==n){
+            alert('取得成功')
         }else{
-            alert("取得できてない")
-        }
+           alert('取得失敗')
+        }*/
+
+
+      /*  window.location.href = "/passinquiry_mail_send"*/
+
     }
+
+
+    const a =  () => {
+        const value = localStorage.getItem('value')
+        const dbID = (ref(db,"Users/"+value+"/mailaddress"))
+        onValue(dbID, (snapshot) => {
+            let aaa = snapshot.val()
+            localStorage.setItem('Userid', aaa)
+            console.log(aaa)
+        })
+    }
+    const b = async (e:any) =>{
+        e.preventDefault();
+        window.location.href = "/passinquiry_mail_send"
+        console.log('test')
+    }
+
 
     return (
         <>
@@ -55,7 +67,7 @@ const Passinquiry = () => {
                         <input type="text"
                                placeholder="userIDを入力"
                                className="passmail"
-                               onChange={(e) => setValue(e.target.value)}
+                               onChange={(e) => localStorage.setItem('value',e.target.value)}
                         />
                     </div>
 
@@ -65,10 +77,8 @@ const Passinquiry = () => {
 
                     <div className="mailbuttondiv">
 
-                  <button className="mailbutton">送信</button>
+                       <button className="mailbutton">送信</button>
                     </div>
-
-              {/*      <p>{value}</p>*/}
 
                 </div>
                 </form>

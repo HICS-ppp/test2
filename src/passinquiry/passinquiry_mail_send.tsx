@@ -4,28 +4,10 @@ import {ref, push, getDatabase,onValue} from "firebase/database";
 import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
 import {Link} from "react-router-dom";
 
-
-
-
-
-
-
-
 const Passinquirymail = () => {
 
    const dbid = localStorage.getItem("Userid");
-   const dbi = "u"
-
-   if(dbid==dbi){
-       alert("取得")
-
-   }else{
-       alert("取得できてない")
-   }
-
-
-
-
+    console.log(dbid)
     return(
 
         <form>
