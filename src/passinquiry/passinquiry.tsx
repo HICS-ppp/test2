@@ -11,8 +11,10 @@ const Passinquiry = () => {
 
 
     const dbi = "u"
+    const [value, setValue] = useState('');
+
     const db = getDatabase()
-    const dbID = (ref(db,"Users/ueda/pass"))
+    const dbID = (ref(db,"Users/"+value+"/pass"))
 
     const useri = (e:any) => {
 
@@ -53,7 +55,7 @@ const Passinquiry = () => {
                         <input type="text"
                                placeholder="userIDを入力"
                                className="passmail"
-                               /*onChange={(e) => setValue(e.target.value)}*/
+                               onChange={(e) => setValue(e.target.value)}
                         />
                     </div>
 
