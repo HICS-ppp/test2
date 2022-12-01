@@ -23,34 +23,35 @@
     width: auto;
 }
 
-.mail1{
+.userid1{
     font-size: 30px;
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+    margin-top: 20px;
+
+}
+.useridbox1{
+    font-size: 30px;
+    text-align: center;
 }
 
-.mailbox1{
-    font-size: 30px;
-}
 
 .pass1{
     font-size: 30px;
+    display: inline-block;
+    text-align: right;
+    width: 150px;
 }
 
 .passbox1{
     font-size: 30px;
+    text-align: center;
 }
 
 
-/*ログインボタン*/
-.log1{
-    font-size: 20px;
-    background-color: #4da6ff;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 10px;
 
-
-}
-.mdiv1{
+.udiv1{
     text-align: center;
     margin-top: 8%;
 }
@@ -66,4 +67,14 @@
 
 .linkdiv{
     text-align: center;
+}
+/*ログインボタン*/
+.log1{
+    font-size: 20px;
+    background-color: #4da6ff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+
+
 }
