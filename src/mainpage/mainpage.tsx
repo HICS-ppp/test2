@@ -21,16 +21,14 @@ const Mainpage = () => {
 
     /* ↓関数「logout」を定義 */
     const logout = async () => {
-        await signOut(auth);
+        sessionStorage.removeItem('UserID')
         navigate("../login/login");
     }
 
     return (
             <>
-
-
                         <header className="header2">
-                            <label className="logo2">Preport!</label>
+                            <label className="logo2">Preport!{sessionStorage.getItem('UserID')}</label>
                         </header>
                         <h1 className="mainfont1">グループ</h1>
 

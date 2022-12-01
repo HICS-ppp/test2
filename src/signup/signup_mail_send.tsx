@@ -3,7 +3,7 @@ import {database} from "../firebase";
 import { ref, set} from "firebase/database";
 import {getAuth, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
 import {Link} from "react-router-dom";
-import signup from "./signup";
+
 
 const SendMail = () => {
 
