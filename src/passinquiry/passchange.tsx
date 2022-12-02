@@ -15,20 +15,23 @@ import firebase from "firebase/compat";
 const Passchange = () => {
 
 
-    const userid = window.localStorage.getItem("userid");
+    const userid = window.localStorage.getItem("userID");
 
     const [pass,setPass] = useState("");
     const [pass2,setPass2] = useState("");
     
    const passhi = (e:any) => {
 
-    e.preventDefault();
+       localStorage.setItem("pass",pass)
+
+
     if (pass !== pass2) {
         alert("パスワードが一致しません")
     } else {
-        update(ref( database,"Users/"+{userid}),{
+/*        update(ref( database,"Users/"+userid),{
             pass:pass,
-        });
+        });*/
+        e.preventDefault();
          window.location.href="/passchangecom"
     }
 }
@@ -62,7 +65,6 @@ const Passchange = () => {
                     <button className="change">変更</button>
                 </div>
 
-                    <p>{userid}</p>
 
                 </form>
 

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 const Passinquirymail = () => {
 
-   const dbid = localStorage.getItem("Userid");
+   const dbid = localStorage.getItem("mailaddress");
     console.log(dbid)
     return(
 

@@ -30,7 +30,7 @@ const Passinquiry_loading = () => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(true)
-            }, 2000)
+            }, 5000)
         })
     }
     const c = async () => {
@@ -39,17 +39,42 @@ const Passinquiry_loading = () => {
         console.log(dbID1)
         try{
 
+            // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
+            // ↓firebaseメール認証の定義処理
+            const actionCodeSettings = {
+                url: 'http://localhost:3000/passchange',
+                handleCodeInApp: true,
+            }
+            const auth = getAuth();
+
+            // @ts-ignore
+            sendSignInLinkToEmail(auth, dbID1, actionCodeSettings)
+                .then(() => {
+                    // @ts-ignore
+                    window.localStorage.setItem('userID', userID);
+                    window.location.href = '/passinquiry_mail_send'
+
+                })
+
 
 
         }catch(e) {
             console.log("メール送信失敗")
         }
+
+
+
     }
     pr()
 
     return(
         <form>
-            <p>test</p>
+            <div className="loader">
+                <div className="one"></div>
+                <div className="two"></div>
+                <div className="three"></div>
+                <div className="four"></div>
+            </div>
 
         </form>
     )

@@ -77,4 +77,5 @@ const SendMail = () => {
     )
 }
 
+// @ts-ignore
 export default SendMail;
