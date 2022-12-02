@@ -46,17 +46,23 @@ const Loginloading = () => {
                     localStorage.clear()
                     window.location.href = '/mainpage'
                 } else {
-                    console.log('失敗')
+        /*            console.log('失敗')
                     localStorage.clear()
                     const logError = 'error'
-                    localStorage.setItem("error",logError)
-                    window.location.href = '/login'
+                    localStorage.setItem("error",logError)*/
+                    window.location.href = '/loginerror'
                 }
             }
             pr()
     return(
         <form>
-        <p>test</p>
+
+            <div className="loader">
+                <div className="one"></div>
+                <div className="two"></div>
+                <div className="three"></div>
+                <div className="four"></div>
+            </div>
         </form>
     )
 }
