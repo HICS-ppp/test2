@@ -21,16 +21,18 @@ const Passinquiry_loading = () => {
         onValue(dbmailaddress, (snapshot) => {
             let aaa = snapshot.val()
             localStorage.setItem('mailaddress', aaa)
-            console.log(localStorage.getItem('mailaddress'))
+        /*    console.log(localStorage.getItem('mailaddress'));*/
 
-        })
+
+
+        });
     }
     // ５秒待機する処理
     const b = async () => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(true)
-            }, 5000)
+            }, 3000)
         })
     }
     const c = async () => {
