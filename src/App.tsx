@@ -14,6 +14,7 @@ import Passchangecom from "./passinquiry/passchangecom";
 import Passchange from "./passinquiry/passchange";
 import Passinquiry_mail_send from "./passinquiry/passinquiry_mail_send";
 import Passinquiry_loading from "./passinquiry/passinquiry_loading";
+import Passerror from "./passinquiry/passerror";
 
 
 
@@ -35,6 +36,8 @@ function App() {
             <Route path={'/passchange'} element={<Passchange/>}/>
             <Route path={'/passinquiry_mail_send'} element={<Passinquiry_mail_send/>}/>
             <Route path={'/passinquiry_loading'} element={<Passinquiry_loading/>}/>
+            <Route path={'/passerror'} element={<Passerror/>}/>
+
 
 
           </Routes>

@@ -9,7 +9,7 @@ const Toppage = () => {
             <div className="topall">
         <h1 className="pre1">Preport</h1>
 
-            <Link to={`/passinquiry/`}><button className="log1">ログイン</button></Link>
+            <Link to={`/login/`}><button className="log1">ログイン</button></Link>
             </div>
         </>
     );
