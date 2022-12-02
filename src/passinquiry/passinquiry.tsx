@@ -9,31 +9,28 @@ const Passinquiry = () => {
 
 /*    setmail(ref(db, "Users/" + userid + "/pass"))*/
 
-    const db = getDatabase()
-
-    const useri = async (e:any) => {
-
-      /*  e.preventDefault();*/
-        localStorage.removeItem("Userid")
-        a()
-         await b(e)
 
 
-/*       const aa = localStorage.getItem('Userid')
-        const n = "n"
-        if(aa==n){
-            alert('取得成功')
-        }else{
-           alert('取得失敗')
-        }*/
 
 
-      /*  window.location.href = "/passinquiry_mail_send"*/
+    const useri = (e:any) => {
+        e.preventDefault();
+        window.location.href = "/passinquiry_loading"
 
     }
 
 
-    const a =  () => {
+/*    const db = getDatabase()
+    const useri = async (e:any) => {
+      /!*  e.preventDefault();*!/
+        localStorage.removeItem("Userid")
+        console.log('xxx')
+        a()
+        await c(e)
+    }
+
+
+    const a = () => {
         const value = localStorage.getItem('value')
         const dbID = (ref(db,"Users/"+value+"/mailaddress"))
         onValue(dbID, (snapshot) => {
@@ -42,11 +39,12 @@ const Passinquiry = () => {
             console.log(aaa)
         })
     }
-    const b = async (e:any) =>{
+
+    const c = async (e:any) =>{
         e.preventDefault();
-        window.location.href = "/passinquiry_mail_send"
+        //window.location.href = "/passinquiry_mail_send"
         console.log('test')
-    }
+    }*/
 
 
     return (
@@ -67,7 +65,7 @@ const Passinquiry = () => {
                         <input type="text"
                                placeholder="userIDを入力"
                                className="passmail"
-                               onChange={(e) => localStorage.setItem('value',e.target.value)}
+                               onChange={(e) => localStorage.setItem('userid',e.target.value)}
                         />
                     </div>
 
