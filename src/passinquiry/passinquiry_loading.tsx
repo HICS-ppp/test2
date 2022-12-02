@@ -38,8 +38,10 @@ const Passinquiry_loading = () => {
         const dbID1 = localStorage.getItem('mailaddress')
         console.log(dbID1)
 
-        if(dbID1==null) {
+        if(dbID1 == "null") {
+            window.location.href = '/passerror'
 
+        }else{
 
             try {
                 // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
@@ -60,8 +62,6 @@ const Passinquiry_loading = () => {
                 console.log("メール送信失敗")
 
             }
-        }else{
-            window.location.href = '/passerror'
         }
 
 
