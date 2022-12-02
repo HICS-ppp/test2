@@ -10,7 +10,13 @@ import Comp from "./signup/signup_comp";
 import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 import Loginloading from "./login/login_loading";
-import GroupMenu from "./group/groupmenu";
+import Passchangecom from "./passinquiry/passchangecom";
+import Passchange from "./passinquiry/passchange";
+import Passinquiry_mail_send from "./passinquiry/passinquiry_mail_send";
+import Passinquiry_loading from "./passinquiry/passinquiry_loading";
+import Passerror from "./passinquiry/passerror";
+
+
 
 function App() {
   return (
@@ -26,7 +32,14 @@ function App() {
             <Route path={'/passinquiry/'} element={<Passinquiry/>}/>
             <Route path={'/gest/'} element={<Gest/>}/>
             <Route path={'/login_loading'} element={<Loginloading/>}/>
-            <Route path={'/groupmenu'} element={<GroupMenu/>}/>
+            <Route path={'/passchangecom'} element={<Passchangecom/>}/>
+            <Route path={'/passchange'} element={<Passchange/>}/>
+            <Route path={'/passinquiry_mail_send'} element={<Passinquiry_mail_send/>}/>
+            <Route path={'/passinquiry_loading'} element={<Passinquiry_loading/>}/>
+            <Route path={'/passerror'} element={<Passerror/>}/>
+
+
+
           </Routes>
         </BrowserRouter>
     </div>
