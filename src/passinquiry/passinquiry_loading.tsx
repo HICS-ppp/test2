@@ -1,6 +1,6 @@
 import {ref,getDatabase, onValue} from "firebase/database"
 import "./passinquiry_loading.css"
-import {getAuth, signInWithEmailLink} from "firebase/auth";
+import {getAuth, sendSignInLinkToEmail, signInWithEmailLink} from "firebase/auth";
 
 const Passinquiry_loading = () => {
     const userID = localStorage.getItem('userid');
@@ -38,30 +38,13 @@ const Passinquiry_loading = () => {
         const dbID1 = localStorage.getItem('mailaddress')
         console.log(dbID1)
         try{
- /*           const actionCodeSettings = {
-                url: 'http://localhost:3000/signup_mail_send',
-                handleCodeInApp: true,
-            }
-            const auth = getAuth();
-            // @ts-ignore
-            signInWithEmailLink(auth, dbID1, window.location.href)
-                .then((result) => {
-                    window.location.href = "/signup_comp"
-                    window.localStorage.removeItem('emailForSignIn');
-                })*/
 
 
 
         }catch(e) {
             console.log("メール送信失敗")
         }
-
-
     }
-
-
-
-
     pr()
 
     return(

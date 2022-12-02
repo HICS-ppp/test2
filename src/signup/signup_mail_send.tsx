@@ -73,7 +73,8 @@ const SendMail = () => {
             <p>※メールが送信されない場合、登録画面からやり直しをお願いします</p>
             <button><Link to={`/`}>トップへ</Link></button>
         </form>
+
     )
-};
+}
 
 export default SendMail;
