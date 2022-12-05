@@ -39,9 +39,6 @@ function App() {
             <Route path={'/passinquiry_loading'} element={<Passinquiry_loading/>}/>
             <Route path={'/passerror'} element={<Passerror/>}/>
             <Route path={'/loginerror'} element={<Loginerror/>}/>
-
-
-
           </Routes>
         </BrowserRouter>
     </div>
