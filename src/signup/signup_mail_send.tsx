@@ -24,7 +24,6 @@ const SendMail = () => {
     const Gender = localStorage.getItem('G');
 
 
-
     // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
     // ↓firebaseメール認証の定義処理
     const actionCodeSettings = {
@@ -33,7 +32,7 @@ const SendMail = () => {
     }
 
     const auth = getAuth();
-        // @ts-ignore
+    // @ts-ignore
     sendSignInLinkToEmail(auth, Email, actionCodeSettings)
         .then(() => {
             // @ts-ignore
@@ -65,7 +64,7 @@ const SendMail = () => {
             .then((result) => {
                 window.location.href = "/signup_comp"
                 window.localStorage.removeItem('emailForSignIn');
-    })}
+            })}
 
     return(
         <form>
