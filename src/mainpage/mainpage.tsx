@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 /* 「onAuthStateChanged」と「auth」をimport↓ */
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate,Navigate } from "react-router-dom";
+import {useNavigate, Navigate, Link} from "react-router-dom";
 import "./mainpage.css";
+import use from "./user.png";
 
 const Mainpage = () => {
     /* ↓state変数「user」を定義 */
@@ -19,6 +20,7 @@ const Mainpage = () => {
     }, []);
 
     const navigate = useNavigate();
+    const us = window.sessionStorage.getItem('SessionUserID')
 
     /* ↓関数「logout」を定義 */
     const logout = async () => {
@@ -28,8 +30,12 @@ const Mainpage = () => {
 
     return (
             <>
+
+
                         <header className="header2">
-                            <label className="logo2">Preport!{sessionStorage.getItem('UserID')}</label>
+                            <label className="logo2">Preport!{us}</label>
+                           <Link to={'/usercert/'}  className="usericon"><img src={use} alt="user" width="80px" height="80px"/></Link>
+
                         </header>
                         <h1 className="mainfont1">グループ</h1>
 
@@ -54,7 +60,8 @@ const Mainpage = () => {
                             <button className="mainbutton">参加</button>
                         </div>
                         <button onClick={logout}>ログアウト</button>
-                    </>
+            </>
+
     );
 };
 

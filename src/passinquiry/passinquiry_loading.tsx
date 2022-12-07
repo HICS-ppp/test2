@@ -22,9 +22,6 @@ const Passinquiry_loading = () => {
             let aaa = snapshot.val()
             localStorage.setItem('mailaddress', aaa)
         /*    console.log(localStorage.getItem('mailaddress'));*/
-
-
-
         });
     }
     // ５秒待機する処理
@@ -42,7 +39,6 @@ const Passinquiry_loading = () => {
 
         if(dbID1 == "null") {
             window.location.href = '/passerror'
-
         }else{
 
             try {
@@ -65,9 +61,6 @@ const Passinquiry_loading = () => {
 
             }
         }
-
-
-
     }
     pr()
 

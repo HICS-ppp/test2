@@ -16,12 +16,16 @@ import Passinquiry_mail_send from "./passinquiry/passinquiry_mail_send";
 import Passinquiry_loading from "./passinquiry/passinquiry_loading";
 import Passerror from "./passinquiry/passerror";
 import Loginerror from "./login/loginerror";
-
-
+import Usercert from "./usermenu/usercert";
+import Userloading from "./usermenu/user_loading";
+import Usermenu from "./usermenu/usermenu";
+import Usererror from "./usermenu/usererror";
+import Usermail from "./usermenu/usermail";
+import Mailchange from "./usermenu/mailchange";
 
 function App() {
   return (
-    <div className="App">
+      <div className="App">
         <BrowserRouter>
           <Routes>
             <Route path={'/'} element={<Toppage />} />
@@ -39,9 +43,18 @@ function App() {
             <Route path={'/passinquiry_loading'} element={<Passinquiry_loading/>}/>
             <Route path={'/passerror'} element={<Passerror/>}/>
             <Route path={'/loginerror'} element={<Loginerror/>}/>
+            <Route path={'/usercert'} element={<Usercert/>}/>
+            <Route path={'/userloading'} element={<Userloading/>}/>
+            <Route path={'/usermenu'} element={<Usermenu/>}/>
+            <Route path={'/usererror'} element={<Usererror/>}/>
+            <Route path={'/usermail'} element={<Usermail/>}/>
+            <Route path={'/mailchange'} element={<Mailchange/>}/>
+
+
+
           </Routes>
         </BrowserRouter>
-    </div>
+      </div>
   );
 }
 

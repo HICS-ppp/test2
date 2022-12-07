@@ -1,6 +1,7 @@
 import {ref,getDatabase, onValue} from "firebase/database"
 
 const Loginloading = () => {
+
         const userID = localStorage.getItem('loginID');
         const userPass = localStorage.getItem('loginPass');
         //Realtime Databaseから値を取ってくる処理
@@ -42,9 +43,10 @@ const Loginloading = () => {
                 const dbPass1 = localStorage.getItem('UserPass')
                 console.log(dbID1)
                 if (userID == dbID1 && userPass == dbPass1) {
-                    window.sessionStorage.setItem('SessionUserID',String(dbID))
+                    window.sessionStorage.setItem('SessionUserID',String(userID))
                     localStorage.clear()
                     window.location.href = '/mainpage'
+
                 } else {
         /*            console.log('失敗')
                     localStorage.clear()
@@ -54,6 +56,7 @@ const Loginloading = () => {
                 }
             }
             pr()
+
     return(
         <form>
 
