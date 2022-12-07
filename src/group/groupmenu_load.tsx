@@ -31,9 +31,9 @@ const Groupmenu_load = () => {
             // RealtimeDatabaseからグループIDの最大値を持ってくる
             let maxgroupID = Math.max(vvv.groupID)
             // SessionにID + 1　の値をセットしてグループIDにセットする
-            sessionStorage.setItem('GroupID', String(Number(maxgroupID) + 1))
+            sessionStorage.setItem('groupID', String(Number(maxgroupID) + 1))
         })
-        const createGroupID = sessionStorage.getItem('GroupID')
+        const createGroupID = sessionStorage.getItem('groupID')
 
             //RealtimeDatabaseにデータをセットする処理
         set(ref(database, "Groups/" + 'GR' + createGroupID + "/"), {

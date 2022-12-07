@@ -2,6 +2,8 @@ import "./groupmenu.css";
 import React from "react";
 import {Link} from "react-router-dom";
 const groupmenu = () => {
+    const groupName = sessionStorage.getItem('groupName')
+    const groupID = sessionStorage.getItem('groupID')
 return (
     <>
         <>
