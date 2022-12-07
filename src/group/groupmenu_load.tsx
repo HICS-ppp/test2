@@ -25,6 +25,7 @@ const Groupmenu_load = () => {
 
     const Data_check = async () => {
         onChildAdded(serchGroupName,(snapshot => {
+        //　同じグループ名とその作成者名の取得
             let xxx = snapshot.val()
             sessionStorage.setItem('nameCheck',xxx.createName)
             sessionStorage.setItem('userCheck',xxx.createUser)
@@ -59,6 +60,7 @@ const Groupmenu_load = () => {
         const createGroupID = sessionStorage.getItem('groupID')
         const nameCheck = sessionStorage.getItem('nameCheck')
         const userCheck = sessionStorage.getItem('userCheck')
+        // 同じグループ名かつ同じ作成者名のグループだったらエラー処理するIF文
         if (nameCheck != createGroupName || userCheck != userName) {
             //RealtimeDatabaseにデータをセットする処理
             set(ref(database, "Groups/" + 'GR' + createGroupID + "/"), {
@@ -69,6 +71,7 @@ const Groupmenu_load = () => {
             })
             window.location.href = './groupmenu'
         }else{
+            // 使ったSessionクリアしてエラー、メインページに戻る
             sessionStorage.removeItem('nameCheck');sessionStorage.removeItem('userCheck');
             sessionStorage.removeItem('groupName');sessionStorage.removeItem('groupID');
             alert('同じ名前で作成したグループがあるため作成に失敗しました')
