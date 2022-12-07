@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import "./login.css";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 const Login = () => {
             const logE = 'error'
