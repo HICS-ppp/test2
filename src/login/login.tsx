@@ -48,6 +48,7 @@ const Login = () => {
                         <div className="linkdiv">  <p>新規登録は<Link to={`/signup`}>こちら</Link></p></div>
                         {/*<div className="linkdiv"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>*/}
                         <div className="linkdiv"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
+
                 </form>
                     </>
     );
