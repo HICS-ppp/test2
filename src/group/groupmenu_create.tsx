@@ -2,9 +2,10 @@ import React from "react";
 import {ref, getDatabase, startAt,query, orderByChild, onChildAdded, set,equalTo} from "firebase/database"
 import {database} from "../firebase";
 
-const Groupmenu_load = () => {
+const Groupmenu_create = () => {
 
     const db = getDatabase()
+    const userID = sessionStorage.getItem('SessionUserID')
     const serchGroupID = (query(ref(db,'Groups/'),orderByChild('groupID'),startAt(1)))
     const createGroupName = sessionStorage.getItem('groupName')
     const dateObj = new Date()
@@ -18,9 +19,9 @@ const Groupmenu_load = () => {
     //上から順番に処理させる処理
     const pr = async () => {
         await Data_check()
-        await Database_set()
+        await Data_change()
         await timeout()
-        await groupmenu_success()
+        await groupmenu_IF()
     }
 
     const Data_check = async () => {
@@ -32,14 +33,13 @@ const Groupmenu_load = () => {
         }))
     }
 
-    const Database_set = async () => {
+    const Data_change = async () => {
         onChildAdded(serchGroupID, (snapshot) => {
             // スナップショットの値を変換、取り出す処理
             let vvv = snapshot.val()
             console.log(snapshot.key) //値を見るためのテスト
             console.log(vvv.groupID)  //値を見るためのテスト
             console.log(sessionStorage.getItem('groupName')) //値を見るためのテスト
-
             // RealtimeDatabaseからグループIDの最大値を持ってくる
             let maxgroupID = Math.max(vvv.groupID)
             // SessionにID + 1　の値をセットしてグループIDにセットする
@@ -56,18 +56,23 @@ const Groupmenu_load = () => {
         })
     }
     //次の画面へ遷移する処理
-    const groupmenu_success = async () => {
+    const groupmenu_IF = async () => {
         const createGroupID = sessionStorage.getItem('groupID')
         const nameCheck = sessionStorage.getItem('nameCheck')
         const userCheck = sessionStorage.getItem('userCheck')
         // 同じグループ名かつ同じ作成者名のグループだったらエラー処理するIF文
         if (nameCheck != createGroupName || userCheck != userName) {
-            //RealtimeDatabaseにデータをセットする処理
+            //Groups表にデータをセットする
             set(ref(database, "Groups/" + 'GR' + createGroupID + "/"), {
                 createName: createGroupName,
                 createTime: createTime,
                 createUser: userName,
                 groupID: createGroupID
+            })
+            //Groups_Member表にデータをセットする
+            set(ref(database, "Groups_Member/" + 'GR' + createGroupID + "/" + userID + "/"), {
+                joinTime:createTime,
+                role:1
             })
             window.location.href = './groupmenu'
         }else{
@@ -83,9 +88,9 @@ const Groupmenu_load = () => {
 
     return (
     <form>
-        <p>test</p>
+        <p>create-test</p>
     </form>
     )
 }
 
-export default Groupmenu_load
+export default Groupmenu_create;

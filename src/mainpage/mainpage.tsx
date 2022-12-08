@@ -10,10 +10,14 @@ const Mainpage = () => {
         navigate("../login/login");
     }
 
-
     const createGroup = async (e:any) => {
                 e.preventDefault();
-                window.location.href = "../groupmenu_load"
+                window.location.href = "../groupmenu_create"
+    }
+
+    const joinGroup = async (e:any) => {
+                e.preventDefault();
+                window.location.href = "../groupmenu_join"
     }
 
     return (
@@ -25,21 +29,22 @@ const Mainpage = () => {
 
 
                 <form onSubmit={createGroup}>
-                        <h2 className="mainfont2">グループ作成</h2>
-                        <div className="maintext">
-                            <input type="text" name="groupname" className="form" placeholder="グループ名を入力"
+                    <h2 className="mainfont2">グループ作成</h2>
+                    <div className="maintext">
+                        <input type="text" name="groupname" className="form" placeholder="グループ名を入力"
                             onChange={(e) => sessionStorage.setItem('groupName',e.target.value)}
                             required/>
-                            <button className="mainbutton">作成</button>
-                        </div></form>
+                        <button className="mainbutton">作成</button>
+                    </div></form>
 
-
-                        <h2 className="mainfont2">グループ入室</h2>
-                        <div className="maintext">
-                            <input type="text" name="groupid" className="form" placeholder="グループIDを入力"
-                                   required/>
-                            <button className="mainbutton">参加</button>
-                        </div>
+                <form onSubmit={joinGroup}>
+                    <h2 className="mainfont2">グループ入室</h2>
+                    <div className="maintext">
+                        <input type="text" name="groupid" className="form" placeholder="グループIDを入力"
+                               onChange={(e) => sessionStorage.setItem('joinGroupID',e.target.value)}
+                               required/>
+                        <button className="mainbutton">参加</button>
+                    </div></form>
 
 
                         <h1 className="mainfont1">視聴</h1>
