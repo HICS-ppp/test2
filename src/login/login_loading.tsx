@@ -58,7 +58,10 @@ const Loginloading = () => {
     return(
         <form>
 
-            <div className="spinner"></div>
+            <div id="loading-wrapper">
+                <div id="loading-text">LOADING</div>
+                <div id="loading-content"></div>
+            </div>
 
         </form>
     )
