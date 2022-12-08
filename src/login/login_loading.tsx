@@ -65,7 +65,12 @@ const Loginloading = () => {
     pr()
     return (
         <form>
-            <p>test</p>
+
+            <div id="loading-wrapper">
+                <div id="loading-text">LOADING</div>
+                <div id="loading-content"></div>
+            </div>
+
         </form>
     )
 }
