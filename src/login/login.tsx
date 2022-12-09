@@ -16,40 +16,24 @@ const Login = () => {
                 <>
                     <header className="header1"><label className="logo">Preport</label></header>
                     {/* onSubmitを追加↓ */}
-                    < form onSubmit={handleSubmit}>
-                <h1 className="loginpage1">ログインページ</h1>
-                    <div className="udiv1">
 
-                        <label className="userid1">ユーザID</label>
-                        <input className="useridbox1"
-                               name="Userid"
-                               type="text"
-                               placeholder="Userid"
-                               onChange={(e) => localStorage.setItem('loginID',e.target.value)}
-                        />
 
-                        <div className="pdiv1">
-                            <label className="pass1">パスワード</label>
-                            <input className="passbox1"
-                                   name="pass"
-                                   type="password"
-                                   placeholder="pass"
-                                   onChange={(e) => localStorage.setItem('loginPass',e.target.value)}
-                            />
-                        </div>
+                    <div className="body"></div>
+                    <div className="grad"></div>
+                    <div className="header">
+                        <div>Site<span>Random</span></div>
                     </div>
 
-                        <div className="logdiv">
+                    <div className="login">
+                        <input type="text" placeholder="username" name="user" />
+                            <input type="password" placeholder="password" name="password" />
+                                <input type="button" value="Login" />
+                    </div>
 
-                            <button className="log1" >ログイン</button>
 
-                        </div>
-                        {/* ↓リンクを追加 */}
-                        <div className="linkdiv">  <p>新規登録は<Link to={`/signup`}>こちら</Link></p></div>
-                        {/*<div className="linkdiv"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>*/}
-                        <div className="linkdiv"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
 
-                </form>
+
+
                     </>
     );
 };
