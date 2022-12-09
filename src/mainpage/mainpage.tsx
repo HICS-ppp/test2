@@ -29,6 +29,8 @@ const Mainpage = () => {
         navigate("/login");
     }
 
+    const a = "11";
+
     return (
             <>
 
@@ -40,6 +42,7 @@ const Mainpage = () => {
 
                         </header>
                         <h1 className="mainfont1">グループ</h1>
+                <p className="tuuti">{a}</p>
 
 
 
