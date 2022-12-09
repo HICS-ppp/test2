@@ -7,7 +7,7 @@ const Usersert = () => {
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
-        window.location.href = "/userloading"
+        window.location.href = "/user_loading"
     }
 
     return (

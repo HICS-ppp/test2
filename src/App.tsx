@@ -22,6 +22,9 @@ import Usermenu from "./usermenu/usermenu";
 import Usererror from "./usermenu/usererror";
 import Usermail from "./usermenu/usermail";
 import Mailchange from "./usermenu/mailchange";
+import Screendelete from "./usermenu/screendelete";
+import Passresetting from "./usermenu/passresetting";
+import Passre_loading from "./usermenu/passre_loading";
 
 function App() {
   return (
@@ -44,11 +47,15 @@ function App() {
             <Route path={'/passerror'} element={<Passerror/>}/>
             <Route path={'/loginerror'} element={<Loginerror/>}/>
             <Route path={'/usercert'} element={<Usercert/>}/>
-            <Route path={'/userloading'} element={<Userloading/>}/>
+            <Route path={'/user_loading'} element={<Userloading/>}/>
             <Route path={'/usermenu'} element={<Usermenu/>}/>
             <Route path={'/usererror'} element={<Usererror/>}/>
             <Route path={'/usermail'} element={<Usermail/>}/>
             <Route path={'/mailchange'} element={<Mailchange/>}/>
+            <Route path={'/screendelete'} element={<Screendelete/>}/>
+            <Route path={'/passresetting'} element={<Passresetting/>}/>
+            <Route path={'/passre_loading'} element={<Passre_loading/>}/>
+
 
 
 

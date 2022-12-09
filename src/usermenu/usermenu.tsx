@@ -6,8 +6,11 @@ import {getDatabase, ref} from "firebase/database";
 
 const Usermenu = () => {
 
-        const sessionID = sessionStorage.getItem('dbmail')
-        console.log(sessionID)
+        const sessionmail = sessionStorage.getItem('dbmail')
+
+
+
+        console.log(sessionmail)
 
 
     return (
@@ -17,7 +20,7 @@ const Usermenu = () => {
             <input type="text"　
                    className="mailbox"
                    disabled
-            value={String(sessionID)}/>
+            value={String(sessionmail)}/>
 
 
             <div className="maildiv">
@@ -26,7 +29,7 @@ const Usermenu = () => {
 
 
             <p>パスワード</p>
-            <button>パスワード再設定</button>
+           <Link to="/passresetting/"><button>パスワード再設定</button></Link>
 
             <p>所属グループ</p>
 

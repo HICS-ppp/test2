@@ -7,9 +7,11 @@ import {database} from "../firebase";
 
 const Mailchange = () => {
 
-    const newmail = sessionStorage.getItem('a')
-    const userid = localStorage.getItem("userID")
+
+    const newmail = window.localStorage.getItem('a')
+    const userid = window.localStorage.getItem("userID")
     console.log(newmail)
+    console.log(userid)
 
     update(ref( database,"Users/"+userid),{
         mailaddress:newmail,
@@ -19,10 +21,9 @@ const Mailchange = () => {
     return (
         <>
 
-
             <h1> {newmail}</h1>
             <h1>メールアドレスの変更が完了しました</h1>
-           <Link to="/usermenu/"><button>ユーザメニューへ戻る</button></Link>
+           <Link to="/user_loading/"><button>ユーザメニューへ戻る</button></Link>
         </>
     );
 };

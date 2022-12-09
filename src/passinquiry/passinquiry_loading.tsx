@@ -9,7 +9,6 @@ const Passinquiry_loading = () => {
     const dbmailaddress = (ref(db, "Users/" + userID + '/mailaddress'))
 
 
-
     //上から順番に処理させる処理
     const pr = async () => {
         await a()
@@ -45,15 +44,17 @@ const Passinquiry_loading = () => {
                 // 控えurl:'https://www.example.com/finishSignUp?cartId=1234'
                 // ↓firebaseメール認証の定義処理
                 const actionCodeSettings = {
+                    //メール内のリンク
                     url: 'http://localhost:3000/passchange',
                     handleCodeInApp: true,
                 }
                 const auth = getAuth();
                 // @ts-ignore
-                sendSignInLinkToEmail(auth, dbID1, actionCodeSettings)
+                sendSignInLinkToEmail(auth, dbID1, actionCodeSettings,window)
                     .then(() => {
                         // @ts-ignore
                         window.localStorage.setItem('userID', userID);
+                        //メール送信後の画面
                         window.location.href = '/passinquiry_mail_send'
                     })
             } catch (e) {
