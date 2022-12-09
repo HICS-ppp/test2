@@ -6,6 +6,7 @@ import { auth } from "../firebase";
 import {useNavigate, Navigate, Link} from "react-router-dom";
 import "./mainpage.css";
 import use from "./user.png";
+import mail from "./mail2.png";
 
 const Mainpage = () => {
     /* ↓state変数「user」を定義 */
@@ -34,6 +35,7 @@ const Mainpage = () => {
 
                         <header className="header2">
                             <label className="logo2">Preport!{us}</label>
+                            <img src={mail} alt="mail" className="mailicon" width="100px" height="80px"/>
                            <Link to={'/usercert/'}  className="usericon"><img src={use} alt="user" width="80px" height="80px"/></Link>
 
                         </header>
