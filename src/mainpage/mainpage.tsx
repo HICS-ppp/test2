@@ -5,9 +5,10 @@ const Mainpage = () => {
     /* ↓state変数「user」を定義 */
     const navigate = useNavigate();
     /* ↓関数「logout」を定義 */
-    const logout = async () => {
-        sessionStorage.removeItem('SessionUserID')
-        navigate("../login/login");
+    const logout = async (e:any) => {
+        e.preventDefault()
+        sessionStorage.clear()
+        navigate("../login");
     }
 
     const createGroup = async (e:any) => {
@@ -32,7 +33,7 @@ const Mainpage = () => {
                     <h2 className="mainfont2">グループ作成</h2>
                     <div className="maintext">
                         <input type="text" name="groupname" className="form" placeholder="グループ名を入力"
-                            onChange={(e) => sessionStorage.setItem('groupName',e.target.value)}
+                            onChange={(e) => sessionStorage.setItem('createGroupName',e.target.value)}
                             required/>
                         <button className="mainbutton">作成</button>
                     </div></form>

@@ -9,6 +9,8 @@ const Groupmenu_join = () => {
     const joinGroupID = sessionStorage.getItem('joinGroupID');
     const searchGroupID = (ref(db, "Groups_Member/" + joinGroupID))
     const searchGroupUserID = (ref(db, "Groups_Member/" + joinGroupID + '/' + userID + '/userID'))
+    const searchGroupName = (ref(db,"Groups/" + joinGroupID + '/GroupName'))
+
 
     const pr = async () => {
         await Data_change()
@@ -19,6 +21,10 @@ const Groupmenu_join = () => {
     }
     // 該当グループがあったら、trueなかったらfalse
     const Data_change = async () => {
+        onValue(searchGroupName,(snapshot => {
+            const name = snapshot.val()
+            sessionStorage.setItem('groupName',name)
+        }))
         onValue(searchGroupID, (snapshot) => {
             let aaa = snapshot.val()
             console.log(aaa)
@@ -49,6 +55,7 @@ const Groupmenu_join = () => {
     const group_login = async () => {
         const GroupUserID = sessionStorage.getItem('GroupMyUserID')
         if(GroupUserID == userID) {
+            sessionStorage.setItem('groupID',String(joinGroupID))
             window.location.href = './groupmenu'
         }
     }
@@ -70,10 +77,12 @@ const Groupmenu_join = () => {
             set(ref(database, "Groups_Member/" + joinGroupID +"/joinRequest/" + userName + "/"), {
                 status:false
             })
+            sessionStorage.removeItem('groupName')
             alert(joinGroupID + 'に参加リクエストを送りました')
             window.location.href = '../mainpage'
         }else{
             alert('該当のグループは存在しません')
+            sessionStorage.removeItem('groupName')
             window.location.href = '../mainpage'
         }
     }

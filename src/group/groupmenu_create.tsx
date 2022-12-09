@@ -7,7 +7,7 @@ const Groupmenu_create = () => {
     const db = getDatabase()
     const userID = sessionStorage.getItem('SessionUserID')
     const serchGroupID = (query(ref(db,'Groups/'),orderByChild('groupID'),startAt(1)))
-    const createGroupName = sessionStorage.getItem('groupName')
+    const createGroupName = sessionStorage.getItem('createGroupName')
     const dateObj = new Date()
     // 時間取得
     const createTime = String(dateObj.getFullYear()  +'/'+ (dateObj.getMonth()+1)+'/'
@@ -39,11 +39,11 @@ const Groupmenu_create = () => {
             let vvv = snapshot.val()
             console.log(snapshot.key) //値を見るためのテスト
             console.log(vvv.groupID)  //値を見るためのテスト
-            console.log(sessionStorage.getItem('groupName')) //値を見るためのテスト
+            console.log(sessionStorage.getItem('createGroupName')) //値を見るためのテスト
             // RealtimeDatabaseからグループIDの最大値を持ってくる
             let maxgroupID = Math.max(vvv.groupID)
             // SessionにID + 1　の値をセットしてグループIDにセットする
-            sessionStorage.setItem('groupID', String(Number(maxgroupID) + 1))
+            sessionStorage.setItem('createGroupID', String(Number(maxgroupID) + 1))
         })
     }
 
@@ -57,14 +57,14 @@ const Groupmenu_create = () => {
     }
     //次の画面へ遷移する処理
     const groupmenu_IF = async () => {
-        const createGroupID = sessionStorage.getItem('groupID')
+        const createGroupID = sessionStorage.getItem('createGroupID')
         const nameCheck = sessionStorage.getItem('nameCheck')
         const userCheck = sessionStorage.getItem('userCheck')
         // 同じグループ名かつ同じ作成者名のグループだったらエラー処理するIF文
         if (nameCheck != createGroupName || userCheck != userName) {
             //Groups表にデータをセットする
             set(ref(database, "Groups/" + 'GR' + createGroupID + "/"), {
-                createName: createGroupName,
+                GroupName: createGroupName,
                 createTime: createTime,
                 createUser: userName,
                 groupID: createGroupID
@@ -74,6 +74,10 @@ const Groupmenu_create = () => {
                 joinTime:createTime,
                 role:1
             })
+            // Group情報をセット
+            sessionStorage.setItem('groupID','GR' + createGroupID)
+            sessionStorage.setItem('groupName',String(createGroupName))
+
             window.location.href = './groupmenu'
         }else{
             // 使ったSessionクリアしてエラー、メインページに戻る
