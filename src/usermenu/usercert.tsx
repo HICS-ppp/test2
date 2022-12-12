@@ -15,9 +15,10 @@ const Usersert = () => {
             <form onSubmit={handleSubmit}>
 
             <h1>再度認証を行ってください</h1>
-            <div className="passbox2">
+            <div className="passbox2div">
                 <input type="text"
                        placeholder="パスワード"
+                       className="passbox2"
                        onChange={(e) => sessionStorage.setItem('pass1',e.target.value)}
                 />
             </div>
