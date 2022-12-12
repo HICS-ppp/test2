@@ -198,6 +198,7 @@ html, body{
     background: transparent;
     text-transform: uppercase;
     font-weight: 900;
+    top: -400px;
 }
 
 .btn:before {
@@ -242,14 +243,5 @@ html, body{
     height: 100%;
     transform: translateX(0);
     transition: .3s transform linear, .3s height linear .5s;
-}
-
-button {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background: transparent;
 }
 
