@@ -1,247 +1,64 @@
-/*.btn:link,*/
-/*.btn:visited {*/
-/*    text-transform: uppercase;*/
-/*    text-decoration: none;*/
-/*    color: rgb(27, 27, 27);*/
-/*    padding: 10px 30px;*/
-/*    border: 1px solid;*/
-/*    border-radius: 1000px;*/
-/*    display: inline-block;*/
-/*    transition: all .2s;*/
-/*    position: relative;*/
-/*}*/
 
-/*.btn:hover {*/
-/*    transform: translateY(-5px);*/
-/*    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);*/
-/*}*/
+.body1{
 
-/*.btn:active {*/
-/*    transform: translateY(-3px);*/
-/*}*/
-
-/*.btn::after {*/
-/*    content: "";*/
-/*    display: inline-block;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    border-radius: 100px;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    position: absolute;*/
-/*    z-index: -1;*/
-/*    transition: all .3s;*/
-/*}*/
-
-/*.btn:hover::after {*/
-/*    background-color: rgb(0, 238, 255);*/
-/*    transform: scaleX(1.4) scaleY(1.5);*/
-/*    opacity: 0;*/
-/*}*/
-
-html, body{
-    overflow: hidden;
-    height: auto;
-    width: auto;
-}
-
-.body1 {
-    height: auto; /*変更前970px*/
-    width: auto;
-    background-image: linear-gradient(90deg, rgba(29, 163, 137, 1) 42%, rgba(247, 209, 55, 1) 90%);
-    /*background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);*/
-    /*background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);*/
-    /*background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);*/
-    background-size: auto;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-    /*min-height: calc(100vh - 2rem);*/
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-evenly;
-    overflow: hidden;
-    position: relative;
-}
-
-.body1::before,
-.body1::after {
-    content: "";
-    width: 70vmax;
-    height: 70vmax;
-    background: rgba(255, 255, 255, 0.07);
-    left: -20vmin;
-    top: -20vmin;
-    animation: morph 15s linear infinite alternate, spin 20s linear infinite;
-    z-index: 1;
-    will-change: border-radius, transform;
-    transform-origin: 55% 55%;
-    pointer-events: none;
-}
-
-.body1::after {
-    width: 70vmin;
-    height: 70vmin;
-    left: auto;
-    right: -10vmin;
-    top: auto;
-    bottom: 0;
-    animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
-    transform-origin: 20% 20%;
-}
-
-@-webkit-keyframes Gradient {
-
-    0% {
-        background-position: 0 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0 50%
-    }
-}
-
-@-moz-keyframes Gradient {
-    0% {
-        background-position: 0 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0 50%
-    }
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0 50%
-    }
-}
-
-@keyframes morph {
-    0% {
-        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
-    100% {
-        border-radius: 40% 60%; }
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(1turn);
-    }
-}
-.st0{display:none;}
-.st1{display:inline;}
-.st2{opacity:0.29;}
-.st3{fill:#FFFFFF;}
-.st4{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
-.st5{clip-path:url(#SVGID_4_);}
-.st6{clip-path:url(#SVGID_6_);}
-.st7{clip-path:url(#SVGID_8_);}
-.st8{clip-path:url(#SVGID_10_);}
-.st9{fill:none;}
-.st10{clip-path:url(#SVGID_12_);}
-.st11{opacity:0.7;}
-.st12{clip-path:url(#SVGID_14_);}
-.st13{opacity:0.2;}
-.st14{clip-path:url(#SVGID_16_);}
-.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
-
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
-
-
-
-/*ログインボタンレイアウト*/
-/*.logLog{*/
-/*    font-size: 60px;*/
-/*    background-color: #4da6ff;*/
-/*    color: #FFFFFF;*/
-/*    border: none;*/
-/*    border-radius: 10px;*/
-
-/*}*/
-
-.topall{
-    text-align    : center;
-    margin-bottom: 20%;
-
-}
-
-.sub1 {
-    font-size: 30px;
-}
-
-.btn {
-    font: italic 140px "Fira Sans", serif;
-    /*font-size: 250px;*/
-    margin-bottom: auto;
-    width: auto;
-    height: auto;
-    float: left;
-    transition: .5s linear;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    padding: 15px;
-    text-align: center;
-    /*margin: 0 5px;*/
-    background: transparent;
-    text-transform: uppercase;
-    font-weight: 900;
-    top: -400px;
-}
-
-.btn:before {
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    width: 100%;
-    border-bottom: 4px solid transparent;
-    border-left: 4px solid transparent;
-    box-sizing: border-box;
-    transform: translateX(100%);
-}
-
-.btn:after {
-    position: absolute;
-    content: '';
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 4px;
-    border-top: 4px solid transparent;
-    border-right: 4px solid transparent;
-    box-sizing: border-box;
-    transform: translateX(-100%);
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(183deg, rgba(61, 173, 72, 1), rgba(4, 241, 255, 1) 88%);
+    text-align: center;
 }
 
-.btn:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+.sub1 {
+    font-size: 40px;
+    text-align: center;
+    position: relative;top:200px;
+}
+/* ボタン本体 */
+.btn {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    width: 1000px; /* 横幅 */
+    height: 300px; /* 縦幅 */
+    line-height: 60px; /* 行の高さ(heightと同じ値にする) */
+    text-decoration: none; /* aタグのアンダーラインを消す */
+    overflow: hidden; /* はみ出し部分を隠す */
+    cursor: pointer; /* カーソルをポインターにする */
+    top:100px
 }
 
-.btn:hover:before {
-    border-color: #006600;
-    height: 100%;
-    transform: translateX(0);
-    transition: .3s transform linear, .3s height linear .3s;
+/* ボタンのテキスト */
+.btn__text {
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 150%; /* 縦幅をボタンと同じにする */
+    width: 100%; /* 横幅をボタンと同じにする */
+    color: black; /* 文字色 */
+    font-size: 200px; /* 文字サイズ */
+    font-weight: bold; /* 文字の太さ */
+    text-align: center; /* テキストを中央揃え */
+    transition: all 0.3s; /* アニメーション実行時間 */
 }
 
-.btn:hover:after {
-    border-color: #007700	;
-    height: 100%;
-    transform: translateX(0);
-    transition: .3s transform linear, .3s height linear .5s;
+/* ボタンのテキスト(デフォルトのテキスト) */
+.btn__text:nth-child(1) {
+    top: 30%;
 }
 
+/* ボタンのテキスト(隠れているテキスト) */
+.btn__text:nth-child(2) {
+    top: -150%;
+}
+
+/* ボタンホバーアクション */
+.btn:hover .btn__text:nth-child(1) {
+    top: 150%;
+}
+
+.btn:hover .btn__text:nth-child(2) {
+    top: 40%;
+}
