@@ -6,10 +6,10 @@ const Groupmenu_join = () => {
 
     const db = getDatabase()
     const userID = sessionStorage.getItem('SessionUserID')
-    const joinGroupID = sessionStorage.getItem('joinGroupID');
+    const joinGroupID = sessionStorage.getItem('joinGroupID')
     const searchGroupID = (ref(db, "Groups_Member/" + joinGroupID))
-    const searchGroupUserID = (ref(db, "Groups_Member/" + joinGroupID + '/' + userID + '/userID'))
-    const searchGroupName = (ref(db,"Groups/" + joinGroupID + '/GroupName'))
+    const searchGroupUserID = (ref(db, "Groups_Member/" + joinGroupID + '/' + userID))
+    const searchGroupName = (ref(db,"Groups/" + joinGroupID + '/groupName'))
 
 
     const pr = async () => {
@@ -37,8 +37,9 @@ const Groupmenu_join = () => {
             }
         })
         onValue(searchGroupUserID,(snapshot) => {
-            let xxx = snapshot.val()
-            sessionStorage.setItem('GroupMyUserID',xxx)
+            let xxx = snapshot.key
+            console.log(xxx)
+            sessionStorage.setItem('GroupMyUserID',String(xxx))
         })
     }
 
@@ -54,7 +55,9 @@ const Groupmenu_join = () => {
     // 既に参加している場合、ログインを行う
     const group_login = async () => {
         const GroupUserID = sessionStorage.getItem('GroupMyUserID')
+        console.log(GroupUserID)
         if(GroupUserID == userID) {
+            console.log('login成功')
             sessionStorage.setItem('groupID',String(joinGroupID))
             window.location.href = './groupmenu'
         }
@@ -71,10 +74,9 @@ const Groupmenu_join = () => {
     // 参加したいグループにリクエストを送る
     const groupJoin_IF = async () => {
         const IDCheck = sessionStorage.getItem('GroupID_check')
-        const userName = sessionStorage.getItem('SessionUserName')
         if(IDCheck == 'true') {
             //Groups_Member表にデータをセットする
-            set(ref(database, "Groups_Member/" + joinGroupID +"/joinRequest/" + userName + "/"), {
+            set(ref(database, "Groups_Member/" + joinGroupID +"/joinRequest/" + userID + "/"), {
                 status:false
             })
             sessionStorage.removeItem('groupName')

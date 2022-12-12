@@ -64,7 +64,7 @@ const Groupmenu_create = () => {
         if (nameCheck != createGroupName || userCheck != userName) {
             //Groups表にデータをセットする
             set(ref(database, "Groups/" + 'GR' + createGroupID + "/"), {
-                GroupName: createGroupName,
+                groupName: createGroupName,
                 createTime: createTime,
                 createUser: userName,
                 groupID: createGroupID
