@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
 import "./usermenu.css";
-import {getDatabase, ref} from "firebase/database";
+import {getDatabase, onValue, ref} from "firebase/database";
 
 
 const Usermenu = () => {
 
+
         const sessionmail = sessionStorage.getItem('dbmail')
-
-
-
         console.log(sessionmail)
 
 

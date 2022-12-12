@@ -37,15 +37,10 @@ const Usermail = () => {
                     .then(() => {
                         window.localStorage.setItem('a',mail1)
                         window.localStorage.setItem('userID',String(us))
-                        window.location.href='/screendelete'
+                        window.location.href='/user_loading'
                     })
             }
         }
-
-
-
-
-
 
 /*        if(mail1!==mail2){
             alert("メールアドレスが一致していません")

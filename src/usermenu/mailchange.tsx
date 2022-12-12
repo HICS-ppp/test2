@@ -23,7 +23,8 @@ const Mailchange = () => {
 
             <h1> {newmail}</h1>
             <h1>メールアドレスの変更が完了しました</h1>
-           <Link to="/user_loading/"><button>ユーザメニューへ戻る</button></Link>
+            <p>このタブは閉じてください</p>
+           {/*<Link to="/user_loading/"><button>ユーザメニューへ戻る</button></Link>*/}
         </>
     );
 };

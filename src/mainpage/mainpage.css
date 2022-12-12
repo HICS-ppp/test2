@@ -3,6 +3,7 @@
     height: 100px;
     background-color: #337079;
     display: flex;
+    position: relative;
 }
 .logo2{
     font-size: 50px;
@@ -12,15 +13,19 @@
 }
 .mailicon{
     margin-left: 80%;
+
 }
 
 .tuuti{
     background-color: red;
     border-radius: 10px;
     width: 20px;
+    height: 20px;
     color: white;
     text-align: center;
-
+    margin-top: 50px;
+    position: absolute;
+    margin-left: 88%;
 }
 
 

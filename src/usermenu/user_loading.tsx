@@ -14,6 +14,8 @@ const Userloading = () => {
     const dbpass = (ref(db, "Users/" + sessionID + '/pass'))
     const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
 
+    console.log(sessionID)
+
 
     const pr = async () => {
         await a()
@@ -34,9 +36,6 @@ const Userloading = () => {
             sessionStorage.setItem('dbmail',aaa)
             console.log(dbmailaddress)
         })
-
-
-
     }
 
     const b = async () => {
@@ -46,7 +45,6 @@ const Userloading = () => {
             }, 3000)
         })
     }
-
 
     const c = async () => {
         const pass1 = sessionStorage.getItem('pass1')
@@ -58,7 +56,6 @@ const Userloading = () => {
         }else{
             window.location.href='usererror'
         }
-
         }
 
     pr()

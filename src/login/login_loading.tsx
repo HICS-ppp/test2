@@ -8,6 +8,7 @@ const Loginloading = () => {
         const db = getDatabase()
         const dbID = (ref(db, "Users/" + userID + '/userID'))
         const dbpass = (ref(db, "Users/" + userID + '/pass'))
+    const tuuti = (ref(db, "Users/"))
 
             //上から順番に処理させる処理
                 const pr = async () => {
