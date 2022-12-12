@@ -1,62 +1,11 @@
-/*.btn:link,*/
-/*.btn:visited {*/
-/*    text-transform: uppercase;*/
-/*    text-decoration: none;*/
-/*    color: rgb(27, 27, 27);*/
-/*    padding: 10px 30px;*/
-/*    border: 1px solid;*/
-/*    border-radius: 1000px;*/
-/*    display: inline-block;*/
-/*    transition: all .2s;*/
-/*    position: relative;*/
-/*}*/
-
-/*.btn:hover {*/
-/*    transform: translateY(-5px);*/
-/*    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);*/
-/*}*/
-
-/*.btn:active {*/
-/*    transform: translateY(-3px);*/
-/*}*/
-
-/*.btn::after {*/
-/*    content: "";*/
-/*    display: inline-block;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    border-radius: 100px;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    position: absolute;*/
-/*    z-index: -1;*/
-/*    transition: all .3s;*/
-/*}*/
-
-/*.btn:hover::after {*/
-/*    background-color: rgb(0, 238, 255);*/
-/*    transform: scaleX(1.4) scaleY(1.5);*/
-/*    opacity: 0;*/
-/*}*/
-
-html, body{
-    overflow: hidden;
-    height: auto;
-    width: auto;
-}
-
 .body1 {
-    height: auto; /*変更前970px*/
-    width: auto;
+    height: 750px; /*変更前970px*/
+    width: 1500px;
     background-image: linear-gradient(90deg, rgba(29, 163, 137, 1) 42%, rgba(247, 209, 55, 1) 90%);
-    /*background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);*/
-    /*background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);*/
-    /*background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);*/
     background-size: auto;
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
-    /*min-height: calc(100vh - 2rem);*/
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -161,29 +110,8 @@ html, body{
 
 
 
-/*ログインボタンレイアウト*/
-/*.logLog{*/
-/*    font-size: 60px;*/
-/*    background-color: #4da6ff;*/
-/*    color: #FFFFFF;*/
-/*    border: none;*/
-/*    border-radius: 10px;*/
-
-/*}*/
-
-.topall{
-    text-align    : center;
-    margin-bottom: 20%;
-
-}
-
-.sub1 {
-    font-size: 30px;
-}
-
 .btn {
     font: italic 140px "Fira Sans", serif;
-    /*font-size: 250px;*/
     margin-bottom: auto;
     width: auto;
     height: auto;
@@ -194,10 +122,11 @@ html, body{
     overflow: hidden;
     padding: 15px;
     text-align: center;
-    /*margin: 0 5px;*/
     background: transparent;
     text-transform: uppercase;
     font-weight: 900;
+    margin-left: 25%;
+    margin-top: -300px;
 }
 
 .btn:before {
@@ -252,4 +181,13 @@ button {
     border: none;
     background: transparent;
 }
+
+.btndiv{
+    text-align: center;
+}
+
+.sub1div{
+    text-align: center;
+}
+
 
