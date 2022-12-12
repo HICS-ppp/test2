@@ -39,13 +39,20 @@
 /*    opacity: 0;*/
 /*}*/
 
+html, body{
+    overflow: hidden;
+    height: auto;
+    width: auto;
+}
+
 .body1 {
-    height: 970px;
+    height: auto; /*変更前970px*/
+    width: auto;
     background-image: linear-gradient(90deg, rgba(29, 163, 137, 1) 42%, rgba(247, 209, 55, 1) 90%);
     /*background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);*/
     /*background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);*/
     /*background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);*/
-    background-size: 400% 400%;
+    background-size: auto;
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
@@ -63,7 +70,6 @@
     content: "";
     width: 70vmax;
     height: 70vmax;
-    position: absolute;
     background: rgba(255, 255, 255, 0.07);
     left: -20vmin;
     top: -20vmin;
@@ -86,6 +92,7 @@
 }
 
 @-webkit-keyframes Gradient {
+
     0% {
         background-position: 0 50%
     }
@@ -153,13 +160,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 
-.pre1{
-    font: italic 250px "Fira Sans", serif;
-    /*font-size: 250px;*/
-    text-align: center;
-    margin-bottom: auto;
 
-}
 /*ログインボタンレイアウト*/
 /*.logLog{*/
 /*    font-size: 60px;*/
@@ -172,12 +173,19 @@
 
 .topall{
     text-align    : center;
-    margin-bottom: 6%;
+    margin-bottom: 20%;
 
 }
 
+.sub1 {
+    font-size: 30px;
+}
+
 .btn {
-    width: 140px;
+    font: italic 140px "Fira Sans", serif;
+    /*font-size: 250px;*/
+    margin-bottom: auto;
+    width: auto;
     height: auto;
     float: left;
     transition: .5s linear;
@@ -186,7 +194,7 @@
     overflow: hidden;
     padding: 15px;
     text-align: center;
-    margin: 0 5px;
+    /*margin: 0 5px;*/
     background: transparent;
     text-transform: uppercase;
     font-weight: 900;
@@ -244,3 +252,4 @@ button {
     border: none;
     background: transparent;
 }
+
