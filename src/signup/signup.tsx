@@ -34,7 +34,7 @@ const Register = () => {
     return (
 
         <><>
-            <h1 className="userh1">ユーザ登録</h1>
+            <h1>ユーザ登録</h1>
             <form onSubmit = {handleSubmit}>
                 <div className="sum">
                     <label　className="userinput">ユーザID</label>
@@ -53,7 +53,7 @@ const Register = () => {
                                 name="email"
                                 type="email"
                                 placeholder="email"
-                           required/>
+                    required/>
                 </div>
                 <div className="sum">
                     <label className="userinput">ユーザ名</label>
@@ -62,7 +62,7 @@ const Register = () => {
                                 name="username"
                                 type="text"
                                 placeholder="username"
-                           required/>
+                    required/>
                 </div>
                 <div className="sum">
                     <label className="userinput">パスワード</label>
@@ -72,7 +72,7 @@ const Register = () => {
                                 name="pass"
                                 type="password"
                                 placeholder="pass"
-                            required/>
+                    required/>
                 </div>
                 <div className="sum">
                     <label className="userinput">再パスワード</label>
@@ -81,7 +81,7 @@ const Register = () => {
                                 name="pass2"
                                 type="password"
                                 placeholder="pass2"
-                           required/>
+                    required/>
                 </div>
                 <div className="sum">
                     <label className="userinput">年齢</label>
@@ -90,7 +90,7 @@ const Register = () => {
                                 name="age"
                                 type="number"
                                 min="0" max="100"
-                           required/>
+                    required/>
                 </div>
                 <div className="sum">
                     <label className="userinput">性別</label>

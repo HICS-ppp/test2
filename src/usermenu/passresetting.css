@@ -1,0 +1,56 @@
+.passre1div{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.passre2div{
+    margin-top: 40px;
+
+    text-align: center;
+
+}
+
+
+.passre1{
+    text-align: center;
+    width: 600px;
+    font-size: 30px;
+}
+
+.passre2{
+    width: 600px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.passrebutton{
+    font-size: 40px;
+    background-color: #4da6ff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+}
+
+.cancelbutton2{
+    font-size: 40px;
+    background-color: red;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.buttondiv6{
+    text-align: center;
+    margin-top: 40px;
+
+}
+
+.passrebuttondiv{
+    display: inline;
+
+}
+.cancelbuttondiv{
+    margin-left: 40px;
+    display: inline;
+}

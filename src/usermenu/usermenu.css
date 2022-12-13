@@ -1,0 +1,45 @@
+
+.userp{
+    margin-left: 30%;
+    font-size: 20px;
+}
+
+.mailbox{
+    width: 500px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.mailboxdiv{
+    text-align: center;
+}
+
+.maildiv1{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.mailbutton1{
+
+    color         : #ffffff;
+    background    :   blue;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+}
+.table1{
+    text-align: center;
+    border: 1px solid #222;
+}
+th{
+    border: 1px solid #222;
+}
+
+td{
+    border: 1px solid #222;
+}
+
+.table1div{
+    text-align: center;
+}
