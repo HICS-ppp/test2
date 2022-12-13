@@ -1,4 +1,4 @@
-import {ref,getDatabase, onValue} from "firebase/database"
+import {ref,getDatabase, onValue,get} from "firebase/database"
 
 const Loginloading = () => {
 
@@ -8,9 +8,20 @@ const Loginloading = () => {
         const db = getDatabase()
         const dbID = (ref(db, "Users/" + userID + '/userID'))
         const dbpass = (ref(db, "Users/" + userID + '/pass'))
-    const tuuti = (ref(db, "Users/"))
 
-            //上から順番に処理させる処理
+        /*const tuuti = (ref(db, "Users/"))*/
+
+/*
+   const arry = new Array;
+
+
+
+    arry.push(1);
+
+    console.log( arry.length );
+*/
+
+    //上から順番に処理させる処理
                 const pr = async () => {
                     await a()
                     await b()
@@ -45,6 +56,7 @@ const Loginloading = () => {
                 console.log(dbID1)
                 if (userID == dbID1 && userPass == dbPass1) {
                     window.sessionStorage.setItem('SessionUserID',String(userID))
+                    window.localStorage.setItem('localID',String(userID))
                     localStorage.clear()
                     window.location.href = '/mainpage'
 

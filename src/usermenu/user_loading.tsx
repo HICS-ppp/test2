@@ -8,14 +8,14 @@ import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
 
 const Userloading = () => {
 
+
     const sessionID = window.sessionStorage.getItem('SessionUserID')
     //Realtime Databaseから値を取ってくる処理
     const db = getDatabase()
     const dbpass = (ref(db, "Users/" + sessionID + '/pass'))
-    const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
+   const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
 
     console.log(sessionID)
-
 
     const pr = async () => {
         await a()
@@ -30,10 +30,9 @@ const Userloading = () => {
             console.log(sessionID)
         })
 
-        onValue(dbmailaddress, (snapshot) => {
+       onValue(dbmailaddress, (snapshot) => {
             let aaa = snapshot.val()
             sessionStorage.setItem('dbmail', aaa)
-            sessionStorage.setItem('dbmail',aaa)
             console.log(dbmailaddress)
         })
     }
@@ -51,14 +50,18 @@ const Userloading = () => {
         const pass2 = sessionStorage.getItem('pass2')
         console.log(sessionStorage.getItem('pass1'))
         console.log(sessionStorage.getItem('pass2'))
+
         if(pass1==pass2){
             window.location.href = 'usermenu'
         }else{
             window.location.href='usererror'
         }
-        }
+    }
 
     pr()
+
+
+
 
     return (
         <>

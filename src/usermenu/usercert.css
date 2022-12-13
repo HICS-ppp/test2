@@ -4,4 +4,43 @@
     font-size: 30px;
 text-align: center;
 }
+.loginbutton2{
+    font-size: 20px;
+    background-color: #4da6ff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+
+}
+.cancelbutton{
+    font-size: 20px;
+    background-color: red;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+
+}
+
+
+
+.passbox2div{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.buttondiv{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.buttondiv1{
+    display: inline;
+    margin-right: 30px;
+
+}
+
+.buttondiv2{
+    display: inline;
+}
+
 

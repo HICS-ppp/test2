@@ -47,7 +47,6 @@ const Mainpage = () => {
                             <button className="mainbutton">作成</button>
                         </div>
 
-
                         <h2 className="mainfont2">グループ入室</h2>
                         <div className="maintext">
                             <input type="text" name="groupid" className="form" placeholder="グループIDを入力"/>

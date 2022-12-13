@@ -10,6 +10,8 @@ const Usersert = () => {
         window.location.href = "/user_loading"
     }
 
+
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -23,8 +25,19 @@ const Usersert = () => {
                 />
             </div>
 
-            <button className="loginbutton">ログイン</button>
-            <Link to={'/mainpage/'} ><button className="loginbutton">キャンセル</button></Link>
+                <div className="buttondiv">
+<div className="buttondiv1">
+
+            <button className="loginbutton2">ログイン</button>
+</div>
+                    <div className="buttondiv2">
+
+
+            <Link to={'/mainpage/'} ><button className="cancelbutton">キャンセル</button></Link>
+                    </div>
+                </div>
+
+
 </form>
         </>
     );

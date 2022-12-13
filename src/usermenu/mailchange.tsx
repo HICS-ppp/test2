@@ -8,8 +8,8 @@ import {database} from "../firebase";
 const Mailchange = () => {
 
 
-    const newmail = window.localStorage.getItem('a')
-    const userid = window.localStorage.getItem("userID")
+    const newmail = window.localStorage.getItem('newmailaddress')
+    const userid = window.localStorage.getItem("userid")
     console.log(newmail)
     console.log(userid)
 

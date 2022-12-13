@@ -37,7 +37,6 @@ const Passresetting = () => {
                        placeholder="新しいパスワードを入力"
                        onChange={(e:any) => setPass(e.target.value)}
                        required
-
                 />
 
             </div>
@@ -50,10 +49,22 @@ const Passresetting = () => {
             />
             </div>
 
-                <button className="passrebutton">変更</button>
-            {/*<Link to="/passre_loading"><button className="passrebutton">変更</button></Link>*/}
-            </form>
+          <div className="buttondiv6">
 
+
+<div className="passrebuttondiv">
+
+
+       <button className="passrebutton">変更</button>
+</div>
+
+<div className="cancelbuttondiv">
+
+
+            <Link to="/usermenu"><button className="cancelbutton2">キャンセル</button></Link>
+</div>
+          </div>
+            </form>
         </>
     );
 };

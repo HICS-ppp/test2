@@ -3,6 +3,8 @@ import {Link} from "react-router-dom"
 import "./usermail.css";
 import {getAuth, sendSignInLinkToEmail} from "firebase/auth";
 import Screendelete from "./screendelete";
+import {ref, set} from "firebase/database";
+import {database} from "../firebase";
 
 const Usermail = () => {
 
@@ -26,9 +28,14 @@ const Usermail = () => {
             }else{
                 console.log(mail1)
 
+                set(ref(database,"Change/"+us+"/"),{
+                    userID:us,
+                    newmailaddress:mail1,});
+
+
                 const actionCodeSettings = {
                     //メール内のリンク
-                    url: 'http://localhost:3000/mailchange',
+                    url: 'http://localhost:3000/loginuser',
                     handleCodeInApp: true,
                 }
                 const auth = getAuth();
@@ -37,10 +44,13 @@ const Usermail = () => {
                     .then(() => {
                         window.localStorage.setItem('a',mail1)
                         window.localStorage.setItem('userID',String(us))
-                        window.location.href='/user_loading'
+                        window.location.href='/usermenu'
                     })
             }
         }
+
+
+
 
 /*        if(mail1!==mail2){
             alert("メールアドレスが一致していません")
@@ -71,11 +81,13 @@ const Usermail = () => {
 
     return (
         <>
+{/*
             <h1>{us}</h1>
+*/}
 
             <form onSubmit={mail}>
                 <div className="pdiv2">
-                    <p>現在の登録メールアドレス</p>
+                    <p className="usermailp">現在の登録メールアドレス</p>
 
                 </div>
 
@@ -104,8 +116,22 @@ const Usermail = () => {
                     />
                 </div>
 
-                <button>変更</button>
-                <Link to={'/usermenu/'} ><button>キャンセル</button></Link>
+
+
+                <div className="buttondiv3">
+
+
+                <div className="buttondiv4">
+                    <button className="changebutton">変更</button>
+
+                </div>
+                    <div className="buttondiv5">
+                        <Link to={'/usermenu/'} ><button className="cancelbutton1">キャンセル</button></Link>
+                    </div>
+
+                </div>
+
+
 
             </form>
         </>

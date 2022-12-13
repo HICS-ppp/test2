@@ -25,6 +25,8 @@ import Mailchange from "./usermenu/mailchange";
 import Screendelete from "./usermenu/screendelete";
 import Passresetting from "./usermenu/passresetting";
 import Passre_loading from "./usermenu/passre_loading";
+import Login_user from "./usermenu/login_user";
+import Loginuser_loading from "./usermenu/loginuser_loading";
 
 function App() {
   return (
@@ -55,6 +57,8 @@ function App() {
             <Route path={'/screendelete'} element={<Screendelete/>}/>
             <Route path={'/passresetting'} element={<Passresetting/>}/>
             <Route path={'/passre_loading'} element={<Passre_loading/>}/>
+            <Route path={'/loginuser'} element={<Login_user/>}/>
+            <Route path={'/loginuser_loading'} element={<Loginuser_loading/>}/>
 
 
 

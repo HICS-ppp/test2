@@ -6,30 +6,70 @@ import {getDatabase, onValue, ref} from "firebase/database";
 
 const Usermenu = () => {
 
+    const sessionID = window.sessionStorage.getItem('SessionUserID')
+    //Realtime Databaseから値を取ってくる処理
 
-        const sessionmail = sessionStorage.getItem('dbmail')
-        console.log(sessionmail)
+    console.log(sessionID)
+    console.log(sessionStorage.getItem('dbmail'))
+
+
+
+    const db = getDatabase()
+    const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
+    console.log(dbmailaddress)
+
+    //取ってきた値をsnapshotから変換する処理
+        onValue(dbmailaddress, (snapshot) => {
+            let aaa = snapshot.val()
+            sessionStorage.setItem('dbmail', aaa)
+        })
+
+
+
+    const sessionmail = String(sessionStorage.getItem('dbmail'))
+
+    console.log(sessionmail)
+   /* const user = window.sessionStorage.getItem('SessionUserID')*/
 
 
     return (
         <>
-            <h1>ユーザ情報</h1>
-            <p>登録メールアドレス</p>
+
+
+
+            <div className="userdiv">
+
+
+            <h1 className="userh1">ユーザ情報</h1>
+
+            </div>
+            <p className="userp">登録メールアドレス</p>
+            <div className="mailboxdiv">
+
+
             <input type="text"　
                    className="mailbox"
                    disabled
-            value={String(sessionmail)}/>
-
-
-            <div className="maildiv">
-           <Link to='/usermail/'><button>メールアドレス再設定</button></Link>
+                 value= {sessionmail}
+                />
             </div>
 
 
-            <p>パスワード</p>
-           <Link to="/passresetting/"><button>パスワード再設定</button></Link>
+            <div className="maildiv1">
+           <Link to='/usermail/'><button className="mailbutton1">メールアドレス再設定</button></Link>
+            </div>
 
-            <p>所属グループ</p>
+            <p className="userp">パスワード</p>
+            <div className="maildiv1">
+           <Link to="/passresetting/"><button　className="mailbutton1">パスワード再設定</button></Link>
+            </div>
+
+
+            <p className="userp">所属グループ</p>
+
+            <div className="table1div">
+
+
 
             <table className="table1">
                 <thead>
@@ -67,6 +107,10 @@ const Usermenu = () => {
                 </tr>
                 </tbody>
             </table>
+            </div>
+
+
+
             <p>通知</p>
 
             <table className="table2">
@@ -135,6 +179,7 @@ const Usermenu = () => {
                 </tr>
                 </tbody>
             </table>
+
 
             <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
 
