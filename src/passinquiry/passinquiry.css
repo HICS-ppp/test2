@@ -3,7 +3,9 @@
     width: 500px;
     height: 50px;
     text-align: center;
+    border: 3px solid black;
 }
+
 .mail4div{
     margin-top: 40px;
 }
@@ -18,3 +20,9 @@
     border: none;
     border-radius: 10px;
 }
+
+.passmail:focus {
+    border-color: greenyellow;   /* 枠線の色 */
+    outline: none;           /* ※ブラウザが標準で付加する線を消したいとき */
+}
+
