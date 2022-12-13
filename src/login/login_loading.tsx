@@ -16,7 +16,7 @@ const Loginloading = () => {
                     await c()
                 }
             //取ってきた値をsnapshotから変換する処理
-    const a = async () => {
+        const a = async () => {
         onValue(dbID, (snapshot) => {
             let aaa = snapshot.val()
             localStorage.setItem('UserID', aaa)
@@ -43,7 +43,8 @@ const Loginloading = () => {
                 const dbPass1 = localStorage.getItem('UserPass')
                 console.log(dbID1)
                 if (userID == dbID1 && userPass == dbPass1) {
-                    window.sessionStorage.setItem('SessionUserID',String(dbID))
+
+                    window.sessionStorage.setItem('SessionUserID',String(dbID1))
                     localStorage.clear()
                     window.location.href = '/mainpage'
                 } else {
@@ -55,15 +56,15 @@ const Loginloading = () => {
                 }
             }
             pr()
-    return(
-        <form>
+           return(
+            <form>
 
             <div id="loading-wrapper">
                 <div id="loading-text">LOADING</div>
                 <div id="loading-content"></div>
             </div>
 
-        </form>
+            </form>
     )
 }
 
