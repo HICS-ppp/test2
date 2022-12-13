@@ -13,7 +13,7 @@ const Loginloading = () => {
                 const pr = async () => {
                     await a()
                     await b()
-                 /*   await c()*/
+                    await c()
                 }
             //取ってきた値をsnapshotから変換する処理
     const a = async () => {
@@ -38,7 +38,7 @@ const Loginloading = () => {
             }
 
             //ユーザ情報を比較して、ログイン判断処理
-/*            const c = async () => {
+            const c = async () => {
                 const dbID1 = localStorage.getItem('UserID')
                 const dbPass1 = localStorage.getItem('UserPass')
                 console.log(dbID1)
@@ -53,7 +53,7 @@ const Loginloading = () => {
                     localStorage.setItem("error",logError)
                     window.location.href = '/login'
                 }
-            }*/
+            }
             pr()
     return(
         <form>
