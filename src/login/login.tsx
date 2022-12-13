@@ -17,19 +17,19 @@ const Login = () => {
                     <header className="header1"><label className="logo">Preport</label></header>
                     {/* onSubmitを追加↓ */}
                     < form onSubmit={handleSubmit}>
-                <h1 className="loginpage1">ログインページ</h1>
+                <h1 className="loginpage1"></h1>
                     <div className="udiv1">
 
-                        <label className="userid1">ユーザID</label>
+                       <div className="nam"> <label className="userid1">ユーザー</label></div>
                         <input className="useridbox1"
                                name="Userid"
                                type="text"
-                               placeholder="Userid"
+                               placeholder="userID"
                                onChange={(e) => localStorage.setItem('loginID',e.target.value)}
                         />
 
                         <div className="pdiv1">
-                            <label className="pass1">パスワード</label>
+                        <div className="nam2"><label className="pass1">パスワード</label></div>
                             <input className="passbox1"
                                    name="pass"
                                    type="password"
