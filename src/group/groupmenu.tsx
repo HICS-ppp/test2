@@ -5,6 +5,7 @@ const groupmenu = () => {
     const groupName = sessionStorage.getItem('groupName')
     const groupID = sessionStorage.getItem('groupID')
 
+
     const logout = async () => {
         sessionStorage.removeItem('groupName')
         sessionStorage.removeItem('groupID')
