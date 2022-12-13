@@ -1,4 +1,5 @@
-import {ref,getDatabase, onValue,} from "firebase/database"
+import {ref, getDatabase, onValue, remove, set} from "firebase/database"
+import {database} from "../firebase";
 
 const Loginuser_loading = () => {
 
@@ -21,23 +22,23 @@ const Loginuser_loading = () => {
     //取ってきた値をsnapshotから変換する処理
     const a = async () => {
         onValue(dbID, (snapshot) => {
-            let aaa = snapshot.val()
-            localStorage.setItem('UserID', aaa)
+            let a = snapshot.val()
+            localStorage.setItem('UserID', a)
             console.log(localStorage.getItem('UserID'))
         })
         onValue(dbpass, (snapshot) => {
-            let bbb = snapshot.val();
-            localStorage.setItem('UserPass', bbb)
+            let b = snapshot.val();
+            localStorage.setItem('UserPass', b)
             console.log(localStorage.getItem('UserPass'))
         })
         onValue(changeID, (snapshot) => {
-            let ccc = snapshot.val();
-            localStorage.setItem('userid', ccc)
+            let c = snapshot.val();
+            localStorage.setItem('userid', c)
             console.log(localStorage.getItem('userid'))
         })
         onValue(mailaddress, (snapshot) => {
-            let ddd = snapshot.val();
-            localStorage.setItem('newmailaddress', ddd)
+            let d = snapshot.val();
+            localStorage.setItem('newmailaddress', d)
             console.log(localStorage.getItem('newmailaddress'))
         })
     }
@@ -57,10 +58,11 @@ const Loginuser_loading = () => {
         console.log(dbID1)
         if (userID == dbID1 && userPass == dbPass1) {
 
+
             window.location.href = '/mailchange'
 
         } else {
-            window.location.href = '/loginerror'
+            window.location.href = '/loginusererror'
         }
     }
     pr()

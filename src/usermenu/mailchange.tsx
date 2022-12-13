@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
 import "./mailchange.css";
-import {ref, update} from "firebase/database";
+import {ref, remove, update} from "firebase/database";
 import {database} from "../firebase";
 
 
@@ -13,9 +13,15 @@ const Mailchange = () => {
     console.log(newmail)
     console.log(userid)
 
-    update(ref( database,"Users/"+userid),{
-        mailaddress:newmail,
-    });
+
+
+
+    update(ref(database, "Users/" + userid), {
+        mailaddress: newmail,
+    })
+
+    remove(ref(database, "Change/" + userid))
+
 
 
     return (
