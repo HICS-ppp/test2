@@ -65,12 +65,12 @@ const Userloading = () => {
 
     return (
         <>
-            <div className="loader">
-                <div className="one"></div>
-                <div className="two"></div>
-                <div className="three"></div>
-                <div className="four"></div>
+
+            <div id="loading-wrapper">
+                <div id="loading-text">LOADING</div>
+                <div id="loading-content"></div>
             </div>
+
         </>
     );
 };

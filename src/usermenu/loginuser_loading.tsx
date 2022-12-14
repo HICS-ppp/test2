@@ -1,5 +1,6 @@
 import {ref, getDatabase, onValue, remove, set} from "firebase/database"
 import {database} from "../firebase";
+import React from "react";
 
 const Loginuser_loading = () => {
 
@@ -68,12 +69,14 @@ const Loginuser_loading = () => {
     return(
         <form>
 
-            <div className="loader">
-                <div className="one"></div>
-                <div className="two"></div>
-                <div className="three"></div>
-                <div className="four"></div>
-            </div>
+            <>
+
+                <div id="loading-wrapper">
+                    <div id="loading-text">LOADING</div>
+                    <div id="loading-content"></div>
+                </div>
+
+            </>
         </form>
     )
 }
