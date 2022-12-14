@@ -28,6 +28,7 @@ import Passre_loading from "./usermenu/passre_loading";
 import Login_user from "./usermenu/login_user";
 import Loginuser_loading from "./usermenu/loginuser_loading";
 import Loginusererror from "./usermenu/loginusererror";
+import Accounterror from "./usermenu/accounterror";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
             <Route path={'/loginuser'} element={<Login_user/>}/>
             <Route path={'/loginuser_loading'} element={<Loginuser_loading/>}/>
             <Route path={'/loginusererror'} element={<Loginusererror/>}/>
+            <Route path={'/accounterror'} element={<Accounterror/>}/>
 
 
 

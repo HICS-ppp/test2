@@ -8,20 +8,26 @@ import {database} from "../firebase";
 const Mailchange = () => {
 
 
+
+
+    const dbID = window.localStorage.getItem("UserID")
+
     const newmail = window.localStorage.getItem('newmailaddress')
     const userid = window.localStorage.getItem("userid")
     console.log(newmail)
     console.log(userid)
 
+    if(dbID==userid){
+        update(ref(database, "Users/" + userid), {
+            mailaddress: newmail,
+        })
 
+        remove(ref(database, "Change/" + userid))
+    }else{
+        remove(ref(database, "Change/" + userid))
+      window.location.href = '/accounterror'
 
-
-    update(ref(database, "Users/" + userid), {
-        mailaddress: newmail,
-    })
-
-    remove(ref(database, "Change/" + userid))
-
+    }
 
 
     return (

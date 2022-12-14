@@ -57,8 +57,6 @@ const Loginuser_loading = () => {
         const dbPass1 = localStorage.getItem('UserPass')
         console.log(dbID1)
         if (userID == dbID1 && userPass == dbPass1) {
-
-
             window.location.href = '/mailchange'
 
         } else {

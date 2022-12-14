@@ -8,11 +8,7 @@ const Login_user = () => {
 
     const userID = window.localStorage.getItem('localID')
     console.log(userID)
-
-    if(userID!==null){
-        window.location.href =  "/loginuser_loading"
-    }
-
+        
     const handleSubmit =  (e:any) => {
         e.preventDefault();
         window.location.href = "/loginuser_loading"
@@ -20,7 +16,6 @@ const Login_user = () => {
 
     return (
         <>
-
             {/* onSubmitを追加↓ */}
             < form onSubmit={handleSubmit}>
                 <h1 className="loginpage1">再度ログインしてください</h1>
