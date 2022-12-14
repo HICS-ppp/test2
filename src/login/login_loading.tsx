@@ -43,7 +43,7 @@ const Loginloading = () => {
                 const dbPass1 = localStorage.getItem('UserPass')
                 console.log(dbID1)
                 if (userID == dbID1 && userPass == dbPass1) {
-                    window.sessionStorage.setItem('SessionUserID',String(dbID))
+                    window.sessionStorage.setItem('SessionUserID',String(dbID1))
                     localStorage.clear()
                     window.location.href = '/mainpage'
                 } else {
