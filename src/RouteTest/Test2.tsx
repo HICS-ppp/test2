@@ -3,9 +3,6 @@ import {BrowserRouter as Router, Link, useNavigate} from "react-router-dom";
 import { loadDynamicScript } from "./TestCreateScript";
 import { Component } from "react";
 import {clearScript} from "./TestUnmount";
-import GoogleDriveAPI from "../googledriveapi/GoogleDriveAPI";
-import GoogleAuth from "../google_auth/GoogleAuth";
-import GoogleAuth2 from "../google_auth/GoogleAuth2";
 
 const Test2 = () => {
 
@@ -21,9 +18,6 @@ const Test2 = () => {
         loadDynamicScript(() => {
             setHasScript(true);
             console.log(hasScript);
-
-            GoogleAuth();
-            GoogleAuth2();
         });
 
         return() => {
@@ -46,6 +40,7 @@ const Test2 = () => {
                     */}
                         <button id="authorize-button" onClick={() =>
                             window.open('../googledriveapi/GoogleDriveAPI',undefined,'top=100,left=100,width=300,height=400')}>Authorize</button>
+                        {/*//@ts-ignore*/}
                         <button id="signout" onClick={GoogleDriveAPI}>Sign Out</button>
                         <button id="signout-button" >Sign Out</button>
 

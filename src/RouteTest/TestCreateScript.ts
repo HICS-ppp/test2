@@ -13,8 +13,8 @@ export const loadDynamicScript = callback => {
         const script = document.createElement("script");
         script.id = scriptId;
         script.type = "text/javascript";
-        script.async = true;
-        script.defer = true;
+        //script.async = true;
+        //script.defer = true;
 
         //script.src = "https://apis.google.com/js/api.js";
         script.src = "https://accounts.google.com/gsi/client";
