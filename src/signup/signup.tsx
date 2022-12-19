@@ -63,6 +63,7 @@ const Register = () => {
                                 name="username"
                                 type="text"
                                 placeholder="username"
+
                            required/>
                 </div>
                 <div className="sum">
