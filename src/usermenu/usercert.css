@@ -1,0 +1,74 @@
+.passbox2{
+    width: 400px;
+    height: 50px;
+    font-size: 30px;
+text-align: center;
+}
+.loginbutton2{
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background:  #4da6ff;
+    margin: 10px 0;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.loginbutton2:hover {
+    color: #fff;
+}
+
+
+.cancelbutton{
+    font-size: 20px;
+      border: none;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background:  red;
+    margin: 10px 0;
+    color: #000000;
+    border: 2px solid #000000;
+}
+.cancelbutton:hover {
+    color:#ffffff ;
+}
+
+
+
+
+.passbox2div{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.buttondiv{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.buttondiv1{
+    display: inline;
+    margin-right: 30px;
+
+}
+
+.buttondiv2{
+    display: inline;
+}
+
+

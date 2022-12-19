@@ -1,0 +1,87 @@
+.userh1{
+    font-size: 35px;
+    text-align: center;
+    position:relative;top: -10px;
+}
+
+.regbox1{
+    font-size: 30px;
+    margin-left: 20px;
+    border: 2px solid black;
+    position:relative;top: -40px;
+}
+
+.agebox1{
+    margin-left: 10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.gen1{
+    margin-top: 40px;
+}
+
+.register{
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #4da6ff;
+    border-radius: 10px;
+    color: #FFFFFF;
+    border: none;
+}
+/*入力項目の文字右寄せ*/
+.userinput{
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+    margin-top: 20px;
+
+}
+
+.input{
+    margin-top: 50px;
+}
+
+.sum{
+    text-align: center;
+    position:relative;top: -40px;
+
+}
+.sum :focus {
+    border-color: greenyellow; /* 枠線の色 */
+    outline: none;
+}
+.sum1{
+    margin-left: 500px;
+}
+li{
+    position:relative;right: 200px;
+    font-size: 20px;
+    list-style: none;
+    position:relative;top: -40px;
+}
+.userinput2{
+    position:relative;right: 30px;
+
+}
+body{
+    height: 100%;
+    overflow: hidden
+}
+.sumlog{
+    position:relative;top: -40px;
+    text-align: center;
+}
+.sum2{
+    text-align: center;
+    position:relative;top: -50px;
+
+}
+.sum2 :focus {
+    border-color: greenyellow; /* 枠線の色 */
+    outline: none;
+
+}
