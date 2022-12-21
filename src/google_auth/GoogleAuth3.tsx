@@ -3,6 +3,7 @@ import GetGoogleSlidesThumbnails from "../google_slide/GetGoogleSlidesThumbnails
 import CreateSlidesThumb from "../google_slide/CreateSlidesThumb";
 import AddGoogleSlidesLink from "../addFirebase/AddGoogleSlidesLink";
 import GetGoogleSlidesList from "../google_drive/GetGoogleSlidesList";
+import {prevPages,nextPages} from "../google_slide/SearchFifth";
 
 
 let access_token:any;
@@ -41,6 +42,12 @@ function GoogleAuth3(){
     const [slideImgTags,setSlideImgTags] = useState([]);
 
     /*
+        fifthSlidesには最初のスライド、最後のスライド、今いるスライドの位置から前と次の2ページを
+        直接指定できるボタンを保持する。
+     */
+    const [fifthSlides,setFifthSlides] = useState<any>();
+
+    /*
         GoogleSlidesListは処理の中で一時的に使用する。
         createImg()とgetSlidePage()にて使用。
      */
@@ -71,15 +78,17 @@ function GoogleAuth3(){
         slideImgではgetThumbnailで取得したサムネイルリンクを全てimgタグにし、保持する。
      */
     const [slideImg,setSlideImg] = useState([]);
+    let firstSlideImg:any;
+
 
     /*
         selectIndexにslideListsのx番目が押された時のxを格納する
      */
     const [selectIndex,setSelectIndex] = useState(0);
-    const selectIndexIncrement = () => setSelectIndex((prevValue) => prevValue + 1)
+    const selectIndexIncrement = () => setSelectIndex((prevValue) => prevValue + 1);
     const selectIndexDecrement = () => setSelectIndex((prevValue) => prevValue - 1);
-
-
+    //const selectIndexChanges = () => setSelectIndex((prevValue) => )
+    const selectIndexChanges = (newIndex:number) => setSelectIndex(newIndex);
 
     function deleteResponse(){
         console.log("delete!");
@@ -103,12 +112,14 @@ function GoogleAuth3(){
      */
     async function getSlidePages(index:number){
         GoogleSlidesList = await GetGoogleSlidesThumbnails(access_token,jsonResponse.files[index].id);
-
+        console.log("getSLidePages >>" + GoogleSlidesList);
         setDisplaySlideLists(false);
         setDisplayGoogleSlidesList(true);
         setSlideImgTags(createSlideImg());
-        //createSlideImg(GoogleSlidesList[GoogleSlidesListPointer].link);
+        firstFifthButtons(GoogleSlidesList.length);
 
+        //changeButtons(0,GoogleSlidesList.length);
+        //createSlideImg(GoogleSlidesList[GoogleSlidesListPointer].link);
     }
 
     /*
@@ -123,8 +134,11 @@ function GoogleAuth3(){
             returnSetSlideImg.push(<img key={i} referrerPolicy="no-referrer" src={GoogleSlidesList[i].link} width={width} height={height} />);
         }
         setSlideImg(returnSetSlideImg);
+        firstSlideImg = returnSlideImg;
+
         return returnSlideImg;
     }
+
 
     /*
         setSlideはnextSlideImg,prevSlideImgで使用することを想定。
@@ -132,10 +146,39 @@ function GoogleAuth3(){
         ※setSlideImgTags(setSlide(index))という形で呼び出しているので、
         returnした値がそのままslideImgTagsに入る。
      */
-    function setSlide(index:number){
+    function firstSetSlide(index:number,length:number){
+        changeButtons(index,length);
+        return firstSlideImg[index];
+    }
+
+    function setSlide(index:number,length:number){
+        console.log("setSlide >> " +slideImg);
+        console.log("setSlideLength >>"+ slideImg.length);
+        console.log("GoogleSlidesList >>" + GoogleSlidesList.length);
+        changeButtons(index,length);
         return slideImg[index];
     }
 
+    /*
+        directSlideImg()はページネーションによる直接指定のページ遷移を
+        行う際に使用する。
+
+     */
+    function directSlideImg(index:number,length:number){
+        console.log("In the DirectSlideImg!");
+        console.log("In the DirectSlideImg!"+GoogleSlidesList.length);
+        console.log("In the DirectSlideImg!! >>" + GoogleSlidesList.length);
+        selectIndexChanges(index);
+        console.log("In the DirectSlideImg!" + selectIndex);
+        setSlideImgTags(setSlide(index,length));
+        return;
+    }
+
+    function firstDirectSlideImg(index:number,length:number){
+        selectIndexChanges(index);
+        setSlideImgTags(firstSetSlide(index,length))
+        return;
+    }
     /*
         prevSlideImgはポインタの位置を１つ前に戻し、
         imgタグを返す処理。
@@ -147,7 +190,8 @@ function GoogleAuth3(){
             return;
         }else{
             selectIndexDecrement();
-            setSlideImgTags(setSlide(selectIndex - 1));
+            console.log("prevSlideImg >>" + slideImg.length);
+            setSlideImgTags(setSlide(selectIndex - 1,slideImg.length));
             return;
         }
     }
@@ -161,12 +205,119 @@ function GoogleAuth3(){
     function nextSlideImg(){
         if(selectIndex + 1 < slideImg.length){
             selectIndexIncrement();
-            setSlideImgTags(setSlide(selectIndex + 1))
+            console.log("prevSlideImg >>" + slideImg.length);
+            setSlideImgTags(setSlide(selectIndex + 1,slideImg.length))
             return;
         }else{
             return;
         }
     }
+
+    /*
+        firstFifthButton()はスライドの最初のスライド、最後のスライド、今いるスライドから前の２スライドと次の２スライドを
+        直接指定できるボタンを返す。
+        ※ただし、前または次のスライドの2ページを指定できるボタンを作成する際に
+        -1やlength + 1など配列を飛び越えて指定してしまう際には
+        それに合わせて作成する。
+     */
+    function firstFifthButtons(length:number){
+        const maxLength = 5;
+        const element = Math.min(maxLength,length);
+        const returnButtons = [];
+        //test
+        console.log("fifthButtons"+element);
+        console.log("fifthButtonsLength"+ length);
+
+        //飾りの最初のボタン
+        const decoFirstButton = (<li key={"firstButtons"}><button>最初</button></li>);
+
+        //最後のスライド用
+        const lastButton = (<li key={"lastButtons"}><button onClick={() => {
+            firstDirectSlideImg(length - 1,GoogleSlidesList.length);
+        }}>最後</button></li>)
+
+        returnButtons.push(decoFirstButton)
+        returnButtons.push(<h4>{1}</h4>);
+
+        const firstRenderButtons = nextPages(0,length);
+        for(let i = 0; i<firstRenderButtons.length;i++){
+            returnButtons.push(<li key={"fifthButtons" + firstRenderButtons[i]}><button onClick={() => {
+                firstDirectSlideImg(i,GoogleSlidesList.length);
+            }}>{firstRenderButtons[i] + 1}</button></li>);
+        }
+
+        returnButtons.push(lastButton);
+        setFifthSlides(returnButtons);
+        return;
+    }
+
+    /*
+        changeButtonsは
+        ページネーションを新たに変更する処理を行う。
+     */
+    function changeButtons(index:number,length:number){
+        const returnButtons = [];
+        console.log("changeButtons >>" + length);
+        //最初のスライド用
+        const firstButton = (<li key={"firstButton"}><button onClick={() => {
+            directSlideImg(0,length)
+        }}>最初</button></li>)
+
+        //飾りの最初のボタン
+        const decoFirstButton = (<li key={"firstButton"}><button>最初</button></li>);
+
+        //最後のスライド用
+        const lastButton = (<li key={"lastButton"}><button onClick={() => {
+            directSlideImg(length - 1,length);
+        }}>最後</button></li>)
+
+        //飾りの最後のボタン
+        const decoLastButton = (<li key={"lastButton"}><button>最後</button></li>);
+
+        /*
+            前のページの要素を検索する。
+         */
+        const prevList = prevPages(index,length);
+
+        /*
+            現在地が最初のページであるなら、
+         */
+        if(index == 0) {
+            returnButtons.push(decoFirstButton);
+        }else{
+            returnButtons.push(firstButton);
+        }
+
+        for(let i = 0;i < prevList.length;i++){
+            console.log("prev >> "+i);
+            console.log("prev >> "+prevList[i]);
+            returnButtons.push(<li key={"fifthButtons"+prevList[i]}><button onClick={() => {
+                directSlideImg(prevList[i],length);
+            }}>{prevList[i] + 1}</button></li>);
+        }
+
+        returnButtons.push(<h4>{index + 1}</h4>)
+        const nextList = nextPages(index,length);
+
+        for(let i = 0;i < nextList.length;i++){
+            console.log("next >> "+i);
+            returnButtons.push(<li key={"fifthButtons"+nextList[i]}><button onClick={() => {
+                directSlideImg(nextList[i],length);
+            }}>{nextList[i] + 1}</button></li>);
+        }
+
+        /*
+            現在地が最後のページであるなら、
+            "最後"ボタンは表示しない。
+         */
+        if(index == length - 1) {
+            returnButtons.push(decoLastButton);
+        }else {
+            returnButtons.push(lastButton);
+        }
+        setFifthSlides(returnButtons);
+    }
+
     /*
         Firebase RealtimeDatabaseから取得してくる処理を記述予定
     */
@@ -272,6 +423,14 @@ function GoogleAuth3(){
                     /*<input type="submit" onClick={nextSlideImg} value="次へ"/>*/
                     <button onClick={nextSlideImg}>nextPage</button>
                 }
+            </div>
+
+            <div id="testButtons">
+                <ul key="AAAAA">
+                {displayGoogleSlidesList &&
+                    fifthSlides
+                }
+                </ul>
             </div>
 
             {/*
