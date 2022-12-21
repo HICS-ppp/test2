@@ -38,7 +38,7 @@ const Register = () => {
             <h1 className="userh1">ユーザ登録</h1>
             <form onSubmit = {handleSubmit}>
                 <div className="sum">
-                   <li> <label　className="userinput">ユーザID</label></li>
+                   <li className="li1">  <label　className="userinput">ユーザID</label></li>
                     <input
                         onChange={(e:any) => setuserID(e.target.value)}
                         className="regbox1"
@@ -47,7 +47,7 @@ const Register = () => {
                     required/>
                 </div>
                 <div className="sum">
-                   <li> <label className="userinput">メールアドレス</label></li>
+                    <li className="li1"> <label className="userinput">メールアドレス</label></li>
                     <input
                            className="regbox1"
                            onChange={(e:any) => setEmail(e.target.value)}
@@ -57,7 +57,7 @@ const Register = () => {
                            required/>
                 </div>
                 <div className="sum">
-                    <li> <label className="userinput">ユーザ名</label></li>
+                    <li className="li1"> <label className="userinput">ユーザ名</label></li>
                     <input onChange={(e:any) => setUserName(e.target.value)}
                            className="regbox1"
                                 name="username"
@@ -67,7 +67,7 @@ const Register = () => {
                            required/>
                 </div>
                 <div className="sum">
-                    <li> <label className="userinput">パスワード</label></li>
+                    <li className="li1"> <label className="userinput">パスワード</label></li>
                     <input
                             onChange={(e:any) => setPass(e.target.value)}
                             className="regbox1"
@@ -77,7 +77,7 @@ const Register = () => {
                             required/>
                 </div>
                 <div className="sum">
-                   <li> <label className="userinput">再パスワード</label></li>
+                    <li className="li1"> <label className="userinput">再パスワード</label></li>
                     <input onChange={(e:any) => setPass2(e.target.value)}
                            className="regbox1"
                                 name="pass2"

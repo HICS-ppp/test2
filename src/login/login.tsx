@@ -16,7 +16,7 @@ const Login = () => {
                 <>
                     <header className="header1"><label className="logo">Preport!</label></header>
                     {/* onSubmitを追加↓ */}
-                    < form onSubmit={handleSubmit}>
+                    < form  className="from1" onSubmit={handleSubmit}>
                 <h1 className="loginpage1"></h1>
                     <div className="udiv1">
 
