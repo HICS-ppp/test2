@@ -1,6 +1,14 @@
+.userh1{
+    font-size: 35px;
+    text-align: center;
+    position:relative;top: -10px;
+}
+
 .regbox1{
     font-size: 30px;
     margin-left: 20px;
+    border: 2px solid black;
+    position:relative;top: -40px;
 }
 
 .agebox1{
@@ -23,7 +31,6 @@
     border-radius: 10px;
     color: #FFFFFF;
     border: none;
-    margin-top: 60px;
 }
 /*入力項目の文字右寄せ*/
 .userinput{
@@ -31,6 +38,7 @@
     text-align: right;
     width: 150px;
     margin-top: 20px;
+
 }
 
 .input{
@@ -39,7 +47,41 @@
 
 .sum{
     text-align: center;
+    position:relative;top: -40px;
+
+}
+.sum :focus {
+    border-color: greenyellow; /* 枠線の色 */
+    outline: none;
 }
 .sum1{
     margin-left: 500px;
+}
+.li1{
+    position:relative;right: 200px;
+    font-size: 20px;
+    list-style: none;
+    position:relative;top: -40px;
+}
+.userinput2{
+    position:relative;right: 30px;
+
+}
+body{
+    height: 100%;
+    overflow: hidden
+}
+.sumlog{
+    position:relative;top: -40px;
+    text-align: center;
+}
+.sum2{
+    text-align: center;
+    position:relative;top: -50px;
+
+}
+.sum2 :focus {
+    border-color: greenyellow; /* 枠線の色 */
+    outline: none;
+
 }

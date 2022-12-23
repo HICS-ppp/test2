@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import "./login.css";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 const Login = () => {
             const logE = 'error'
@@ -17,22 +14,22 @@ const Login = () => {
 
     return (
                 <>
-                    <header className="header1"><label className="logo">Preport</label></header>
+                    <header className="header1"><label className="logo">Preport!</label></header>
                     {/* onSubmitを追加↓ */}
-                    < form onSubmit={handleSubmit}>
-                <h1 className="loginpage1">ログインページ</h1>
+                    < form  className="from1" onSubmit={handleSubmit}>
+                <h1 className="loginpage1"></h1>
                     <div className="udiv1">
 
-                        <label className="userid1">ユーザID</label>
+                       <div className="nam"> <label className="userid1">ユーザー</label></div>
                         <input className="useridbox1"
                                name="Userid"
                                type="text"
-                               placeholder="Userid"
+                               placeholder="userID"
                                onChange={(e) => localStorage.setItem('loginID',e.target.value)}
                         />
 
                         <div className="pdiv1">
-                            <label className="pass1">パスワード</label>
+                        <div className="nam2"><label className="pass1">パスワード</label></div>
                             <input className="passbox1"
                                    name="pass"
                                    type="password"
@@ -51,6 +48,7 @@ const Login = () => {
                         <div className="linkdiv">  <p>新規登録は<Link to={`/signup`}>こちら</Link></p></div>
                         {/*<div className="linkdiv"><p>ゲスト登録は<Link to={`/gest/`}>こちら</Link></p></div>*/}
                         <div className="linkdiv"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
+
                 </form>
                     </>
     );

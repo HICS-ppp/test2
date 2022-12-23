@@ -1,18 +1,64 @@
-.pre1{
-    font-size: 40px;
+
+.body1{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(183deg, rgba(61, 173, 72, 1), rgba(4, 241, 255, 1) 88%);
     text-align: center;
 }
-/*ログインボタンレイアウト*/
-.log1{
-    font-size: 20px;
-    background-color: #4da6ff;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 10px;
 
+
+.sub1 {
+    font-size: 40px;
+    text-align: center;
+    position: relative;top:200px;
+}
+/* ボタン本体 */
+.btn {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    width: 1000px; /* 横幅 */
+    height: 300px; /* 縦幅 */
+    line-height: 60px; /* 行の高さ(heightと同じ値にする) */
+    text-decoration: none; /* aタグのアンダーラインを消す */
+    overflow: hidden; /* はみ出し部分を隠す */
+    cursor: pointer; /* カーソルをポインターにする */
+    top:100px
 }
 
-.topall{
-    text-align    : center;
+/* ボタンのテキスト */
+.btn__text {
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 150%; /* 縦幅をボタンと同じにする */
+    width: 100%; /* 横幅をボタンと同じにする */
+    color: black; /* 文字色 */
+    font-size: 200px; /* 文字サイズ */
+    font-weight: bold; /* 文字の太さ */
+    text-align: center; /* テキストを中央揃え */
+    transition: all 0.3s; /* アニメーション実行時間 */
+}
 
+/* ボタンのテキスト(デフォルトのテキスト) */
+.btn__text:nth-child(1) {
+    top: 30%;
+}
+
+/* ボタンのテキスト(隠れているテキスト) */
+.btn__text:nth-child(2) {
+    top: -150%;
+}
+
+/* ボタンホバーアクション */
+.btn:hover .btn__text:nth-child(1) {
+    top: 150%;
+}
+
+.btn:hover .btn__text:nth-child(2) {
+    top: 40%;
 }

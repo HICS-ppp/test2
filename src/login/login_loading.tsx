@@ -1,7 +1,7 @@
-import {ref,getDatabase, onValue,get} from "firebase/database"
+import {ref,getDatabase, onValue} from "firebase/database"
+import "./login_loading.css"
 
 const Loginloading = () => {
-
         const userID = localStorage.getItem('loginID');
         const userPass = localStorage.getItem('loginPass');
         //Realtime Databaseから値を取ってくる処理
@@ -9,19 +9,7 @@ const Loginloading = () => {
         const dbID = (ref(db, "Users/" + userID + '/userID'))
         const dbpass = (ref(db, "Users/" + userID + '/pass'))
 
-        /*const tuuti = (ref(db, "Users/"))*/
-
-/*
-   const arry = new Array;
-
-
-
-    arry.push(1);
-
-    console.log( arry.length );
-*/
-
-    //上から順番に処理させる処理
+            //上から順番に処理させる処理
                 const pr = async () => {
                     await a()
                     await b()
@@ -50,35 +38,31 @@ const Loginloading = () => {
             }
 
             //ユーザ情報を比較して、ログイン判断処理
-            const c = async () => {
+           const c = async () => {
                 const dbID1 = localStorage.getItem('UserID')
                 const dbPass1 = localStorage.getItem('UserPass')
                 console.log(dbID1)
                 if (userID == dbID1 && userPass == dbPass1) {
-                    window.sessionStorage.setItem('SessionUserID',String(userID))
-                    window.localStorage.setItem('localID',String(userID))
+                    window.sessionStorage.setItem('SessionUserID',String(dbID1))
                     localStorage.clear()
                     window.location.href = '/mainpage'
-
                 } else {
-        /*            console.log('失敗')
+                    console.log('失敗')
                     localStorage.clear()
                     const logError = 'error'
-                    localStorage.setItem("error",logError)*/
-                    window.location.href = '/loginerror'
+                    localStorage.setItem("error",logError)
+                    window.location.href = '/login'
                 }
             }
             pr()
-
     return(
         <form>
 
-            <div className="loader">
-                <div className="one"></div>
-                <div className="two"></div>
-                <div className="three"></div>
-                <div className="four"></div>
+            <div id="loading-wrapper">
+                <div id="loading-text">LOADING</div>
+                <div id="loading-content"></div>
             </div>
+
         </form>
     )
 }
