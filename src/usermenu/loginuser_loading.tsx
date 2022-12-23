@@ -41,6 +41,10 @@ const Loginuser_loading = () => {
             localStorage.setItem('newmailaddress', d)
             console.log(localStorage.getItem('newmailaddress'))
         })
+
+
+
+
     }
     // ５秒待機する処理
     const b = async () => {

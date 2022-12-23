@@ -28,6 +28,8 @@ import Passre_loading from "./usermenu/passre_loading";
 import Login_user from "./usermenu/login_user";
 import Loginuser_loading from "./usermenu/loginuser_loading";
 import Loginusererror from "./usermenu/loginusererror";
+import Syozoku from "./usermenu/syozoku";
+import Smp from "./usermenu/smp";
 
 function App() {
   return (
@@ -61,7 +63,9 @@ function App() {
             <Route path={'/loginuser'} element={<Login_user/>}/>
             <Route path={'/loginuser_loading'} element={<Loginuser_loading/>}/>
             <Route path={'/loginusererror'} element={<Loginusererror/>}/>
+            <Route path={'/syozoku'} element={<Syozoku/>}/>
 
+            <Route path={'/smp'} element={<Smp/>}/>
 
 
 

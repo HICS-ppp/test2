@@ -38,8 +38,13 @@ const Mainpage = () => {
                             <img src={mail} alt="mail" className="mailicon" width="100px" height="80px"/>
                             <p className="tuuti">{a}</p>
                            <Link to={'/usercert/'}  className="usericon"><img src={use} alt="user" width="80px" height="80px"/></Link>
+
+
                         </header>
-                        <h1 className="mainfont1">グループ</h1>
+
+                <Link to="/syozoku"><button>所属グループ</button></Link>
+
+                <h1 className="mainfont1">グループ</h1>
 
                         <h2 className="mainfont2">グループ作成</h2>
                         <div className="maintext">
