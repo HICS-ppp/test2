@@ -42,7 +42,7 @@ const Mainpage = () => {
 
                         </header>
 
-                <Link to="/syozoku"><button>所属グループ</button></Link>
+               {/* <Link to="/syozoku"><button>所属グループ</button></Link>*/}
 
                 <h1 className="mainfont1">グループ</h1>
 
