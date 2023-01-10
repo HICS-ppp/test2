@@ -8,7 +8,7 @@ const Groupmenu_join = () => {
     const userID = sessionStorage.getItem('SessionUserID')
     const joinGroupID = sessionStorage.getItem('joinGroupID')
     const searchGroupID = (ref(db, "Groups_Member/" + joinGroupID))
-    const searchGroupUserID = (ref(db, "Groups_Member/" + joinGroupID + '/' + userID))
+    const searchGroupUserID = (ref(db, "Groups_Member/" + joinGroupID + '/User/' + userID))
     const searchGroupName = (ref(db,"Groups/" + joinGroupID + '/groupName'))
 
 

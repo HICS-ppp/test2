@@ -1,12 +1,11 @@
 import React from "react";
-import {ref, getDatabase, startAt,query, orderByChild, onChildAdded, set,equalTo} from "firebase/database"
+import {ref,getDatabase, query, orderByChild, onChildAdded, set, equalTo,onValue}
+                  from "firebase/database"
 import {database} from "../firebase";
 
 const Groupmenu_create = () => {
-
     const db = getDatabase()
     const userID = sessionStorage.getItem('SessionUserID')
-    const serchGroupID = (query(ref(db,'Groups/'),orderByChild('groupID'),startAt(1)))
     const createGroupName = sessionStorage.getItem('createGroupName')
     const dateObj = new Date()
     // 時間取得
@@ -16,10 +15,18 @@ const Groupmenu_create = () => {
     const userName = sessionStorage.getItem('SessionUserName')
     const serchGroupName = (query(ref(db,'Groups/'),orderByChild('createName'),equalTo(createGroupName)))
 
+    const GroupCount = (query(ref(db, 'Groups/')))
+    //グループ数カウント
+    onValue(GroupCount, (snapshot => {
+        let test = Object.keys(snapshot.val()).length;
+        console.log(test)
+        sessionStorage.setItem('createGroupID', String(test + 1))
+    }))
+
+
     //上から順番に処理させる処理
     const pr = async () => {
         await Data_check()
-        await Data_change()
         await timeout()
         await groupmenu_IF()
     }
@@ -28,23 +35,9 @@ const Groupmenu_create = () => {
         onChildAdded(serchGroupName,(snapshot => {
         //　同じグループ名とその作成者名の取得
             let xxx = snapshot.val()
-            sessionStorage.setItem('nameCheck',xxx.createName)
+            sessionStorage.setItem('nameCheck',xxx.groupName)
             sessionStorage.setItem('userCheck',xxx.createUser)
         }))
-    }
-
-    const Data_change = async () => {
-        onChildAdded(serchGroupID, (snapshot) => {
-            // スナップショットの値を変換、取り出す処理
-            let vvv = snapshot.val()
-            console.log(snapshot.key) //値を見るためのテスト
-            console.log(vvv.groupID)  //値を見るためのテスト
-            console.log(sessionStorage.getItem('createGroupName')) //値を見るためのテスト
-            // RealtimeDatabaseからグループIDの最大値を持ってくる
-            let maxgroupID = Math.max(vvv.groupID)
-            // SessionにID + 1　の値をセットしてグループIDにセットする
-            sessionStorage.setItem('createGroupID', String(Number(maxgroupID) + 1))
-        })
     }
 
     // ５秒待機する処理
@@ -70,14 +63,21 @@ const Groupmenu_create = () => {
                 groupID: createGroupID
             })
             //Groups_Member表にデータをセットする
-            set(ref(database, "Groups_Member/" + 'GR' + createGroupID + "/" + userID + "/"), {
+            set(ref(database, "Groups_Member/" + 'GR' + createGroupID + "/" + userID + "/User"), {
                 joinTime:createTime,
-                role:1
+                role:1,
+                username:userName,
+                number:1
+            })
+            set(ref(database, "Groups_Data/" + userID + '/GR' + createGroupID + "/"), {
+                joinTime:createTime,
+                groupName:createGroupName,
+                createUser:userName
             })
             // Group情報をセット
             sessionStorage.setItem('groupID','GR' + createGroupID)
             sessionStorage.setItem('groupName',String(createGroupName))
-
+            //ログイン成功
             window.location.href = './groupmenu'
         }else{
             // 使ったSessionクリアしてエラー、メインページに戻る

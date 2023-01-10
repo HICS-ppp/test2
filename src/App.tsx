@@ -15,6 +15,9 @@ import Groupmenu_create from "./group/groupmenu_create";
 import Groupmenu_join from "./group/groupmenu_join";
 import Group_manage from "./group/group_manage";
 
+
+
+
 function App() {
   return (
     <div className="App">
@@ -33,6 +36,8 @@ function App() {
             <Route path={'/groupmenu_create'} element={<Groupmenu_create/>}/>
             <Route path={'/groupmenu_join'} element={<Groupmenu_join/>}/>
             <Route path={'/group_manage'} element={<Group_manage/>}/>
+
+
           </Routes>
         </BrowserRouter>
     </div>
