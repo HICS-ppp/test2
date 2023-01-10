@@ -4,7 +4,6 @@ import "./usermenu.css";
 import {getDatabase, onValue, ref} from "firebase/database";
 import {isBooleanObject, isNumberObject} from "util/types";
 
-
 const Usermenu = () => {
 
     const sessionID = window.sessionStorage.getItem('SessionUserID')
@@ -17,6 +16,7 @@ const Usermenu = () => {
 
     const db = getDatabase()
     const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
+
     console.log(dbmailaddress)
 
     //取ってきた値をsnapshotから変換する処理
@@ -55,7 +55,6 @@ const Usermenu = () => {
             </div>
             <p className="userp">所属グループ</p>
 
-
             {(() => {
                 const items = [];
                 for (let i = 1; i < Number(len); i++) {
@@ -73,13 +72,22 @@ const Usermenu = () => {
                         <th>作者名</th>
                         <th>加入日</th>
                     </tr>
-                    {items}
+                 {/*   //for文を使ってループ処理させる*/}
+                    {items[0]}
+                    {items[1]}
+                    {items[2]}
+                    {items[3]}
+                    {items[4]}
+                    {items[5]}
+                    {items[6]}
+                    {items[7]}
+                    {items[8]}
+                    {items[9]}
+                    {items[10]}
                     </thead>
                     </table></div>;
             })()}
-
             <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
-
         </>
     );
 };
