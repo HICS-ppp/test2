@@ -58,7 +58,6 @@ const Usermenu = () => {
 
             {(() => {
                 const items = [];
-
                 for (let i = 1; i < Number(len); i++) {
                     items.push(<tr><td>{sessionStorage.getItem('groupID'+i)}</td>
                         <td>{sessionStorage.getItem('groupName'+i)}</td>
@@ -68,7 +67,6 @@ const Usermenu = () => {
                 return<div className="table2div" >
                     <table className="table2">
                     <thead>
-
                     <tr>
                         <th>グループID</th>
                         <th>グループ名</th>

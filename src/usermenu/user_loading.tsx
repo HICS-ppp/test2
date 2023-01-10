@@ -7,8 +7,6 @@ import {resolve} from "dns";
 import {rejects} from "assert";
 import {isNumberObject} from "util/types";
 
-
-
 const Userloading =  () => {
 
 
@@ -18,12 +16,12 @@ const Userloading =  () => {
     const dbpass = (ref(db, "Users/" + sessionID + '/pass'))
     const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
 
-
     const ary = [""];
     let len = 0;
 
     let test2 = "";
     let test3 = 10;
+
 
 
     const aaa = async () => {
@@ -202,9 +200,6 @@ const Userloading =  () => {
     }
 
     pr()
-
-
-
 
     return (
         <>
