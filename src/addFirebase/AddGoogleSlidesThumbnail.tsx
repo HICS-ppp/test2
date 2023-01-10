@@ -1,0 +1,20 @@
+import {ref, uploadBytes} from "firebase/storage";
+import {storage} from "../firebase";
+
+/*
+        Firebase Storageの images/グループIDの下に
+        スライドを格納する
+*/
+
+async function AddGoogleSlidesThumbnail(url:string,groupId:string,index:number){
+
+    const response = await fetch(url)
+    const blob = await response.blob()
+    console.log("blob is >>"+blob);
+
+    if(blob == null) return;
+    const imageRef = ref(storage,`images/${groupId}/${index}`);
+    await uploadBytes(imageRef, blob)
+}
+
+export default AddGoogleSlidesThumbnail;
