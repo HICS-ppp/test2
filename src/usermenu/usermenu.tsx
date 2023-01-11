@@ -32,6 +32,9 @@ const Usermenu = () => {
 
     return (
         <>
+            <header className="header2">
+            <label className="logo2">Preport!</label>
+            </header>
             <div className="userdiv">
             <h1 className="userh1">ユーザ情報</h1>
             </div>
@@ -80,7 +83,9 @@ const Usermenu = () => {
                     </table></div>;
             })()}
 
-            <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
+            <div className="mainback">
+                <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
+            </div>
 
         </>
     );
