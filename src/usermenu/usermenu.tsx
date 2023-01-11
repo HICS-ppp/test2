@@ -13,6 +13,7 @@ const Usermenu = () => {
     console.log(sessionStorage.getItem('dbmail'))
 
    const len = sessionStorage.getItem('len')
+    const ankelen = sessionStorage.getItem('ankelen')
 
     const db = getDatabase()
     const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
@@ -32,6 +33,11 @@ const Usermenu = () => {
 
     return (
         <>
+            <div className="scrollall">
+                {ankelen}
+
+
+
             <div className="userdiv">
             <h1 className="userh1">ユーザ情報</h1>
             </div>
@@ -57,7 +63,7 @@ const Usermenu = () => {
 
             {(() => {
                 const items = [];
-                for (let i = 1; i < Number(len); i++) {
+                for (let i = 1; String(i) < String(len); i++) {
                     items.push(<tr><td>{sessionStorage.getItem('groupID'+i)}</td>
                         <td>{sessionStorage.getItem('groupName'+i)}</td>
                         <td>{sessionStorage.getItem('createUser'+i)}</td>
@@ -72,7 +78,7 @@ const Usermenu = () => {
                         <th>作者名</th>
                         <th>加入日</th>
                     </tr>
-                 {/*   //for文を使ってループ処理させる*/}
+                    {/*//for文を使ってループ処理させる*/}
                     {items[0]}
                     {items[1]}
                     {items[2]}
@@ -87,7 +93,46 @@ const Usermenu = () => {
                     </thead>
                     </table></div>;
             })()}
+
+            <p className="ankep">アンケート回答履歴</p>
+
+            {(() => {
+                const ankeitems = [];
+                for (let i = 1; String(i) <String(ankelen); i++) {
+                    ankeitems.push(<tr><td>{sessionStorage.getItem('ankeName'+i)}</td>
+                        <td>{sessionStorage.getItem('answerDate'+i)}</td></tr>)
+                    console.log(i)
+                    console.log(sessionStorage.getItem('answerDate'+i))
+
+                    console.log(sessionStorage.getItem('ankeName'+i))
+                 /*   console.log(sessionStorage.getItem('answerDate'+i))
+                    console.log(sessionStorage.getItem('ankeName'+i))*/
+                }
+                return<div className="table2div" >
+                    <table className="table2">
+                        <thead>
+                        <tr>
+                            <th>アンケート名</th>
+                            <th>回答日</th>
+                        </tr>
+                        {/*   //for文を使ってループ処理させる*/}
+                        {ankeitems[0]}
+                        {ankeitems[1]}
+                        {ankeitems[2]}
+                        {ankeitems[3]}
+                        {ankeitems[4]}
+                        {ankeitems[5]}
+                        {ankeitems[6]}
+                        {ankeitems[7]}
+                        {ankeitems[8]}
+                        {ankeitems[9]}
+                        {ankeitems[10]}
+                        </thead>
+                    </table></div>;
+            })()}
+
             <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
+            </div>
         </>
     );
 };

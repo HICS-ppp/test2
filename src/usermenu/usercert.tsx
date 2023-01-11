@@ -10,13 +10,6 @@ const Usersert = () => {
         window.location.href = "/user_loading"
     }
 
-
-
-
-
-
-
-
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -35,6 +28,8 @@ const Usersert = () => {
 
             <button className="loginbutton2">ログイン</button>
             </div>
+
+
                     <div className="buttondiv2">
 
 
@@ -42,11 +37,7 @@ const Usersert = () => {
                     </div>
                 </div>
 
-
             </form>
-
-
-
 
         </>
     );

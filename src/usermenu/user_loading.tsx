@@ -17,9 +17,10 @@ const Userloading =  () => {
     const dbmailaddress = (ref(db, "Users/" + sessionID + '/mailaddress'))
 
     const ary = [""];
+    const ankeary = [""];
     let len = 0;
 
-    let test2 = "";
+
     let test3 = 10;
 
 
@@ -28,6 +29,7 @@ const Userloading =  () => {
         await KeyGet()
         await Time()
         await GroupGet()
+        await AnkeGet()
     }
 
     const KeyGet = () => {
@@ -38,6 +40,14 @@ const Userloading =  () => {
                 //配列にグループID登録
                 ary.push(String(snapshot.key))
                 /* test3 = String(snapshot.key?.length)*/
+            }
+        )
+
+        const Test2 = (ref(db,"Questionnaire/" + sessionID +"/"))
+        onChildAdded(Test2,snapshot => {
+
+                ankeary.push(String(snapshot.key))
+
             }
         )
     }
@@ -60,13 +70,13 @@ const Userloading =  () => {
         //numをカウントアップして変数に適用
         while(num<test3){
             /*    console.log(ary[num])*/
-
             const createUser = (ref(db, "Groups_Data/"+sessionID+"/"+ ary[num] + '/createUser'))
             //取ってきた値をsnapshotから変換する処理
             onValue(createUser, (snapshot) => {
                 let aaa = snapshot.val()
                 sessionStorage.setItem('createUser'+num, aaa)
                 console.log(sessionStorage.getItem('createUser'+num))
+                console.log(num)
 
             })
             const groupID = (ref(db, "Groups_Data/"+sessionID+"/"+ ary[num] + '/groupID'))
@@ -75,6 +85,7 @@ const Userloading =  () => {
                 let aaa = snapshot.val()
                 sessionStorage.setItem('groupID'+num, aaa)
                 console.log(sessionStorage.getItem('groupID'+num))
+                console.log(num)
 
             })
             const groupName = (ref(db, "Groups_Data/"+sessionID+"/"+ ary[num] + '/groupName'))
@@ -83,6 +94,8 @@ const Userloading =  () => {
                 let aaa = snapshot.val()
                 sessionStorage.setItem('groupName'+num, aaa)
                 console.log(sessionStorage.getItem('groupName'+num))
+                console.log(num)
+
             })
             const joinTime = (ref(db, "Groups_Data/"+sessionID+"/"+ ary[num] + '/joinTime'))
             //取ってきた値をsnapshotから変換する処理
@@ -90,65 +103,57 @@ const Userloading =  () => {
                 let aaa = snapshot.val()
                 sessionStorage.setItem('joinTime'+num, aaa)
                 console.log(sessionStorage.getItem('joinTime'+num))
+                console.log(num)
             })
+
+
             num++;
         }
 
-        console.log(ary.length)
+        /*console.log(ary.length)*/
         len = (ary.length)
         sessionStorage.setItem('len',String(len))
     }
 
+
+   const AnkeGet = () => {
+
+       let num = 0;
+       //回答したアンケートの内容を取得
+       while (num < test3) {
+
+
+           const ankeName = (ref(db, "Questionnaire/" + sessionID +"/"+ankeary[num]+"/questionnairename"))
+           //取ってきた値をsnapshotから変換する処理
+           onValue(ankeName, (snapshot) => {
+               let aaa = snapshot.val()
+               sessionStorage.setItem('ankeName' + num, aaa)
+               console.log(sessionStorage.getItem('ankeName'+num))
+               console.log(num)
+
+           })
+
+           const answerDate = (ref(db, "Questionnaire/" + sessionID +"/"+ ankeary[num]+"/answerDate"))
+           //取ってきた値をsnapshotから変換する処理
+           onValue(answerDate, (snapshot) => {
+               let aaa = snapshot.val()
+               sessionStorage.setItem('answerDate' + num, aaa)
+               console.log(sessionStorage.getItem('answerDate' + num))
+               console.log(num)
+
+           })
+           num++;
+       }
+       len = (ankeary.length)
+       console.log(len)
+       sessionStorage.setItem('ankelen',String(len))
+
+   }
+
+
+
     aaa()
 
-
-
-
-   /* while (count<=10){
-
-        const groupID = (ref(db,"Groups_Data"+sessionID+"GR"+count+"groupID"))
-        const groupName = (ref(db,"Groups_Data"+sessionID+"GR"+count+"groupName"))
-        const createUser = (ref(db,"Groups_Data"+sessionID+"GR"+count+"crateUser"))
-        const joinTime = (ref(db,"Groups_Data"+sessionID+"GR"+count+"joinTime"))
-*/
-/*        onValue(groupID, (snapshot ) => {
-            let promise = new Promise((resolve,rejects) =>{
-                if(snapshot.val() == null){
-                    rejects("null" /!*取得できてない*!/);
-                }else{
-                    resolve("OK!");
-                }
-            })
-
-            promise.then(
-                result => //sessionStorage.setItem('groupID'+count, snapshot.val())
-                    console.log(snapshot.val())
-
-            )
-        })*/
-
-      /*  onValue(groupID, (snapshot) => {
-            let gr = snapshot.val()
-            sessionStorage.setItem('groupName'+count, gr)
-        })
-
-        onValue(groupName, (snapshot) => {
-            let gr = snapshot.val()
-            sessionStorage.setItem('groupName'+count, gr)
-        })
-        onValue(createUser, (snapshot) => {
-            let gr = snapshot.val()
-            sessionStorage.setItem('crateUser'+count, gr)
-        })
-        onValue(joinTime, (snapshot) => {
-            let gr = snapshot.val()
-            sessionStorage.setItem('joinTime'+count, gr)
-        })
-        count++;
-        // console.log(sessionStorage.getItem('group'))
-
-    }
-*/
 
     //
     // グループID   groupID
@@ -182,7 +187,7 @@ const Userloading =  () => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(true)
-            }, 3000)
+            }, 2000)
         })
     }
 
