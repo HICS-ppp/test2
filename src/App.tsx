@@ -11,6 +11,8 @@ import Passinquiry from "./passinquiry/passinquiry";
 import Gest from "./gest/gest";
 import Loginloading from "./login/login_loading";
 import GroupMenu from "./group/groupmenu";
+import GoogleAuth3 from "./google_auth/GoogleAuth3";
+import TestFirebaseStorage from "./addFirebase/TestFirebaseStorage";
 
 function App() {
   return (
@@ -27,11 +29,11 @@ function App() {
             <Route path={'/gest/'} element={<Gest/>}/>
             <Route path={'/login_loading'} element={<Loginloading/>}/>
             <Route path={'/groupmenu'} element={<GroupMenu/>}/>
+            <Route path={'/googleauth3'} element={<GoogleAuth3/>}/>
+            <Route path={'/testfirebasestorage'} element={<TestFirebaseStorage/>}/>
           </Routes>
         </BrowserRouter>
     </div>
   );
 }
-
-
 export default App;

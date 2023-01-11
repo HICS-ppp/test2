@@ -2,6 +2,9 @@ import firebase from "firebase/compat";
 import { storage } from "../firebase";
 import {getStorage, ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import {useEffect, useState} from "react";
+import changeObjectExistence from "./ChangeObjectExistence";
+import ChangeObjectExistence from "./ChangeObjectExistence";
+import { getStorageLength } from "../getFirebaseStorage/GetSlidesFromFirebaseStorage"
 
 
 function TestFirebaseStorage(){
@@ -73,8 +76,17 @@ function TestFirebaseStorage(){
                 console.log("delete now");
             });
     }
+
+    const changeDatabase = async () =>{
+        await ChangeObjectExistence("TEST2","");
+    }
+
+    const checkLength = async () =>{
+        getStorageLength("GR1")
+    }
+
     return(
-        <div>
+        <>
             <input type="file" onChange={(event) => {
                 // @ts-ignore
                 setImage(event.target.files[0]);
@@ -88,7 +100,9 @@ function TestFirebaseStorage(){
                 <img src={downloadImageFile}/>
             }
             <button onClick={deleteImageData}>delete</button>
-        </div>
+            <button onClick={changeDatabase}>Change It</button>
+            <button onClick={checkLength}>Check it</button>
+        </>
     );
 }
 export default TestFirebaseStorage;

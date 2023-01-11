@@ -1,10 +1,12 @@
 import {useEffect,useState,useRef} from "react";
 import GetGoogleSlidesThumbnails from "../google_slide/GetGoogleSlidesThumbnails";
 import CreateSlidesThumb from "../google_slide/CreateSlidesThumb";
-import AddGoogleSlidesLink from "../addFirebase/AddGoogleSlidesLink";
 import GetGoogleSlidesList from "../google_drive/GetGoogleSlidesList";
 import {prevPages,nextPages} from "../google_slide/SearchFifth";
-import {isNumber} from "util";
+import {getDatabase, ref, onValue} from "firebase/database";
+import ConvertFromRealtimeDatabase from "../getFirebaseRealtimeDatabase/ConvertFromRealtimeDatabase";
+import ChangeObjectExistence from "../addFirebase/ChangeObjectExistence";
+import GetSlidesFromFirebaseStorage, {getStorageLength} from "../getFirebaseStorage/GetSlidesFromFirebaseStorage";
 
 
 let access_token:any;
@@ -47,16 +49,6 @@ function GoogleAuth3(){
         直接指定できるボタンを保持する。
      */
     const [fifthSlides,setFifthSlides] = useState<any>();
-
-    const [testBool,setTestBool] = useState(false);
-
-
-
-    /*
-        currentPageには現在ページの位置を格納する。
-    */
-    /*const [currentPage,setPage] = useState(0);
-    const setPageChange = (newIndex:number) => setPage(newIndex);*/
 
 
     /*
@@ -104,6 +96,21 @@ function GoogleAuth3(){
 
     const isFirstRender =  useRef(false);
 
+    /*
+        Firebase RealtimeDatabaseから取ってきた
+        データを保存しておく変数
+     */
+    const [RDResponse,setRDResponse] = useState(null);
+    let RealtimeDatabaseResp:string;
+
+    /*
+        資料共有を行ったスライドIDを保存しておく変数
+     */
+    const [slidesId,setSlidesId] = useState(null);
+    let selectSlidesId:string;
+
+
+
     function deleteResponse(){
         console.log("delete!");
         //@ts-ignore
@@ -127,12 +134,43 @@ function GoogleAuth3(){
 
     async function getSlidePages(index:number){
         GoogleSlidesList = await GetGoogleSlidesThumbnails(access_token,jsonResponse.files[index].id);
+
+        setSlidesId(jsonResponse.files[index].id);
+        selectSlidesId = jsonResponse.files[index].id;
+        /*
+            削除する処理 + ストレージの移動。
+         */
+
+
+
+        console.log("getSlidePages >>"+selectSlidesId);
         console.log("getSLidePages >>" + GoogleSlidesList);
         setDisplaySlideLists(false);
         setDisplayGoogleSlidesList(true);
         setSlideImgTags(createSlideImg());
         setFifthSlides(firstRenderButton());
-        //createSlideImg(GoogleSlidesList[GoogleSlidesListPointer].link);
+        await ChangeObjectExistence("TEST2",selectSlidesId);
+
+    }
+
+    async function firstGetSlidePages(index:number){
+        let storageSlides = [];
+        const storageLength:number = await getStorageLength("GR1");
+        console.log(storageLength);
+        /*
+            listAllで取ってきたlength文の画像をstorageSlidesへ
+            格納する。
+         */
+        for(let i = 1;i <= storageLength; i++) {
+            storageSlides.push(GetSlidesFromFirebaseStorage("GR1",i));
+        }
+        console.log("getSLidePages >>" + GoogleSlidesList);
+        setDisplaySlideLists(false);
+        setDisplayGoogleSlidesList(true);
+        setSlideImgTags(createSlideImg());
+        setFifthSlides(firstRenderButton());
+        //await ChangeObjectExistence("TEST2",);
+
     }
 
     function firstRenderButton(){
@@ -315,28 +353,47 @@ function GoogleAuth3(){
         setSlideImgTags(setSlide(index,a));
     }
 
-
-    /*
-        changeButtonsは
-        ページネーションを新たに変更する処理を行う。
-     */
-
-
     /*
         Firebase RealtimeDatabaseから取得してくる処理を記述予定
     */
-
-    //setSlideLists(firebaseから取ってくる処理)
-    //仮で条件式をtrueにしている
-    /*if(slideLists != false){
-       setDisplaySlideLists(true);
-    }*/
-
+    async function getFirebaseRealtimeDatabase() {
+        let responseData;
+        await ConvertFromRealtimeDatabase("TEST").then(value => {
+            console.log(value);
+            responseData = value;
+        });
+        console.log(responseData);
+        return responseData;
+    }
 
     useEffect(() => {
+        (async() => {
+        let groups_Doc:any;
+        groups_Doc = await getFirebaseRealtimeDatabase();
+        setRDResponse(groups_Doc);
+        RealtimeDatabaseResp = groups_Doc;
+
+
+        if(groups_Doc.ObjectExistence == false){
+            /*
+                特に処理を行わない？
+             */
+        }else {
+            /*
+                以前使用したスライドを
+                画面に表示させる
+             */
+
+            if ((Date.now() - groups_Doc.limit) >= 3600) {
+                /*
+                    ポップアップを出すための処理
+                 */
+            }
+        }
+        })()
+
         //@ts-ignore
         const google = window.google;
-        //if() {
             setTokenClient(
                 google.accounts.oauth2.initTokenClient({
                     client_id: CLIENT_ID,
@@ -367,15 +424,7 @@ function GoogleAuth3(){
                     }
                 })
             )
-        //}else{
 
-        //}
-
-
-
-        //for(let i=0;) {
-
-        //}
             console.log("PPP");
                 isFirstRender.current = true;
             }, [])
@@ -383,16 +432,16 @@ function GoogleAuth3(){
     /*
         selectIndexが変更されたら走ることを想定。
      */
-
     useEffect(() => {
+        (async() => {
         if(isFirstRender.current == false) {
-            console.log("LOLOL");
+            console.log("firstRender!");
             isFirstRender.current = true;
         }else{
-            console.log("LALAL");
-            //setSlideImgTags(setSlide(selectIndex, slideImg.length));
+            console.log("notFirstRender!");
             setFifthSlides(changeButtons(selectIndex, slideImg.length));
         }
+        })()
     },[selectIndex])
 
 
@@ -411,11 +460,11 @@ function GoogleAuth3(){
             }
             {/*updateSlidesはスライドの更新を行うためのボタンを入れる予定*/
                 <div id="updateSlides">
-                    <input type="submit"  value="update" />
+                    {
+                        <button>update</button>
+                    }
                 </div>
             }
-
-
 
             {/*
                 selectSlidesは資料を選択する画面を表示させる

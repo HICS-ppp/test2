@@ -1,21 +1,19 @@
 import { storage } from "../firebase";
-import {getStorage, ref, getDownloadURL } from "firebase/storage";
+import {getStorage, ref, getDownloadURL, listAll} from "firebase/storage";
 /*
     Storageからスライドデータを取得し
     スライドデータをreturnする
  */
 
-function GetSlidesFromFirebaseStorage(){
+function GetSlidesFromFirebaseStorage(groupId:string,index:number){
     const storage = getStorage();
 
     let downloadImageBool = false;
     let downloadImageFile:any;
 
-    getDownloadURL(ref(storage, 'images/GR1/GR11'))
+    getDownloadURL(ref(storage, `images/${groupId}/${index}`))
         .then((url) => {
-            // `url` is the download URL for 'images/stars.jpg'
 
-            // This can be downloaded directly:
             const xhr = new XMLHttpRequest();
             xhr.responseType = 'blob';
             xhr.onload = (event) => {
@@ -31,6 +29,7 @@ function GetSlidesFromFirebaseStorage(){
         })
         .catch((error) => {
             //エラーがあれば
+            console.log(error);
         });
 
     if(downloadImageBool){
@@ -38,4 +37,19 @@ function GetSlidesFromFirebaseStorage(){
     }
 }
 
+async function getStorageLength(groupId:string){
+    const storage = getStorage();
+    const listRef = ref(storage, `images/${groupId}`);
+    let returnLength:number = 0;
+
+    listAll(listRef).then((listResult) => {
+        returnLength = listResult.items.length;
+    }).then(() => {
+        console.log(returnLength);
+        return returnLength;
+    })
+    return returnLength;
+}
+
 export default GetSlidesFromFirebaseStorage;
+export {getStorageLength};
