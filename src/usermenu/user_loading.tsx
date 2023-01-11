@@ -23,8 +23,6 @@ const Userloading =  () => {
 
     let test3 = 10;
 
-
-
     const aaa = async () => {
         await KeyGet()
         await Time()
@@ -110,7 +108,6 @@ const Userloading =  () => {
             num++;
         }
 
-        /*console.log(ary.length)*/
         len = (ary.length)
         sessionStorage.setItem('len',String(len))
     }
@@ -151,15 +148,8 @@ const Userloading =  () => {
    }
 
 
-
     aaa()
 
-
-    //
-    // グループID   groupID
-    // グループ名  groupName
-    // 作者名   crateUser
-    // 加入日  joinTime
 
     console.log(sessionID)
 
