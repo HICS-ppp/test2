@@ -26,10 +26,10 @@ const Usersert = () => {
             </div>
 
                 <div className="buttondiv">
-<div className="buttondiv1">
+            <div className="buttondiv1">
 
             <button className="loginbutton2">ログイン</button>
-</div>
+            </div>
                     <div className="buttondiv2">
 
 
@@ -38,7 +38,7 @@ const Usersert = () => {
                 </div>
 
 
-</form>
+            </form>
         </>
     );
 };

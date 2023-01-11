@@ -8,7 +8,6 @@ const Toppage = () => {
         <>
             <body className="body1">
 
-
 <div  className="pre">
     <a href="./login" className="btn">
         <span className="btn__text">preport</span>
