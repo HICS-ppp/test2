@@ -6,12 +6,21 @@ import "./toppage.css";
 const Toppage = () => {
     return (
         <>
-            <div className="topall">
-        <h1 className="pre1">Preport</h1>
+            <body className="body1">
 
-            <Link to={`/login/`}><button className="log1">ログイン</button></Link>
-            </div>
+<div  className="pre">
+    <a href="./login" className="btn">
+        <span className="btn__text">preport</span>
+        <span className="btn__text">Let's GO!</span>
+    </a>
+</div>
+              < div className="a1"> <h3 className="sub1">presentation support</h3></div>
+
+
+
+            </body>
         </>
+
     );
 };
 

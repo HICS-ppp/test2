@@ -10,6 +10,7 @@ import GetSlidesFromFirebaseStorage, {getStorageLength} from "../getFirebaseStor
 import RemoveSlidesFromFirebaseStorage from "../getFirebaseStorage/RemoveSlidesFromFirebaseStorage";
 import AddGoogleSlidesThumbnail from "../addFirebase/AddGoogleSlidesThumbnail";
 
+import  "./Google_Auth.css";
 
 let access_token:any;
 const GROUP_ID = "TEST2";
@@ -70,15 +71,13 @@ function GoogleAuth3(){
     let GoogleSlidesListPointer:number = 0;
     const[displayGoogleSlidesList,setDisplayGoogleSlidesList] = useState(false);
 
-
     /*
         width及びheightはGoogleSlidesから取得した際に
         返ってくるwidth,heightが1600x900で返ってくるため
         予め設定しておく。
      */
-    const width = 1200;
-    const height = 675;
-
+    const width = 1024;
+    const height = 576;
     /*
         slideListsはGoogleDriveから取得したスライドIDのリストを格納する。
         ボタンを一覧表示する際に使用することを想定
@@ -122,6 +121,7 @@ function GoogleAuth3(){
         console.log("delete!");
         //@ts-ignore
         google.accounts.oauth2.revoke(access_token);
+
     }
 
     function getToken(){
@@ -305,7 +305,6 @@ function GoogleAuth3(){
         return returnSlideImg;
     }
 
-
     /*
         setSlideはnextSlideImg,prevSlideImgで使用することを想定。
         slideImgから引数のnumber番目の位置を参照してリンクを取得し、returnする。
@@ -478,29 +477,30 @@ function GoogleAuth3(){
     return(
         <div className="GoogleAuth2">
             {/*docShareは資料を共有する際にクリックするボタンを入れる*/
-                <div id="docShare">
-                    <input id="TEST1" type="submit" onClick={getToken} value="資料共有"/>
-                </div>
-            }
+                <div className="buts">
+                    <input className="test1" id="TEST1" type="submit" onClick={getToken} value="資料共有"/>
 
-            {/*switchUserは連携したGoogleアカウントを変えるときに使うdeleteResponseボタンを入れる*/
-                <div id="switchUser">
-                    <input type="submit" onClick={deleteResponse} value="delete"/>
-                </div>
-            }
-            {/*updateSlidesはスライドの更新を行うためのボタンを入れる予定*/
-                <div id="updateSlides">
-                    {
-                        <button>update</button>
+
+
+                    {/*switchUserは連携したGoogleアカウントを変えるときに使うdeleteResponseボタンを入れる*/
+
+                        <input className="subm" type="submit" onClick={deleteResponse} value="delete"/>
+
+                    }
+                    {/*updateSlidesはスライドの更新を行うためのボタンを入れる予定*/
+
+                        <input type="submit" value="update"/>
+
+
                     }
                 </div>
             }
-
             {/*
                 selectSlidesは資料を選択する画面を表示させる
             */}
-            <div id="selectSlides">
-                <ul>
+
+            <div  id="selectSlides">
+                <ul className="ul1">
                 {displaySlideLists &&
                     slideLists
                 }
@@ -511,17 +511,19 @@ function GoogleAuth3(){
                 prevPageは前のスライドへ移動するためのボタンを入れる予定
                 nextPageは次のスライドへ移動するためのボタンを入れる予定
             */}
-            <div id="prevPage">
+
+            <div className="buttuns3">
+            <div className="prevPage">
                 {displayGoogleSlidesList &&
                     /*<input type="submit" onClick={prevSlideImg} value="前へ"/>*/
-                    <button onClick={prevSlideImg}>prevPage</button>
+                    <button className="bu" onClick={prevSlideImg}>＜</button>
                 }
             </div>
 
-            <div id="nextPage">
+            <div className="nextPage">
                 {displayGoogleSlidesList &&
                     /*<input type="submit" onClick={nextSlideImg} value="次へ"/>*/
-                    <button onClick={nextSlideImg}>nextPage</button>
+                    <button className="nx" onClick={nextSlideImg}>＞</button>
                 }
             </div>
 
@@ -533,18 +535,19 @@ function GoogleAuth3(){
                 </ul>
             </div>
 
+            </div>
             {/*
                 imgSlidesは画面に表示させるスライド（１ページ分）
                 を入れる
             */}
 
-                <div id="imgSlides">
+            <div className="acc">
                     {displayGoogleSlidesList &&
                         slideImgTags
                     }
+            </div>
                 </div>
-            <button onClick={() => {selectIndexChanges(1)}}>AAA</button>
-        </div>
+
     )
 }
 

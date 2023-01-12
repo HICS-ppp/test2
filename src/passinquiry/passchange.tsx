@@ -15,8 +15,6 @@ import firebase from "firebase/compat";
 const Passchange = () => {
 
 
-    const userid = window.localStorage.getItem("userID");
-
     const [pass,setPass] = useState("");
     const [pass2,setPass2] = useState("");
     

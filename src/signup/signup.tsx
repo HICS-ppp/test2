@@ -34,10 +34,11 @@ const Register = () => {
     return (
 
         <><>
+            <header className="header1"><label className="logo">Preport!</label></header>
             <h1 className="userh1">ユーザ登録</h1>
             <form onSubmit = {handleSubmit}>
                 <div className="sum">
-                    <label　className="userinput">ユーザID</label>
+                   <li className="li1">  <label　className="userinput">ユーザID</label></li>
                     <input
                         onChange={(e:any) => setuserID(e.target.value)}
                         className="regbox1"
@@ -46,7 +47,7 @@ const Register = () => {
                     required/>
                 </div>
                 <div className="sum">
-                    <label className="userinput">メールアドレス</label>
+                    <li className="li1"> <label className="userinput">メールアドレス</label></li>
                     <input
                            className="regbox1"
                            onChange={(e:any) => setEmail(e.target.value)}
@@ -56,16 +57,17 @@ const Register = () => {
                            required/>
                 </div>
                 <div className="sum">
-                    <label className="userinput">ユーザ名</label>
+                    <li className="li1"> <label className="userinput">ユーザ名</label></li>
                     <input onChange={(e:any) => setUserName(e.target.value)}
                            className="regbox1"
                                 name="username"
                                 type="text"
                                 placeholder="username"
+
                            required/>
                 </div>
                 <div className="sum">
-                    <label className="userinput">パスワード</label>
+                    <li className="li1"> <label className="userinput">パスワード</label></li>
                     <input
                             onChange={(e:any) => setPass(e.target.value)}
                             className="regbox1"
@@ -75,7 +77,7 @@ const Register = () => {
                             required/>
                 </div>
                 <div className="sum">
-                    <label className="userinput">再パスワード</label>
+                    <li className="li1"> <label className="userinput">再パスワード</label></li>
                     <input onChange={(e:any) => setPass2(e.target.value)}
                            className="regbox1"
                                 name="pass2"
@@ -83,8 +85,8 @@ const Register = () => {
                                 placeholder="pass2"
                            required/>
                 </div>
-                <div className="sum">
-                    <label className="userinput">年齢</label>
+                <div className="sum2">
+                    <label className="userinput2">年齢</label>
                     <input onChange={(e:any) => setAge(e.target.value)}
                            className="agebox1"
                                 name="age"
@@ -92,14 +94,14 @@ const Register = () => {
                                 min="0" max="100"
                            required/>
                 </div>
-                <div className="sum">
-                    <label className="userinput">性別</label>
+                <div className="sum2">
+                    <label className="userinput2">性別</label>
                     <input onChange={(e:any) => setGender(e.target.value)}
                                 name="gender" type="radio" value="男" required/>男
                     <input onChange={(e:any) => setGender(e.target.value)}
                                 name="gender" type="radio" value="女" required/>女
                 </div>
-                <div className="sum">
+                <div className="sumlog">
 
                     <button className="register">登録</button>
 

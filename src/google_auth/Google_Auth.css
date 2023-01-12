@@ -1,0 +1,137 @@
+
+body{
+
+}
+
+
+.GoogleAuth2{
+text-align: center;
+
+}
+.goo{
+    display: flex;
+
+}
+.test1{
+    font-size: 15px;
+    width: 150px;
+}
+.subm{
+    font-size: 15px;
+    width: 150px;
+}
+.buts{
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    width: fit-content;
+    position:relative;top:5px;
+
+}
+.ul1{
+    text-align: center;
+    list-style:non;
+    padding-left:0;
+    position:relative;top:200px;
+    font-size:30px;
+
+}
+
+/*.imgSlides{
+    text-align: center;
+    position:relative;top:-45px;
+
+    height: 500px;
+    border: 1px solid #333;
+    height:576px ;
+}
+*/
+
+.nextPage{
+    position:relative;top:560px;left: 200px;
+
+}
+.prevPage{
+    position:relative;top:560px;right: 200px;
+;
+
+}
+
+/* その5  */
+.pager .pagination {
+    text-align: center;
+}
+
+.pager .pagination li {
+    display: inline;
+    margin: 0 2px;
+    padding: 0;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: relative;top :550px;
+
+    border-radius: 10px;
+}
+
+
+.pager .pagination li a{
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display:table;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+
+.pager .pagination li a span{
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.pager .pagination li a:hover,
+.pager .pagination li a.active{
+    color: #fff;
+    background: #9D50BB;
+}
+
+@media only screen and (max-width: 767px){
+    .pager .pagination li{
+        display: none;
+    }
+
+    .pager .pagination li.pre,
+    .pager .pagination li.next{
+        display: inline-block;
+        width: 40%;
+        height: 50px;
+        text-align: center;
+    }
+
+    .pager .pagination li.pre a,
+    .pager .pagination li.next a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .pager .pagination li.pre span::after{
+        content: "　前の10件へ";
+    }
+
+    .pager .pagination li.next span::before{
+        content: "次の10件へ　";
+    }
+
+}
+.acc{
+    position:relative;top:-70px;
+    background-image: linear-gradient(183deg, rgba(61, 173, 72, 1), rgba(4, 241, 255, 1) 88%);
+}

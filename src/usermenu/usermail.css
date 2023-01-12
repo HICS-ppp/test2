@@ -1,0 +1,76 @@
+.pdiv2{
+    margin-left: 120px;
+    margin-top: 10%;
+}
+
+.usermailp{
+    margin-left: 18%;
+    font-size: 20px;
+}
+
+
+.newmail1{
+    width: 800px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+
+}
+.newmail2{
+    width: 800px;
+    height: 50px;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 20px;
+}
+.newmail3{
+    width: 800px;
+    height: 50px;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 20px;
+}
+.maildiv{
+    text-align: center;
+}
+
+.newmaildiv1{
+    text-align: center;
+
+}
+
+.newmaildiv2{
+    text-align: center;
+
+}
+
+.buttondiv3{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.buttondiv4{
+   display: inline;
+
+}
+.buttondiv5{
+    margin-left: 50px;
+ display: inline;
+}
+
+.changebutton{
+    font-size: 30px;
+    color         : #ffffff;
+    background    : #4da6ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+}
+.cancelbutton1{
+    font-size: 30px;
+    color         : #ffffff;
+    background    : red;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+}
