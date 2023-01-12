@@ -1,11 +1,12 @@
 import React from "react";
 import {database} from "../firebase";
-import {getDatabase,  onValue, ref, set} from "firebase/database";
+import {getDatabase, onValue, query, ref, set} from "firebase/database";
 
 const Groupmenu_join = () => {
 
     const db = getDatabase()
     const userID = sessionStorage.getItem('SessionUserID')
+    const userName = sessionStorage.getItem('sessionUserName')
     const joinGroupID = sessionStorage.getItem('joinGroupID')
     const searchGroupID = (ref(db, "Groups_Member/" + joinGroupID))
     const searchGroupUserID = (ref(db, "Groups_Member/" + joinGroupID + '/User/' + userID))
@@ -75,9 +76,17 @@ const Groupmenu_join = () => {
     const groupJoin_IF = async () => {
         const IDCheck = sessionStorage.getItem('GroupID_check')
         if(IDCheck == 'true') {
+            //グループ参加リクエストの数を取得
+            const RequestUserCount_Accept = (query(ref(db,'Groups_Member/' + joinGroupID + '/joinRequest')))
+            onValue(RequestUserCount_Accept,snapshot => {
+                let count = Object.keys(snapshot.val()).length;
+                sessionStorage.setItem('RequestUserCount_join',String(count))
+            })
             //Groups_Member表にデータをセットする
+            let Num = Number(sessionStorage.getItem('RequestCount_join'))
             set(ref(database, "Groups_Member/" + joinGroupID +"/joinRequest/" + userID + "/"), {
-                status:false
+                number: Num + 1,
+                username:userName
             })
             sessionStorage.removeItem('groupName')
             alert(joinGroupID + 'に参加リクエストを送りました')

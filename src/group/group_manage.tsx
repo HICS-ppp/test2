@@ -22,7 +22,6 @@ const Group_manage = () => {
             + dateObj.getMinutes() +':'+ dateObj.getSeconds())
     let NameList: any = [];
     let NameList2:any = [];
-    let RequestUsers:any = [];
     let RequestList: any = [];
     let RequestList2: any = [];
 
@@ -64,18 +63,22 @@ const Group_manage = () => {
                 alert('グループを削除しました')
             }}
     }
+
+
             //メンバー削除処理
     const Member_banish = async (e:any) => {
         //console.log(e.currentTarget.id)
         let UserID = e.currentTarget.id
         const check = window.confirm('このユーザをグループから本当に追放しますか？')
         if(check == true) {
+            //nullを値に入れることでも削除できる
             update(ref(database,"Groups_Member/" + GroupID + "/User/" + UserID), {
               joinTime:null,
               number:null,
               role:null,
               username:null
             })
+            //removeを使う事でも削除できる
             remove(ref(database,"Groups_Data/" + UserID + '/' + GroupID))
             alert(`該当ユーザを削除しました`)
             window.location.reload()
@@ -83,6 +86,8 @@ const Group_manage = () => {
          alert('該当のユーザのデータを受け取れませんでした。\nもう一度お試しください')
         }
     }
+
+
         //ロール変更処理
     const role_change = async (e:any) => {
         let UserID = e.currentTarget.id
@@ -97,12 +102,14 @@ const Group_manage = () => {
         alert(UserID + 'のロールを変更しました')
     }
 
+
+        //リクエスト承認処理
     const RequestAccept = (e:any) => {
         let Num = Number(sessionStorage.getItem('UserCount'))
         let RequestID = e.currentTarget.id
         let RequestName = e.currentTarget.name
-        const Rcheck = window.confirm('このユーザからのリクエストを承諾しますか？')
-        if(Rcheck == true) {
+        const Acheck = window.confirm('このユーザからのリクエストを承諾しますか？')
+        if(Acheck == true) {
             update(ref(database,"Groups_Member/" + GroupID + "/User/" + RequestID),{
                 role:3,
                 username:RequestName,
@@ -113,32 +120,97 @@ const Group_manage = () => {
             alert(RequestID + 'をグループに追加しました')
             window.location.reload()
         }
+        //グループ参加リクエストの数を再度取得
+        const RequestUserCount_Accept = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest')))
+        onValue(RequestUserCount_Accept,snapshot => {
+            let count = Object.keys(snapshot.val()).length;
+            sessionStorage.setItem('RequestUserCount_Accept',String(count))
+        })
+
+        let Ac = Number(sessionStorage.getItem('RequestUserCount_Accept'))
+        for(let a = 1; a <= Ac;a++) {
+            const RequestUserCount2 = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest/')
+                , orderByChild('number'), equalTo(a + 1)))
+            onChildAdded(RequestUserCount2, (snapshot => {
+                let RequestUser_Accept = snapshot.key
+                console.log(RequestUser_Accept)
+                sessionStorage.setItem('Request_Accept' + a,String(RequestUser_Accept))
+            }))
+        }
+        //joinRequestの新しいナンバーを付与
+        for(let Zc = 1; Zc <= Ac; Zc++){
+            let Ruser_Accept:any = sessionStorage.getItem('Request_Accept' + Zc)
+            console.log(Ruser_Accept)
+            update(ref(database,"Groups_Member/" + GroupID + "/joinRequest/" + Ruser_Accept),{
+                number:Zc
+            })
+        }
+        window.location.reload()
     }
 
-    const RequestReject = () => {
 
+
+
+        //リクエスト拒否処理
+    const RequestReject = (e:any) => {
+        //remove処理
+        let RequestID = e.currentTarget.id
+        const Rcheck = window.confirm('このユーザからのリクエストを拒否しますか？')
+        if(Rcheck == true) {
+            remove(ref(database,"Groups_Member/" + GroupID + '/joinRequest/' + RequestID))
+            alert(RequestID + 'の参加リクエストを拒否しました')
+            window.location.reload()
+        }
+        //グループ参加リクエストの数を再度取得
+        const RequestUserCount_Reject = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest')))
+        onValue(RequestUserCount_Reject,snapshot => {
+            let count = Object.keys(snapshot.val()).length;
+            sessionStorage.setItem('RequestUserCount_Reject',String(count))
+        })
+
+        let Rj = Number(sessionStorage.getItem('RequestUserCount_Reject'))
+        for(let RR = 1; RR <= Rj;RR++) {
+            const RequestUserCount2 = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest/')
+                , orderByChild('number'), equalTo(RR + 1)))
+            onChildAdded(RequestUserCount2, (snapshot => {
+                let RequestUser_Reject = snapshot.key
+                console.log(RequestUser_Reject)
+                sessionStorage.setItem('Request_Reject' + RR,String(RequestUser_Reject))
+            }))
+        }
+        //joinRequestの新しいナンバーを付与
+        for(let Rc = 1; Rc <= Rj; Rc++){
+            let Ruser_Reject:any = sessionStorage.getItem('Request_Reject' + Rc)
+            //console.log(Ruser_Reject)
+            update(ref(database,"Groups_Member/" + GroupID + "/joinRequest/" + Ruser_Reject),{
+                number:Rc
+            })
+        }
+        window.location.reload()
     }
 
 
-        //メンバー参加リクエスト取得処理
+
+
+        //参加リクエスト取得処理
     let r = Number(sessionStorage.getItem('RequestUserCount'))
     for(let q = 1; q <= r;q++) {
         const RequestUserCount2 = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest/')
             , orderByChild('number'), equalTo(q)))
         onChildAdded(RequestUserCount2, (snapshot => {
             let RequestUser = snapshot.key
-            console.log(RequestUser)
+            //console.log(RequestUser)
             sessionStorage.setItem('Request' + q,String(RequestUser))
         }))
     }
 
     for(let z = 1; z <= r; z++){
         let Ruser:any = sessionStorage.getItem('Request' + z)
-        console.log(Ruser)
+        //console.log(Ruser)
         const RequestUserList = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest/' + Ruser)))
             onValue(RequestUserList,(snapshot => {
                 let RequestUser = snapshot.val()
-                console.log(RequestUser)
+                //console.log(RequestUser)
                 RequestList.name = RequestUser.username
                 RequestList2.push(<tr key={Ruser}><td>参加リクエスト</td><td>{Ruser}</td><td>{RequestList.name}</td>
                 <td><button onClick={RequestAccept} id={Ruser} name={RequestList.name}>承諾</button>
@@ -146,6 +218,7 @@ const Group_manage = () => {
             </tr>)
         }))
     }
+
 
 
         //メンバー取得処理
@@ -205,6 +278,7 @@ const Group_manage = () => {
             }
         }))
     }
+
 
 
     return (
