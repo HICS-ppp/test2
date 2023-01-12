@@ -399,6 +399,9 @@ function GoogleAuth3(){
         RealtimeDatabaseResp = groups_Doc;
 
 
+            const groupID = sessionStorage.getItem('groupID')
+            console.log(groupID)
+
         if(groups_Doc.ObjectExistence == false){
             /*
                 特に処理を行わない？
@@ -468,6 +471,8 @@ function GoogleAuth3(){
         }
         })()
     },[selectIndex])
+
+
 
 
     return(
