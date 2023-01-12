@@ -22,7 +22,7 @@ function TestFirebaseStorage(){
         const imageRef = ref(storage,`${groupId}/${groupId}${count}`);
         uploadBytes(imageRef, imageUpload).then(() => {
             alert("upload!");
-        })
+        });
     }
 
     const downloadImage = async () =>{

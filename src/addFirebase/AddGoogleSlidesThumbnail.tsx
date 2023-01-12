@@ -13,7 +13,7 @@ async function AddGoogleSlidesThumbnail(slidesUrl:string,groupId:string,index:nu
     console.log("blob is >>"+blob);
 
     if(blob == null) return;
-    const imageRef = ref(storage,`images/${groupId}/${index}`);
+    const imageRef = ref(storage,`images/${groupId}/Page${index}`);
     await uploadBytes(imageRef, blob);
 }
 

@@ -6,12 +6,13 @@ import {getStorage, ref, getDownloadURL, listAll} from "firebase/storage";
  */
 
 function GetSlidesFromFirebaseStorage(groupId:string,index:number){
+    console.log("HEY");
     const storage = getStorage();
 
     let downloadImageBool = false;
     let downloadImageFile:any;
 
-    getDownloadURL(ref(storage, `images/${groupId}/${index}`))
+    getDownloadURL(ref(storage, `images/${groupId}/Pages${index}`))
         .then((url) => {
 
             const xhr = new XMLHttpRequest();
@@ -26,6 +27,7 @@ function GetSlidesFromFirebaseStorage(groupId:string,index:number){
             // Or inserted into an <img> element
             /*const img = document.getElementById('myimg');
             img.setAttribute('src', url);*/
+            console.log("Download!"+downloadImageFile);
         })
         .catch((error) => {
             //エラーがあれば
@@ -37,18 +39,21 @@ function GetSlidesFromFirebaseStorage(groupId:string,index:number){
     }
 }
 
-async function getStorageLength(groupId:string){
+async function getStorageLength(groupId:string):Promise<any>{
     const storage = getStorage();
     const listRef = ref(storage, `images/${groupId}`);
     let returnLength:number = 0;
 
-    listAll(listRef).then((listResult) => {
+    await listAll(listRef).then((listResult) => {
+        console.log(listResult);
         returnLength = listResult.items.length;
     }).then(() => {
         console.log(returnLength);
         return returnLength;
     })
+    console.log(returnLength);
     return returnLength;
+
 }
 
 export default GetSlidesFromFirebaseStorage;

@@ -7,9 +7,13 @@ import {getDatabase, ref, onValue} from "firebase/database";
 import ConvertFromRealtimeDatabase from "../getFirebaseRealtimeDatabase/ConvertFromRealtimeDatabase";
 import ChangeObjectExistence from "../addFirebase/ChangeObjectExistence";
 import GetSlidesFromFirebaseStorage, {getStorageLength} from "../getFirebaseStorage/GetSlidesFromFirebaseStorage";
+import RemoveSlidesFromFirebaseStorage from "../getFirebaseStorage/RemoveSlidesFromFirebaseStorage";
+import AddGoogleSlidesThumbnail from "../addFirebase/AddGoogleSlidesThumbnail";
 
 
 let access_token:any;
+const GROUP_ID = "TEST2";
+
 
 //Google API を使用するためのclient_id
 const CLIENT_ID = "479014391591-s59okul2ibk2j4rftfjj5g3p27gfl963.apps.googleusercontent.com";
@@ -27,6 +31,9 @@ const a = document.getElementById("TEST1");
     a.style.visibility = "hidden";
 で非表示になることを確認
  */
+async function getStorageLengthh(groupId:string){
+
+}
 
 function GoogleAuth3(){
 
@@ -138,10 +145,27 @@ function GoogleAuth3(){
         setSlidesId(jsonResponse.files[index].id);
         selectSlidesId = jsonResponse.files[index].id;
         /*
-            削除する処理 + ストレージの移動。
+            削除する処理 + ストレージへの登録処理。
          */
+        await RemoveSlidesFromFirebaseStorage(GROUP_ID);
+        for(let i = 0;i<GoogleSlidesList.length;i++){
+            console.log(GoogleSlidesList[i]);
+            await AddGoogleSlidesThumbnail(GoogleSlidesList[i].link,GROUP_ID,(i + 1));
+        }
 
-
+        let storageLength:any = 0;
+        await getStorageLength(GROUP_ID).then((returnLength)=>{
+            console.log("RETURN LENGTH >>" + returnLength);
+            storageLength = returnLength;
+        });
+        console.log("storageLength"+storageLength);
+        //要注意
+        //GoogleSlidesList = [];
+        for(let i = 1; i <= storageLength;i++) {
+            console.log("FOR >>" +(i - 1));
+            GoogleSlidesList[i - 1].link = await GetSlidesFromFirebaseStorage(GROUP_ID,i);
+        }
+        console.log(GoogleSlidesList[0].link);
 
         console.log("getSlidePages >>"+selectSlidesId);
         console.log("getSLidePages >>" + GoogleSlidesList);
@@ -149,20 +173,21 @@ function GoogleAuth3(){
         setDisplayGoogleSlidesList(true);
         setSlideImgTags(createSlideImg());
         setFifthSlides(firstRenderButton());
-        await ChangeObjectExistence("TEST2",selectSlidesId);
+        await ChangeObjectExistence(GROUP_ID,selectSlidesId);
+
 
     }
 
     async function firstGetSlidePages(index:number){
         let storageSlides = [];
-        const storageLength:number = await getStorageLength("GR1");
+        const storageLength:any = await getStorageLength(GROUP_ID);
         console.log(storageLength);
         /*
             listAllで取ってきたlength文の画像をstorageSlidesへ
             格納する。
          */
         for(let i = 1;i <= storageLength; i++) {
-            storageSlides.push(GetSlidesFromFirebaseStorage("GR1",i));
+            storageSlides.push(GetSlidesFromFirebaseStorage(GROUP_ID,i));
         }
         console.log("getSLidePages >>" + GoogleSlidesList);
         setDisplaySlideLists(false);
