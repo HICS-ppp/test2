@@ -30,7 +30,9 @@ const Passresetting = () => {
         <>
             <form onSubmit={passhi}>
 
-
+                <div className="header2">
+                    <label className="logo2">Preport!</label>
+                </div>
             <div className="passre1div">
                 <input type="text"
                        className="passre1"
