@@ -1,10 +1,10 @@
 .passre1div{
-    margin-top: 40px;
+    margin-top: 75px;
     text-align: center;
 }
 
 .passre2div{
-    margin-top: 40px;
+    margin-top: 75px;
 
     text-align: center;
 
@@ -24,21 +24,48 @@
 }
 
 .passrebutton{
-    font-size: 40px;
-    background-color: #4da6ff;
-    color: #FFFFFF;
+    font-size: 20px;
     border: none;
-    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background:  #4da6ff;
+    margin: 10px 0;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.passrebutton:hover{
+    color: #fff;
 }
 
 .cancelbutton2{
-    font-size: 40px;
-    background-color: red;
-    color: #FFFFFF;
+    font-size: 20px;
     border: none;
-    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background:  red;
+    margin: 10px 0;
+    color: #000000;
+    border: 2px solid #000000;
 }
 
+.cancelbutton2:hover{
+    color:#ffffff ;
+}
 
 .buttondiv6{
     text-align: center;

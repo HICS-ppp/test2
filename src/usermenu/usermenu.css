@@ -31,12 +31,22 @@ body {
 }
 
 .mailbutton1{
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    margin: auto;
+    padding: 3px 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid #27acd9;
+    color: #27acd9;
+    transition: 0.5s;
+    position:relative;top:-6px ;left:20px;
+}
 
-    color         : #ffffff;
-    background    :   blue;
-    border: none;
-    border-radius: 10px;
-    font-size: 30px;
+.mailbutton1:hover{
+    color: #fff;
+    background: #27acd9;
 }
 /*.table1{
     text-align: center;
@@ -52,7 +62,22 @@ th,td{
 }
 
 .table2div{
-
-   margin-left: 30%;
+    text-align: center;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     border-collapse:  collapse;
 }
+
+.table2{
+    width: 600px;
+    font-size: 20px;
+    border-collapse: collapse;
+    border: solid 2px;
+}
+
+.mainback{
+    text-align: center;
+    margin-top: 20px;
+}
+
