@@ -5,6 +5,7 @@ import {
 import {database} from "../firebase";
 import "./group_manage.css"
 import {useModal} from "react-hooks-use-modal";
+import {useEffect, useState} from "react";
 
 
 const Group_manage = () => {
@@ -14,6 +15,7 @@ const Group_manage = () => {
     const searchCreateUser = (ref(db, "Groups/" + GroupID + '/createUser'))
     const UserCount = (query(ref(db, 'Groups_Member/' + GroupID + '/User')))
     const RequestUserCount = (query(ref(db,'Groups_Member/' + GroupID + '/joinRequest')))
+    const Myrole = Number(sessionStorage.getItem('Myrole'))
     const [Modal, open, close] = useModal()　//モーダルのAPIを使用
     const dateObj = new Date()
     // 時間取得
@@ -24,7 +26,17 @@ const Group_manage = () => {
     let NameList2:any = [];
     let RequestList: any = [];
     let RequestList2: any = [];
+    const [BCheck,setBCheck] = useState(true)
 
+    const  role_check = () => {
+        if (Myrole == 1) {
+            setBCheck(false)
+        }
+    }
+
+    useEffect(() => {
+        role_check()
+    },[BCheck])
 
         //メンバーの数をカウント
     onValue(UserCount, (snapshot => {
@@ -41,7 +53,6 @@ const Group_manage = () => {
         const createUser = snapshot.val()
         sessionStorage.setItem('groupCreateUser', createUser)
     }))
-
 
 
         // グループ削除処理
@@ -213,8 +224,8 @@ const Group_manage = () => {
                 //console.log(RequestUser)
                 RequestList.name = RequestUser.username
                 RequestList2.push(<tr key={Ruser}><td>参加リクエスト</td><td>{Ruser}</td><td>{RequestList.name}</td>
-                <td><button onClick={RequestAccept} id={Ruser} name={RequestList.name}>承諾</button>
-                    <button onClick={RequestReject} id={Ruser}>拒否</button></td>
+                <td><button disabled={BCheck} onClick={RequestAccept} id={Ruser} name={RequestList.name}>承諾</button>
+                    <button disabled={BCheck} onClick={RequestReject} id={Ruser}>拒否</button></td>
             </tr>)
         }))
     }
@@ -246,7 +257,7 @@ const Group_manage = () => {
 
             if(Users.username == createUser) {
                 NameList2.push(<tr key={user}><td>アドミン</td><td>{user}</td><td>{NameList.name}</td>
-                    <td><button onClick={Group_delete}>グループを削除</button></td>
+                    <td><button  disabled={BCheck} onClick={Group_delete}>グループを削除</button></td>
                     </tr>)
             }else if(Users.role == 1) {
                 NameList2.push(<tr key={user}><td><form ><select id={UserDiv} defaultValue={1}>
@@ -254,8 +265,8 @@ const Group_manage = () => {
                         <option value={2}>エディター</option>
                         <option value={3}>リードメンバー</option></select></form></td>
                         <td>{user}</td><td>{NameList.name}</td>
-                        <td><button onClick={role_change} id={user} name={UserDiv}>役割変更</button>
-                        <button onClick={Member_banish} id={user}>追放</button></td>
+                        <td><button disabled={BCheck} onClick={role_change} id={user} name={UserDiv}>役割変更</button>
+                        <button  disabled={BCheck} onClick={Member_banish} id={user}>追放</button></td>
                 </tr>)
             } else if (Users.role == 2) {
                 NameList2.push(<tr key={user}><td><form><select id={UserDiv} defaultValue={2}>
@@ -263,8 +274,8 @@ const Group_manage = () => {
                         <option value={2}>エディター</option>
                         <option value={3}>リードメンバー</option></select></form></td>
                         <td>{user}</td><td>{NameList.name}</td>
-                        <td><button onClick={role_change} id={user} name={UserDiv}>役割変更</button>
-                        <button onClick={Member_banish} id={user}>追放</button></td>
+                        <td><button  disabled={BCheck} onClick={role_change} id={user} name={UserDiv}>役割変更</button>
+                        <button disabled={BCheck} onClick={Member_banish} id={user}>追放</button></td>
                 </tr>)
             } else {
                 NameList2.push(<tr key={user}><td><form><select id={UserDiv} defaultValue={3}>
@@ -272,8 +283,8 @@ const Group_manage = () => {
                         <option value={2}>エディター</option>
                         <option value={3}>リードメンバー</option></select></form></td>
                         <td>{user}</td><td>{NameList.name}</td>
-                        <td><button onClick={role_change} id={user} name={UserDiv}>役割変更</button>
-                        <button onClick={Member_banish} id={user}>追放</button></td>
+                        <td><button  disabled={BCheck} onClick={role_change} id={user} name={UserDiv}>役割変更</button>
+                        <button disabled={BCheck} onClick={Member_banish} id={user}>追放</button></td>
                 </tr>)
             }
         }))

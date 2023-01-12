@@ -1,12 +1,20 @@
 import "./groupmenu.css";
 import React from "react";
 import {Link} from "react-router-dom";
+import {getDatabase, onValue, query, ref} from "firebase/database";
 
 
 const groupmenu = () => {
+    const db = getDatabase()
     const groupName = sessionStorage.getItem('groupName')
     const groupID = sessionStorage.getItem('groupID')
+    const MyID = sessionStorage.getItem('SessionUserID')
 
+    const Myrole_search = (query(ref(db,'Groups_Member/' + groupID + '/User/' + MyID)))
+    onValue(Myrole_search,(snapshot => {
+        let Myrole = snapshot.val().role
+        sessionStorage.setItem('Myrole',Myrole)
+    }))
 
     const logout = async () => {
         sessionStorage.removeItem('groupName')
@@ -22,7 +30,7 @@ return (
                 <label className="logo2">Preport!</label>
                 <p>{groupName}</p><p>{groupID}</p>
             </header>
-            <div className="linkgroup">  <Link to={`/group_manage`}>グループ管理機能</Link></div>
+            <div className="linkgroup">  <Link to={'/group_manage'}>グループ管理機能</Link></div>
             <div className="linkDocument">  <Link to={`/`}>資料管理機能</Link></div>
             <div className="linkstatistics">  <Link to={`/`}>統計機能</Link></div>
             <h2 className="live1">配信</h2>
