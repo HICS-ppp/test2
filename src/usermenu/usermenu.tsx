@@ -33,6 +33,9 @@ const Usermenu = () => {
 
     return (
         <>
+
+
+
             <div className="scrollall">
 
 
@@ -132,9 +135,11 @@ const Usermenu = () => {
                     </table></div>;
             })()}
             <div className="mainback">
-            <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
+            <Link to={'/mainpage/'}><button className="backbutton">メインページに戻る</button></Link>
             </div>
             </div>
+
+
         </>
     );
 };

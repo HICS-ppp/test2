@@ -1,4 +1,4 @@
-body {
+body{
     overflow: scroll;
 }
 
@@ -81,3 +81,24 @@ th,td{
     margin-top: 20px;
 }
 
+.backbutton {
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid #000000;
+    color: #000000;
+    transition: 0.5s;
+    /*コレ*/border-radius: 100px;
+    width: 300px;
+    box-sizing: border-box;
+    background: #4da6ff;
+    margin: 10px 0;
+    margin-bottom: 40px;
+}
+.backbutton:hover {
+    color: #fff;
+    background: #FF0000;
+}

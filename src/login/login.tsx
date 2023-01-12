@@ -50,6 +50,7 @@ const Login = () => {
                         <div className="linkdiv"><p>パスワードを忘れた場合は<Link to={`/passinquiry/`}>こちら</Link></p></div>
 
                 </form>
+
                     </>
     );
 };

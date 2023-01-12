@@ -58,6 +58,7 @@
  display: inline;
 }
 
+/*
 .changebutton{
     font-size: 30px;
     color         : #ffffff;
@@ -74,3 +75,51 @@
     border-radius: 10px;
     font-size: 30px;
 }
+*/
+
+
+
+
+.changebutton{
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background:  #4da6ff;
+    margin: 10px 0;
+    color: #000000;
+    border: 2px solid #000000;
+}
+.changebutton:hover{
+    color: #fff;
+}
+
+.cancelbutton1{
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    padding: 3px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background:  red;
+    margin: 10px 0;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.cancelbutton1:hover{
+    color:#ffffff ;
+}
+
