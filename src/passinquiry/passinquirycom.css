@@ -1,0 +1,11 @@
+.passinquirydiv{
+    text-align: center;
+}
+
+.passinbutton{
+    font-size: 20px;
+    background-color: #4da6ff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+}
