@@ -36,7 +36,9 @@ const Usermenu = () => {
             <div className="scrollall">
 
 
-
+            <div className="header2">
+                <label className="logo2">Preport!</label>
+            </div>
             <div className="userdiv">
             <h1 className="userh1">ユーザ情報</h1>
             </div>
@@ -129,8 +131,9 @@ const Usermenu = () => {
                         </thead>
                     </table></div>;
             })()}
-
+            <div className="mainback">
             <Link to={'/mainpage/'}><button>メインページに戻る</button></Link>
+            </div>
             </div>
         </>
     );

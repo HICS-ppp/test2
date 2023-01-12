@@ -13,7 +13,9 @@ const Usersert = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-
+                <div className="header2">
+                    <label className="logo2">Preport!</label>
+                </div>
             <h1>再度認証を行ってください</h1>
             <div className="passbox2div">
                 <input type="password"
