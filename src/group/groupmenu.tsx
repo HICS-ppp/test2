@@ -22,7 +22,6 @@ return (
                 <label className="logo2">Preport!</label>
                 <p>{groupName}</p><p>{groupID}</p>
             </header>
-            <div><Link to={`/group_manage`}>test</Link></div>
             <div className="linkgroup">  <Link to={`/group_manage`}>グループ管理機能</Link></div>
             <div className="linkDocument">  <Link to={`/`}>資料管理機能</Link></div>
             <div className="linkstatistics">  <Link to={`/`}>統計機能</Link></div>
